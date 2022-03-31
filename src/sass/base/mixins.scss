@@ -1,0 +1,37 @@
+@mixin modal($top) {
+  position: fixed;
+  top: $top;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@mixin label {
+  font-size: 1.125rem;
+  padding-left: 0.625rem;
+  color: $color;
+}
+
+@mixin input {
+  width: 20rem;
+  font-size: 1rem;
+  padding: 0.3125rem 0 0.3125rem 0;
+  padding-left: 0.625rem;
+  margin-top: 0.3125rem;
+  margin-bottom: 0.625rem;
+  border: 0.125rem solid $in-color;
+  background-color: transparent;
+  border-radius: 0.375rem;
+  color: white;
+}
+
+@mixin button($width) {
+  font-family: $main-font;
+  font-size: 1rem;
+  width: $width;
+  height: 30px;
+  color: $color;
+  background-color: $out-color;
+  border: 0.125rem solid $out-color;
+  border-radius: 0.375rem;
+  cursor: pointer;
+}

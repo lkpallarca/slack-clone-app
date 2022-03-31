@@ -1,0 +1,99 @@
+body {
+  background-color: $bg-color;
+}
+
+.login-modal {
+  @include modal(17.5%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .loqui {
+    font-size: 40px;
+    color: $color;
+    margin-bottom: 25px;
+  }
+
+  .email-label {
+    @include label;
+  }
+
+  .email-input {
+    @include input;
+  }
+
+  .password-label {
+    @include label;
+  }
+
+  .password-input {
+    @include input;
+  }
+
+  .button-wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    .login-button {
+      @include button(5rem);
+      transition: all 0.4s;
+      margin-bottom: 0.625rem;
+  
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+
+    .create-account-button {
+      @include button(12rem);
+      transition: all 0.4s;
+  
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  .my-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    margin-bottom: 25px;
+  }
+
+  #my-logo {
+    height: 80px;
+    width: 80px;
+  }
+
+  .my-logo::before,
+  .my-logo::after {
+    content: '';
+    position: absolute;
+    height: 120px;
+    width: 120px;
+    background-color: $in-color;
+    border-radius: 50%;
+    z-index: -1;
+    opacity: 0.7;
+  }
+
+  .my-logo::before {
+    animation: pulse 2s ease-out infinite;
+  }
+
+  .my-logo::after {
+    animation: pulse 2s 1s ease-out infinite;
+  }
+
+  @keyframes pulse {
+    100%{
+        transform: scale(1.5);
+        opacity: 0;
+    }
+  }
+}

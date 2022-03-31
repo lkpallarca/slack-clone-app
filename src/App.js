@@ -1,12 +1,11 @@
-import React from "react";
+import React from 'react';
+import LoginModal from './components/LoginModal/LoginModal';
 import './css/index.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        Consilium ac implerem
-      </header>
+    <div className='App'>
+      <LoginModal />
     </div>
   );
 }

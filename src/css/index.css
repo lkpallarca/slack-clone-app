@@ -1,1 +1,284 @@
+@import url("https://fonts.googleapis.com/css2?family=Archivo&display=swap");
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  font-family: "Archivo";
+  vertical-align: baseline;
+}
 
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+  overflow-x: hidden;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+body {
+  background-color: #1f2023;
+}
+
+.login-modal {
+  position: fixed;
+  top: 17.5%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.login-modal .loqui {
+  font-size: 40px;
+  color: #00c7bd;
+  margin-bottom: 25px;
+}
+.login-modal .email-label {
+  font-size: 1.125rem;
+  padding-left: 0.625rem;
+  color: #00c7bd;
+}
+.login-modal .email-input {
+  width: 20rem;
+  font-size: 1rem;
+  padding: 0.3125rem 0 0.3125rem 0;
+  padding-left: 0.625rem;
+  margin-top: 0.3125rem;
+  margin-bottom: 0.625rem;
+  border: 0.125rem solid #1a847f;
+  background-color: transparent;
+  border-radius: 0.375rem;
+  color: white;
+}
+.login-modal .password-label {
+  font-size: 1.125rem;
+  padding-left: 0.625rem;
+  color: #00c7bd;
+}
+.login-modal .password-input {
+  width: 20rem;
+  font-size: 1rem;
+  padding: 0.3125rem 0 0.3125rem 0;
+  padding-left: 0.625rem;
+  margin-top: 0.3125rem;
+  margin-bottom: 0.625rem;
+  border: 0.125rem solid #1a847f;
+  background-color: transparent;
+  border-radius: 0.375rem;
+  color: white;
+}
+.login-modal .button-wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.login-modal .button-wrapper .login-button {
+  font-family: "Archivo";
+  font-size: 1rem;
+  width: 5rem;
+  height: 30px;
+  color: #00c7bd;
+  background-color: #344c4a;
+  border: 0.125rem solid #344c4a;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: all 0.4s;
+  margin-bottom: 0.625rem;
+}
+.login-modal .button-wrapper .login-button:hover {
+  transform: scale(1.1);
+}
+.login-modal .button-wrapper .create-account-button {
+  font-family: "Archivo";
+  font-size: 1rem;
+  width: 12rem;
+  height: 30px;
+  color: #00c7bd;
+  background-color: #344c4a;
+  border: 0.125rem solid #344c4a;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: all 0.4s;
+}
+.login-modal .button-wrapper .create-account-button:hover {
+  transform: scale(1.1);
+}
+.login-modal .my-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+  margin-bottom: 25px;
+}
+.login-modal #my-logo {
+  height: 80px;
+  width: 80px;
+}
+.login-modal .my-logo::before,
+.login-modal .my-logo::after {
+  content: "";
+  position: absolute;
+  height: 120px;
+  width: 120px;
+  background-color: #1a847f;
+  border-radius: 50%;
+  z-index: -1;
+  opacity: 0.7;
+}
+.login-modal .my-logo::before {
+  animation: pulse 2s ease-out infinite;
+}
+.login-modal .my-logo::after {
+  animation: pulse 2s 1s ease-out infinite;
+}
+@keyframes pulse {
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+.sign-up-modal-wrapper {
+  position: fixed;
+  top: 12.5%;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 75vh;
+  width: 50vw;
+  border-radius: 0.625rem;
+  background-color: #344c4a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.sign-up-modal-wrapper.hide {
+  display: none;
+}
+.sign-up-modal-wrapper .sign-up-title {
+  color: #00c7bd;
+  font-size: 1.875rem;
+  margin-bottom: 2rem;
+}
+.sign-up-modal-wrapper .sign-up-info {
+  text-align: center;
+  color: #00c7bd;
+  font-size: 1.55rem;
+  margin-bottom: 2rem;
+}
+.sign-up-modal-wrapper .email-label {
+  font-size: 1.125rem;
+  padding-left: 0.625rem;
+  color: #00c7bd;
+}
+.sign-up-modal-wrapper .email-input {
+  width: 20rem;
+  font-size: 1rem;
+  padding: 0.3125rem 0 0.3125rem 0;
+  padding-left: 0.625rem;
+  margin-top: 0.3125rem;
+  margin-bottom: 0.625rem;
+  border: 0.125rem solid #1a847f;
+  background-color: transparent;
+  border-radius: 0.375rem;
+  color: white;
+}
+.sign-up-modal-wrapper .password-label {
+  font-size: 1.125rem;
+  padding-left: 0.625rem;
+  color: #00c7bd;
+}
+.sign-up-modal-wrapper .password-input {
+  width: 20rem;
+  font-size: 1rem;
+  padding: 0.3125rem 0 0.3125rem 0;
+  padding-left: 0.625rem;
+  margin-top: 0.3125rem;
+  margin-bottom: 0.625rem;
+  border: 0.125rem solid #1a847f;
+  background-color: transparent;
+  border-radius: 0.375rem;
+  color: white;
+}
+.sign-up-modal-wrapper .confirm-password-label {
+  font-size: 1.125rem;
+  padding-left: 0.625rem;
+  color: #00c7bd;
+}
+.sign-up-modal-wrapper .confirm-password-input {
+  width: 20rem;
+  font-size: 1rem;
+  padding: 0.3125rem 0 0.3125rem 0;
+  padding-left: 0.625rem;
+  margin-top: 0.3125rem;
+  margin-bottom: 0.625rem;
+  border: 0.125rem solid #1a847f;
+  background-color: transparent;
+  border-radius: 0.375rem;
+  color: white;
+}
+.sign-up-modal-wrapper .button-wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.sign-up-modal-wrapper .button-wrapper .sign-up-button {
+  font-family: "Archivo";
+  font-size: 1rem;
+  width: 80px;
+  height: 30px;
+  color: #344c4a;
+  background-color: #1a847f;
+  border: 0.125rem solid #1a847f;
+  border-radius: 0.375rem;
+  transition: all 0.4s;
+  margin-bottom: 0.625rem;
+  cursor: pointer;
+}
+.sign-up-modal-wrapper .button-wrapper .sign-up-button:hover {
+  transform: scale(1.1);
+}
+.sign-up-modal-wrapper .close-button {
+  align-self: flex-end;
+  background: transparent;
+  border: none;
+  font-size: 1.325rem;
+  cursor: pointer;
+}

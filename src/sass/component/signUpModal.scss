@@ -1,0 +1,83 @@
+.sign-up-modal-wrapper {
+  @include modal(12.5%);
+  height: 75vh;
+  width: 50vw;
+  border-radius: 0.625rem;
+  background-color: $out-color;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &.hide {
+    display: none;
+  }
+
+  .sign-up-title {
+    color: $color;
+    font-size: 1.875rem;
+    margin-bottom: 2rem;
+  }
+
+  .sign-up-info {
+    text-align: center;
+    color: $color;
+    font-size: 1.55rem;
+    margin-bottom: 2rem;
+  }
+
+  .email-label {
+    @include label;
+  }
+
+  .email-input {
+    @include input;
+  }
+
+  .password-label {
+    @include label;
+  }
+
+  .password-input {
+    @include input;
+  }
+
+  .confirm-password-label {
+    @include label;
+  }
+
+  .confirm-password-input {
+    @include input;
+  }
+
+  .button-wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  
+    .sign-up-button {
+      font-family: $main-font;
+      font-size: 1rem;
+      width: 80px;
+      height: 30px;
+      color: $out-color;
+      background-color: $in-color;
+      border: 0.125rem solid $in-color;
+      border-radius: 0.375rem;
+      transition: all 0.4s;
+      margin-bottom: 0.625rem;
+      cursor: pointer;
+  
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  .close-button {
+    align-self: flex-end;
+    background: transparent;
+    border: none;
+    font-size: 1.325rem;
+    cursor: pointer;
+  }
+}
