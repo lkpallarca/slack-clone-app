@@ -1,17 +1,124 @@
-/* Error: Undefined variable.
- *   ,
- * 2 |   background-color: $bg-color;
- *   |                     ^^^^^^^^^
- *   '
- *   src\sass\component\loginModal.scss 2:21  root stylesheet */
+body {
+  background-color: #1f2023;
+}
 
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
-  display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: "Error: Undefined variable.\a   \2577 \a 2 \2502    background-color: $bg-color;\d\a   \2502                      ^^^^^^^^^\a   \2575 \a   src\\sass\\component\\loginModal.scss 2:21  root stylesheet";
+.login-modal {
+  position: fixed;
+  top: 17.5%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.login-modal .loqui {
+  font-size: 2.5rem;
+  color: #00c7bd;
+  margin-bottom: 1.5625rem;
+}
+.login-modal .email-label {
+  font-size: 1.125rem;
+  padding-left: 0.625rem;
+  color: #00c7bd;
+}
+.login-modal .email-input {
+  width: 20rem;
+  font-size: 1rem;
+  padding: 0.3125rem 0 0.3125rem 0;
+  padding-left: 0.625rem;
+  margin-top: 0.3125rem;
+  margin-bottom: 0.625rem;
+  border: 0.125rem solid #1a847f;
+  background-color: transparent;
+  border-radius: 0.375rem;
+  color: white;
+}
+.login-modal .password-label {
+  font-size: 1.125rem;
+  padding-left: 0.625rem;
+  color: #00c7bd;
+}
+.login-modal .password-input {
+  width: 20rem;
+  font-size: 1rem;
+  padding: 0.3125rem 0 0.3125rem 0;
+  padding-left: 0.625rem;
+  margin-top: 0.3125rem;
+  margin-bottom: 0.625rem;
+  border: 0.125rem solid #1a847f;
+  background-color: transparent;
+  border-radius: 0.375rem;
+  color: white;
+}
+.login-modal .button-wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.login-modal .button-wrapper .login-button {
+  font-family: "Archivo";
+  font-size: 1rem;
+  width: 5rem;
+  height: 1.875rem;
+  color: #00c7bd;
+  background-color: #344c4a;
+  border: 0.125rem solid #344c4a;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: all 0.4s;
+  margin-bottom: 0.625rem;
+}
+.login-modal .button-wrapper .login-button:hover {
+  transform: scale(1.1);
+}
+.login-modal .button-wrapper .create-account-button {
+  font-family: "Archivo";
+  font-size: 1rem;
+  width: 12rem;
+  height: 1.875rem;
+  color: #00c7bd;
+  background-color: #344c4a;
+  border: 0.125rem solid #344c4a;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: all 0.4s;
+}
+.login-modal .button-wrapper .create-account-button:hover {
+  transform: scale(1.1);
+}
+.login-modal .my-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 7.5rem;
+  width: 7.5rem;
+  border-radius: 50%;
+  margin-bottom: 1.5625rem;
+}
+.login-modal #my-logo {
+  height: 5rem;
+  width: 5rem;
+}
+.login-modal .my-logo::before,
+.login-modal .my-logo::after {
+  content: "";
+  position: absolute;
+  height: 7.5rem;
+  width: 7.5rem;
+  background-color: #1a847f;
+  border-radius: 50%;
+  z-index: -1;
+  opacity: 0.7;
+}
+.login-modal .my-logo::before {
+  animation: pulse 2s ease-out infinite;
+}
+.login-modal .my-logo::after {
+  animation: pulse 2s 1s ease-out infinite;
+}
+@keyframes pulse {
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
 }

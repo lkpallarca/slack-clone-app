@@ -65,9 +65,9 @@ body {
   align-items: center;
 }
 .login-modal .loqui {
-  font-size: 40px;
+  font-size: 2.5rem;
   color: #00c7bd;
-  margin-bottom: 25px;
+  margin-bottom: 1.5625rem;
 }
 .login-modal .email-label {
   font-size: 1.125rem;
@@ -112,7 +112,7 @@ body {
   font-family: "Archivo";
   font-size: 1rem;
   width: 5rem;
-  height: 30px;
+  height: 1.875rem;
   color: #00c7bd;
   background-color: #344c4a;
   border: 0.125rem solid #344c4a;
@@ -128,7 +128,7 @@ body {
   font-family: "Archivo";
   font-size: 1rem;
   width: 12rem;
-  height: 30px;
+  height: 1.875rem;
   color: #00c7bd;
   background-color: #344c4a;
   border: 0.125rem solid #344c4a;
@@ -143,21 +143,21 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 120px;
-  width: 120px;
+  height: 7.5rem;
+  width: 7.5rem;
   border-radius: 50%;
-  margin-bottom: 25px;
+  margin-bottom: 1.5625rem;
 }
 .login-modal #my-logo {
-  height: 80px;
-  width: 80px;
+  height: 5rem;
+  width: 5rem;
 }
 .login-modal .my-logo::before,
 .login-modal .my-logo::after {
   content: "";
   position: absolute;
-  height: 120px;
-  width: 120px;
+  height: 7.5rem;
+  width: 7.5rem;
   background-color: #1a847f;
   border-radius: 50%;
   z-index: -1;

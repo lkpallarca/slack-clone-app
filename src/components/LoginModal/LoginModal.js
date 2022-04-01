@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import '../../css/index.css';
 import SignUpModal from '../SignUpModal/SignUpModal';
 
-export default function LoginModal() {
+export default function LoginModal({ displayModal, setDisplayModal }) {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [showModal, setShowModal] = useState('sign-up-modal-wrapper hide');
@@ -11,14 +11,15 @@ export default function LoginModal() {
     e.preventDefault();
   }
 
-  function createAccount() {
+  function createAccount(e) {
+    e.preventDefault();
     setShowModal('sign-up-modal-wrapper');
   }
 
   return (
     <>
       <div className='login-modal'>
-        <div class="my-logo">
+        <div className="my-logo">
           <img id="my-logo" src="My Logo.png" alt="my logo"/>
         </div>
         <div className='loqui'>LoQui</div>

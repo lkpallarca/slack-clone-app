@@ -1,3 +1,6 @@
+@import '../base/variables.scss';
+@import '../base/mixins.scss';
+
 .sign-up-modal-wrapper {
   @include modal(12.5%);
   height: 75vh;

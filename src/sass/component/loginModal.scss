@@ -1,3 +1,6 @@
+@import '../base/variables.scss';
+@import '../base/mixins.scss';
+
 body {
   background-color: $bg-color;
 }
@@ -9,9 +12,9 @@ body {
   align-items: center;
 
   .loqui {
-    font-size: 40px;
+    font-size: 2.5rem;
     color: $color;
-    margin-bottom: 25px;
+    margin-bottom: 1.5625rem;
   }
 
   .email-label {
@@ -59,23 +62,23 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 120px;
-    width: 120px;
+    height: 7.5rem;
+    width: 7.5rem;
     border-radius: 50%;
-    margin-bottom: 25px;
+    margin-bottom: 1.5625rem;
   }
 
   #my-logo {
-    height: 80px;
-    width: 80px;
+    height: 5rem;
+    width: 5rem;
   }
 
   .my-logo::before,
   .my-logo::after {
     content: '';
     position: absolute;
-    height: 120px;
-    width: 120px;
+    height: 7.5rem;
+    width: 7.5rem;
     background-color: $in-color;
     border-radius: 50%;
     z-index: -1;
