@@ -29,7 +29,7 @@ export default function SignUpModal({ displayState, setDisplayState }) {
   }
   
   return (
-    <div className={displayState}>
+    <section className={displayState}>
       <button className='close-button' onClick={closeModal}>❌</button>
       <div className='sign-up-title'>Welcome!</div>
       <div className='sign-up-info'>
@@ -56,6 +56,6 @@ export default function SignUpModal({ displayState, setDisplayState }) {
           <button type='submit' className='sign-up-button'>Sign Up</button>
         </div>
       </form>
-    </div>
+    </section>
   );
 }

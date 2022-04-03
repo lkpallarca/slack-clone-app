@@ -1,11 +1,11 @@
 import React from 'react';
-import LoginModal from './components/LoginModal/LoginModal';
+import MainScreen from './container/MainScreen';
 import './css/index.css';
 
 function App() {
   return (
     <div className='App'>
-      <LoginModal />
+      <MainScreen />
     </div>
   );
 }

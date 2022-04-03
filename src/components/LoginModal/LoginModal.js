@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../../css/index.css';
 import SignUpModal from '../SignUpModal/SignUpModal';
 
@@ -6,6 +6,12 @@ export default function LoginModal({ displayModal, setDisplayModal }) {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [showModal, setShowModal] = useState('sign-up-modal-wrapper hide');
+  const [hide, setHide] = useState() 
+
+  useEffect(() => {
+    setHide('login-modal hide')
+  }, [])
+  
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -18,7 +24,7 @@ export default function LoginModal({ displayModal, setDisplayModal }) {
 
   return (
     <>
-      <div className='login-modal'>
+      <section className={hide}>
         <div className="my-logo">
           <img id="my-logo" src="My Logo.png" alt="my logo"/>
         </div>
@@ -39,7 +45,7 @@ export default function LoginModal({ displayModal, setDisplayModal }) {
             <button className='create-account-button' onClick={createAccount}>Create new Account</button>
           </div>
         </form>
-      </div>
+      </section>
       <SignUpModal displayState={showModal} setDisplayState={setShowModal}/>
     </>
   );
