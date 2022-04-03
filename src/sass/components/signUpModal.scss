@@ -3,9 +3,8 @@
 
 .sign-up-modal-wrapper {
   @include modal(12.5%);
-  height: 75vh;
-  width: 50vw;
-  border-radius: 0.625rem;
+  @include perimeter(75vh, 50vw);
+  border-radius: 1rem;
   background-color: $out-color;
   display: flex;
   flex-direction: column;
@@ -17,15 +16,15 @@
 
   .sign-up-title {
     color: $color;
-    font-size: 1.875rem;
-    margin-bottom: 2rem;
+    font-size: 3rem;
+    margin-bottom: 3.2rem;
   }
 
   .sign-up-info {
     text-align: center;
     color: $color;
-    font-size: 1.55rem;
-    margin-bottom: 2rem;
+    font-size: 2.48rem;
+    margin-bottom: 3.2rem;
   }
 
   .email-label {
@@ -59,15 +58,14 @@
   
     .sign-up-button {
       font-family: $main-font;
-      font-size: 1rem;
-      width: 80px;
-      height: 30px;
+      font-size: 1.6rem;
+      @include perimeter(3rem, 8rem);
       color: $out-color;
       background-color: $in-color;
-      border: 0.125rem solid $in-color;
-      border-radius: 0.375rem;
+      border: 0.2rem solid $in-color;
+      border-radius: 0.6rem;
       transition: all 0.4s;
-      margin-bottom: 0.625rem;
+      margin-bottom: 1rem;
       cursor: pointer;
   
       &:hover {
@@ -80,7 +78,7 @@
     align-self: flex-end;
     background: transparent;
     border: none;
-    font-size: 1.325rem;
+    font-size: 2.12rem;
     cursor: pointer;
   }
 }

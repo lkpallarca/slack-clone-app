@@ -11,10 +11,14 @@ body {
   flex-direction: column;
   align-items: center;
 
+  &.hide {
+    display: none;
+  }
+
   .loqui {
-    font-size: 2.5rem;
+    font-size: 4rem;
     color: $color;
-    margin-bottom: 1.5625rem;
+    margin-bottom: 2.5rem;
   }
 
   .email-label {
@@ -39,9 +43,9 @@ body {
     flex-direction: column;
 
     .login-button {
-      @include button(5rem);
+      @include button(8rem);
       transition: all 0.4s;
-      margin-bottom: 0.625rem;
+      margin-bottom: 1rem;
   
       &:hover {
         transform: scale(1.1);
@@ -49,7 +53,7 @@ body {
     }
 
     .create-account-button {
-      @include button(12rem);
+      @include button(19.2rem);
       transition: all 0.4s;
   
       &:hover {
@@ -59,26 +63,23 @@ body {
   }
 
   .my-logo {
+    @include perimeter(12rem, 12rem);
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 7.5rem;
-    width: 7.5rem;
     border-radius: 50%;
-    margin-bottom: 1.5625rem;
+    margin-bottom: 2.5rem;
   }
 
   #my-logo {
-    height: 5rem;
-    width: 5rem;
+    @include perimeter(8rem, 8rem);
   }
 
   .my-logo::before,
   .my-logo::after {
     content: '';
+    @include perimeter(12rem, 12rem);
     position: absolute;
-    height: 7.5rem;
-    width: 7.5rem;
     background-color: $in-color;
     border-radius: 50%;
     z-index: -1;

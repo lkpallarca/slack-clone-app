@@ -11,43 +11,46 @@ body {
   flex-direction: column;
   align-items: center;
 }
+.login-modal.hide {
+  display: none;
+}
 .login-modal .loqui {
-  font-size: 2.5rem;
+  font-size: 4rem;
   color: #00c7bd;
-  margin-bottom: 1.5625rem;
+  margin-bottom: 2.5rem;
 }
 .login-modal .email-label {
-  font-size: 1.125rem;
-  padding-left: 0.625rem;
+  font-size: 1.8rem;
+  padding-left: 1rem;
   color: #00c7bd;
 }
 .login-modal .email-input {
-  width: 20rem;
-  font-size: 1rem;
-  padding: 0.3125rem 0 0.3125rem 0;
-  padding-left: 0.625rem;
-  margin-top: 0.3125rem;
-  margin-bottom: 0.625rem;
-  border: 0.125rem solid #1a847f;
+  width: 32rem;
+  font-size: 1.6rem;
+  padding: 0.5rem 0 0.5rem 0;
+  padding-left: 1rem;
+  margin-top: 0.8rem;
+  margin-bottom: 1rem;
+  border: 0.2rem solid #1a847f;
   background-color: transparent;
-  border-radius: 0.375rem;
+  border-radius: 0.6rem;
   color: white;
 }
 .login-modal .password-label {
-  font-size: 1.125rem;
-  padding-left: 0.625rem;
+  font-size: 1.8rem;
+  padding-left: 1rem;
   color: #00c7bd;
 }
 .login-modal .password-input {
-  width: 20rem;
-  font-size: 1rem;
-  padding: 0.3125rem 0 0.3125rem 0;
-  padding-left: 0.625rem;
-  margin-top: 0.3125rem;
-  margin-bottom: 0.625rem;
-  border: 0.125rem solid #1a847f;
+  width: 32rem;
+  font-size: 1.6rem;
+  padding: 0.5rem 0 0.5rem 0;
+  padding-left: 1rem;
+  margin-top: 0.8rem;
+  margin-bottom: 1rem;
+  border: 0.2rem solid #1a847f;
   background-color: transparent;
-  border-radius: 0.375rem;
+  border-radius: 0.6rem;
   color: white;
 }
 .login-modal .button-wrapper {
@@ -58,15 +61,15 @@ body {
 .login-modal .button-wrapper .login-button {
   font-family: "Archivo";
   font-size: 1rem;
-  width: 5rem;
-  height: 1.875rem;
+  width: 8rem;
+  height: 3rem;
   color: #00c7bd;
   background-color: #344c4a;
-  border: 0.125rem solid #344c4a;
-  border-radius: 0.375rem;
+  border: 0.2rem solid #344c4a;
+  border-radius: 0.6rem;
   cursor: pointer;
   transition: all 0.4s;
-  margin-bottom: 0.625rem;
+  margin-bottom: 1rem;
 }
 .login-modal .button-wrapper .login-button:hover {
   transform: scale(1.1);
@@ -74,12 +77,12 @@ body {
 .login-modal .button-wrapper .create-account-button {
   font-family: "Archivo";
   font-size: 1rem;
-  width: 12rem;
-  height: 1.875rem;
+  width: 19.2rem;
+  height: 3rem;
   color: #00c7bd;
   background-color: #344c4a;
-  border: 0.125rem solid #344c4a;
-  border-radius: 0.375rem;
+  border: 0.2rem solid #344c4a;
+  border-radius: 0.6rem;
   cursor: pointer;
   transition: all 0.4s;
 }
@@ -87,24 +90,24 @@ body {
   transform: scale(1.1);
 }
 .login-modal .my-logo {
+  height: 12rem;
+  width: 12rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 7.5rem;
-  width: 7.5rem;
   border-radius: 50%;
-  margin-bottom: 1.5625rem;
+  margin-bottom: 2.5rem;
 }
 .login-modal #my-logo {
-  height: 5rem;
-  width: 5rem;
+  height: 8rem;
+  width: 8rem;
 }
 .login-modal .my-logo::before,
 .login-modal .my-logo::after {
   content: "";
+  height: 12rem;
+  width: 12rem;
   position: absolute;
-  height: 7.5rem;
-  width: 7.5rem;
   background-color: #1a847f;
   border-radius: 50%;
   z-index: -1;

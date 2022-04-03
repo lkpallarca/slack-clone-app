@@ -1,0 +1,158 @@
+.sidebar-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 30vw;
+  border-right: 1px solid #333333;
+  overflow-x: hidden;
+}
+.sidebar-wrapper .sidebar-navbar {
+  height: 9.5%;
+  width: 100%;
+  background-color: #3c3e44;
+}
+.sidebar-wrapper .sidebar-search {
+  height: 8%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #333333;
+}
+.sidebar-wrapper .sidebar-search-icon {
+  height: 73%;
+  width: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-right: 0.2rem;
+  font-size: 1.4rem;
+}
+.sidebar-wrapper .sidebar-search-input {
+  height: 70%;
+  width: 85%;
+  background-color: #3c3e44;
+  border: none;
+  border-top-right-radius: 0.8rem;
+  border-bottom-right-radius: 0.8rem;
+  padding-left: 0.5rem;
+}
+.sidebar-wrapper .sidebar-search-input:focus::placeholder {
+  transition: opacity 0.3s;
+  opacity: 0;
+}
+.sidebar-wrapper .sidebar-search-input:focus-visible {
+  outline: none;
+  outline-offset: none;
+}
+.sidebar-wrapper .sidebar-channel-dmessage-wrapper {
+  height: 82.4%;
+  width: 101%;
+  overflow-y: scroll;
+}
+.sidebar-wrapper .sidebar-channel-dmessage-wrapper::-webkit-scrollbar {
+  width: 5px;
+}
+.sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-channels {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 0.5rem;
+}
+.sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-channels-trigger {
+  height: 3rem;
+  width: 15rem;
+  cursor: pointer;
+  background-color: #3c3e44;
+  border: none;
+  border-radius: 4rem;
+  transition: 0.3s all;
+  color: #00c7bd;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+.sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-channels-trigger:hover {
+  background-color: #344c4a;
+}
+.sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-channels-list {
+  display: none;
+  max-height: 68vh;
+  width: 100%;
+  overflow-y: scroll;
+}
+.sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-channels-list::-webkit-scrollbar {
+  width: 0.7rem;
+}
+.sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-channels-list::-webkit-scrollbar-track {
+  background: #1f2023;
+}
+.sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-channels-list::-webkit-scrollbar-thumb {
+  background: #3c3e44;
+  border-radius: 0.5rem;
+}
+.sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-channels-list::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+.sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-channels-list.show {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-channels-list div {
+  height: 2rem;
+  width: 100%;
+}
+.sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-direct-messages {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 0.5rem;
+}
+.sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-direct-messages-trigger {
+  height: 3rem;
+  width: 20rem;
+  cursor: pointer;
+  background-color: #3c3e44;
+  border: none;
+  border-radius: 4rem;
+  transition: 0.3s all;
+  color: #00c7bd;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+.sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-direct-messages-trigger:hover {
+  background-color: #344c4a;
+}
+.sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-direct-messages-list {
+  display: none;
+  max-height: 70.5vh;
+  width: 100%;
+  overflow-y: scroll;
+}
+.sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-direct-messages-list::-webkit-scrollbar {
+  width: 0.7rem;
+}
+.sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-direct-messages-list::-webkit-scrollbar-track {
+  background: #1f2023;
+}
+.sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-direct-messages-list::-webkit-scrollbar-thumb {
+  background: #3c3e44;
+  border-radius: 0.5rem;
+}
+.sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-direct-messages-list::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+.sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-direct-messages-list.show {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-direct-messages-list div {
+  height: 2rem;
+  width: 100%;
+}

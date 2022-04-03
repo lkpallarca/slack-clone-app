@@ -1,3 +1,33 @@
+@mixin perimeter($h, $w) {
+  height: $h;
+  width: $w;
+}
+
+@mixin basicFlex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin scrollbar {
+  &::-webkit-scrollbar {
+    width: 0.7rem;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: $bg-color; 
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background: $bg-color-lite; 
+    border-radius: 0.5rem;
+
+    &:hover {
+      background: #555; 
+    }
+  }
+}
+
 @mixin modal($top) {
   position: fixed;
   top: $top;
@@ -6,21 +36,21 @@
 }
 
 @mixin label {
-  font-size: 1.125rem;
-  padding-left: 0.625rem;
+  font-size: 1.8rem;
+  padding-left: 1rem;
   color: $color;
 }
 
 @mixin input {
-  width: 20rem;
-  font-size: 1rem;
-  padding: 0.3125rem 0 0.3125rem 0;
-  padding-left: 0.625rem;
-  margin-top: 0.3125rem;
-  margin-bottom: 0.625rem;
-  border: 0.125rem solid $in-color;
+  width: 32rem;
+  font-size: 1.6rem;
+  padding: 0.5rem 0 0.5rem 0;
+  padding-left: 1rem;
+  margin-top: 0.8rem;
+  margin-bottom: 1rem;
+  border: 0.2rem solid $in-color;
   background-color: transparent;
-  border-radius: 0.375rem;
+  border-radius: 0.6rem;
   color: white;
 }
 
@@ -28,10 +58,57 @@
   font-family: $main-font;
   font-size: 1rem;
   width: $width;
-  height: 1.875rem;
+  height: 3rem;
   color: $color;
   background-color: $out-color;
-  border: 0.125rem solid $out-color;
-  border-radius: 0.375rem;
+  border: 0.2rem solid $out-color;
+  border-radius: 0.6rem;
   cursor: pointer;
+}
+
+@mixin trigger {
+  cursor: pointer;
+  background-color: $bg-color-lite;
+  border: none;
+  border-radius: 4rem;
+  transition: 0.3s all;
+  color: $color;
+  font-size: 1.8rem;
+
+  &:hover {
+    background-color: $out-color;
+  }
+}
+
+@mixin message-categories {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: .5rem;
+}
+
+@mixin trigger-and-list($w, $mh) {
+  &-trigger {
+    @include perimeter(3rem, $w);
+    @include trigger;
+    margin-bottom: 1rem;
+  }
+
+  &-list {
+    @include scrollbar;
+    display: none;
+    max-height: $mh;
+    width: 100%;
+    overflow-y: scroll;
+
+    &.show {
+      @include basicFlex;
+      flex-direction: column;
+    }
+
+    div {
+      @include perimeter(2rem, 100%);
+    }
+  }
 }

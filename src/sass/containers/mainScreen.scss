@@ -1,0 +1,6 @@
+.main-screen {
+  @include perimeter(100vh, 100vw);
+  display: grid;
+  grid-template-columns: 30vw 70vw;
+  grid-template-rows: 1fr;
+}

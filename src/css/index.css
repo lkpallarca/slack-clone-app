@@ -51,6 +51,18 @@ table {
   border-spacing: 0;
 }
 
+html {
+  font-size: 10px;
+}
+
+.main-screen {
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 30vw 70vw;
+  grid-template-rows: 1fr;
+}
+
 body {
   background-color: #1f2023;
 }
@@ -64,43 +76,46 @@ body {
   flex-direction: column;
   align-items: center;
 }
+.login-modal.hide {
+  display: none;
+}
 .login-modal .loqui {
-  font-size: 2.5rem;
+  font-size: 4rem;
   color: #00c7bd;
-  margin-bottom: 1.5625rem;
+  margin-bottom: 2.5rem;
 }
 .login-modal .email-label {
-  font-size: 1.125rem;
-  padding-left: 0.625rem;
+  font-size: 1.8rem;
+  padding-left: 1rem;
   color: #00c7bd;
 }
 .login-modal .email-input {
-  width: 20rem;
-  font-size: 1rem;
-  padding: 0.3125rem 0 0.3125rem 0;
-  padding-left: 0.625rem;
-  margin-top: 0.3125rem;
-  margin-bottom: 0.625rem;
-  border: 0.125rem solid #1a847f;
+  width: 32rem;
+  font-size: 1.6rem;
+  padding: 0.5rem 0 0.5rem 0;
+  padding-left: 1rem;
+  margin-top: 0.8rem;
+  margin-bottom: 1rem;
+  border: 0.2rem solid #1a847f;
   background-color: transparent;
-  border-radius: 0.375rem;
+  border-radius: 0.6rem;
   color: white;
 }
 .login-modal .password-label {
-  font-size: 1.125rem;
-  padding-left: 0.625rem;
+  font-size: 1.8rem;
+  padding-left: 1rem;
   color: #00c7bd;
 }
 .login-modal .password-input {
-  width: 20rem;
-  font-size: 1rem;
-  padding: 0.3125rem 0 0.3125rem 0;
-  padding-left: 0.625rem;
-  margin-top: 0.3125rem;
-  margin-bottom: 0.625rem;
-  border: 0.125rem solid #1a847f;
+  width: 32rem;
+  font-size: 1.6rem;
+  padding: 0.5rem 0 0.5rem 0;
+  padding-left: 1rem;
+  margin-top: 0.8rem;
+  margin-bottom: 1rem;
+  border: 0.2rem solid #1a847f;
   background-color: transparent;
-  border-radius: 0.375rem;
+  border-radius: 0.6rem;
   color: white;
 }
 .login-modal .button-wrapper {
@@ -111,15 +126,15 @@ body {
 .login-modal .button-wrapper .login-button {
   font-family: "Archivo";
   font-size: 1rem;
-  width: 5rem;
-  height: 1.875rem;
+  width: 8rem;
+  height: 3rem;
   color: #00c7bd;
   background-color: #344c4a;
-  border: 0.125rem solid #344c4a;
-  border-radius: 0.375rem;
+  border: 0.2rem solid #344c4a;
+  border-radius: 0.6rem;
   cursor: pointer;
   transition: all 0.4s;
-  margin-bottom: 0.625rem;
+  margin-bottom: 1rem;
 }
 .login-modal .button-wrapper .login-button:hover {
   transform: scale(1.1);
@@ -127,12 +142,12 @@ body {
 .login-modal .button-wrapper .create-account-button {
   font-family: "Archivo";
   font-size: 1rem;
-  width: 12rem;
-  height: 1.875rem;
+  width: 19.2rem;
+  height: 3rem;
   color: #00c7bd;
   background-color: #344c4a;
-  border: 0.125rem solid #344c4a;
-  border-radius: 0.375rem;
+  border: 0.2rem solid #344c4a;
+  border-radius: 0.6rem;
   cursor: pointer;
   transition: all 0.4s;
 }
@@ -140,24 +155,24 @@ body {
   transform: scale(1.1);
 }
 .login-modal .my-logo {
+  height: 12rem;
+  width: 12rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 7.5rem;
-  width: 7.5rem;
   border-radius: 50%;
-  margin-bottom: 1.5625rem;
+  margin-bottom: 2.5rem;
 }
 .login-modal #my-logo {
-  height: 5rem;
-  width: 5rem;
+  height: 8rem;
+  width: 8rem;
 }
 .login-modal .my-logo::before,
 .login-modal .my-logo::after {
   content: "";
+  height: 12rem;
+  width: 12rem;
   position: absolute;
-  height: 7.5rem;
-  width: 7.5rem;
   background-color: #1a847f;
   border-radius: 50%;
   z-index: -1;
@@ -183,7 +198,7 @@ body {
   transform: translateX(-50%);
   height: 75vh;
   width: 50vw;
-  border-radius: 0.625rem;
+  border-radius: 1rem;
   background-color: #344c4a;
   display: flex;
   flex-direction: column;
@@ -194,64 +209,64 @@ body {
 }
 .sign-up-modal-wrapper .sign-up-title {
   color: #00c7bd;
-  font-size: 1.875rem;
-  margin-bottom: 2rem;
+  font-size: 3rem;
+  margin-bottom: 3.2rem;
 }
 .sign-up-modal-wrapper .sign-up-info {
   text-align: center;
   color: #00c7bd;
-  font-size: 1.55rem;
-  margin-bottom: 2rem;
+  font-size: 2.48rem;
+  margin-bottom: 3.2rem;
 }
 .sign-up-modal-wrapper .email-label {
-  font-size: 1.125rem;
-  padding-left: 0.625rem;
+  font-size: 1.8rem;
+  padding-left: 1rem;
   color: #00c7bd;
 }
 .sign-up-modal-wrapper .email-input {
-  width: 20rem;
-  font-size: 1rem;
-  padding: 0.3125rem 0 0.3125rem 0;
-  padding-left: 0.625rem;
-  margin-top: 0.3125rem;
-  margin-bottom: 0.625rem;
-  border: 0.125rem solid #1a847f;
+  width: 32rem;
+  font-size: 1.6rem;
+  padding: 0.5rem 0 0.5rem 0;
+  padding-left: 1rem;
+  margin-top: 0.8rem;
+  margin-bottom: 1rem;
+  border: 0.2rem solid #1a847f;
   background-color: transparent;
-  border-radius: 0.375rem;
+  border-radius: 0.6rem;
   color: white;
 }
 .sign-up-modal-wrapper .password-label {
-  font-size: 1.125rem;
-  padding-left: 0.625rem;
+  font-size: 1.8rem;
+  padding-left: 1rem;
   color: #00c7bd;
 }
 .sign-up-modal-wrapper .password-input {
-  width: 20rem;
-  font-size: 1rem;
-  padding: 0.3125rem 0 0.3125rem 0;
-  padding-left: 0.625rem;
-  margin-top: 0.3125rem;
-  margin-bottom: 0.625rem;
-  border: 0.125rem solid #1a847f;
+  width: 32rem;
+  font-size: 1.6rem;
+  padding: 0.5rem 0 0.5rem 0;
+  padding-left: 1rem;
+  margin-top: 0.8rem;
+  margin-bottom: 1rem;
+  border: 0.2rem solid #1a847f;
   background-color: transparent;
-  border-radius: 0.375rem;
+  border-radius: 0.6rem;
   color: white;
 }
 .sign-up-modal-wrapper .confirm-password-label {
-  font-size: 1.125rem;
-  padding-left: 0.625rem;
+  font-size: 1.8rem;
+  padding-left: 1rem;
   color: #00c7bd;
 }
 .sign-up-modal-wrapper .confirm-password-input {
-  width: 20rem;
-  font-size: 1rem;
-  padding: 0.3125rem 0 0.3125rem 0;
-  padding-left: 0.625rem;
-  margin-top: 0.3125rem;
-  margin-bottom: 0.625rem;
-  border: 0.125rem solid #1a847f;
+  width: 32rem;
+  font-size: 1.6rem;
+  padding: 0.5rem 0 0.5rem 0;
+  padding-left: 1rem;
+  margin-top: 0.8rem;
+  margin-bottom: 1rem;
+  border: 0.2rem solid #1a847f;
   background-color: transparent;
-  border-radius: 0.375rem;
+  border-radius: 0.6rem;
   color: white;
 }
 .sign-up-modal-wrapper .button-wrapper {
@@ -261,15 +276,15 @@ body {
 }
 .sign-up-modal-wrapper .button-wrapper .sign-up-button {
   font-family: "Archivo";
-  font-size: 1rem;
-  width: 80px;
-  height: 30px;
+  font-size: 1.6rem;
+  height: 3rem;
+  width: 8rem;
   color: #344c4a;
   background-color: #1a847f;
-  border: 0.125rem solid #1a847f;
-  border-radius: 0.375rem;
+  border: 0.2rem solid #1a847f;
+  border-radius: 0.6rem;
   transition: all 0.4s;
-  margin-bottom: 0.625rem;
+  margin-bottom: 1rem;
   cursor: pointer;
 }
 .sign-up-modal-wrapper .button-wrapper .sign-up-button:hover {
@@ -279,6 +294,180 @@ body {
   align-self: flex-end;
   background: transparent;
   border: none;
-  font-size: 1.325rem;
+  font-size: 2.12rem;
   cursor: pointer;
+}
+
+.sidebar-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 30vw;
+  border-right: 1px solid #333333;
+  overflow-x: hidden;
+}
+.sidebar-wrapper .sidebar-navbar {
+  height: 9.5%;
+  width: 100%;
+  background-color: #3c3e44;
+}
+.sidebar-wrapper .sidebar-search {
+  height: 8%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #333333;
+}
+.sidebar-wrapper .sidebar-search-icon {
+  height: 73%;
+  width: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-right: 0.2rem;
+  font-size: 1.4rem;
+}
+.sidebar-wrapper .sidebar-search-input {
+  height: 70%;
+  width: 85%;
+  background-color: #3c3e44;
+  border: none;
+  border-top-right-radius: 0.8rem;
+  border-bottom-right-radius: 0.8rem;
+  padding-left: 0.5rem;
+}
+.sidebar-wrapper .sidebar-search-input:focus::placeholder {
+  transition: opacity 0.3s;
+  opacity: 0;
+}
+.sidebar-wrapper .sidebar-search-input:focus-visible {
+  outline: none;
+  outline-offset: none;
+}
+.sidebar-wrapper .sidebar-channel-dmessage-wrapper {
+  height: 82.4%;
+  width: 101%;
+  overflow-y: scroll;
+}
+.sidebar-wrapper .sidebar-channel-dmessage-wrapper::-webkit-scrollbar {
+  width: 5px;
+}
+.sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-channels {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 0.5rem;
+}
+.sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-channels-trigger {
+  height: 3rem;
+  width: 15rem;
+  cursor: pointer;
+  background-color: #3c3e44;
+  border: none;
+  border-radius: 4rem;
+  transition: 0.3s all;
+  color: #00c7bd;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+.sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-channels-trigger:hover {
+  background-color: #344c4a;
+}
+.sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-channels-list {
+  display: none;
+  max-height: 68vh;
+  width: 100%;
+  overflow-y: scroll;
+}
+.sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-channels-list::-webkit-scrollbar {
+  width: 0.7rem;
+}
+.sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-channels-list::-webkit-scrollbar-track {
+  background: #1f2023;
+}
+.sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-channels-list::-webkit-scrollbar-thumb {
+  background: #3c3e44;
+  border-radius: 0.5rem;
+}
+.sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-channels-list::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+.sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-channels-list.show {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-channels-list div {
+  height: 2rem;
+  width: 100%;
+}
+.sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-direct-messages {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 0.5rem;
+}
+.sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-direct-messages-trigger {
+  height: 3rem;
+  width: 20rem;
+  cursor: pointer;
+  background-color: #3c3e44;
+  border: none;
+  border-radius: 4rem;
+  transition: 0.3s all;
+  color: #00c7bd;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+.sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-direct-messages-trigger:hover {
+  background-color: #344c4a;
+}
+.sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-direct-messages-list {
+  display: none;
+  max-height: 70.5vh;
+  width: 100%;
+  overflow-y: scroll;
+}
+.sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-direct-messages-list::-webkit-scrollbar {
+  width: 0.7rem;
+}
+.sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-direct-messages-list::-webkit-scrollbar-track {
+  background: #1f2023;
+}
+.sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-direct-messages-list::-webkit-scrollbar-thumb {
+  background: #3c3e44;
+  border-radius: 0.5rem;
+}
+.sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-direct-messages-list::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+.sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-direct-messages-list.show {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-direct-messages-list div {
+  height: 2rem;
+  width: 100%;
+}
+
+.main-display {
+  height: 100vh;
+  width: 70vw;
+  display: flex;
+  flex-direction: column;
+}
+.main-display #hand-logo {
+  height: 50rem;
+  width: 50rem;
+  align-self: center;
+}
+.main-display .test {
+  background-color: red;
 }

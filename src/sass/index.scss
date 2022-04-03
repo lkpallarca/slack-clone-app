@@ -2,5 +2,8 @@
 @import './base/variables.scss';
 @import './base/mixins.scss';
 @import './base/reset.scss';
-@import './component/loginModal.scss';
-@import './component/signUpModal.scss';
+@import './containers/mainScreen.scss';
+@import './components/loginModal.scss';
+@import './components/signUpModal.scss';
+@import './components/sideBar.scss';
+@import './components/mainDisplay.scss';

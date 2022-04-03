@@ -1,0 +1,17 @@
+@import '../base/variables.scss';
+@import '../base/mixins.scss';
+
+.main-display {
+  @include perimeter(100vh, 70vw);
+  display: flex;
+  flex-direction: column;
+
+  #hand-logo {
+    @include perimeter(50rem, 50rem);
+    align-self: center;
+  }
+
+  .test {
+    background-color: red;
+  }
+}

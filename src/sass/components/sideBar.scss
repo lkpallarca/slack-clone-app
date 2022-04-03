@@ -1,0 +1,68 @@
+@import '../base/variables.scss';
+@import '../base/mixins.scss';
+
+.sidebar-wrapper {
+  display: flex;
+  flex-direction: column;
+  @include perimeter(100vh, 30vw);
+  border-right: $border-outline;
+  overflow-x: hidden;
+
+  .sidebar-navbar {
+    @include perimeter(9.5%, 100%);
+    background-color: $bg-color-lite;
+  }
+
+  .sidebar-search {
+    @include perimeter(8%, 100%);
+    @include basicFlex;
+    border-bottom: $border-outline;
+
+    &-icon {
+      @include perimeter(73%, 5%);
+      @include basicFlex;
+      cursor: pointer;
+      margin-right: 0.2rem;
+      font-size: 1.4rem;
+    }
+
+    &-input {
+      @include perimeter(70%, 85%);
+      background-color: $bg-color-lite;
+      border: none;
+      border-top-right-radius: 0.8rem;
+      border-bottom-right-radius: 0.8rem;
+      padding-left: 0.5rem;
+
+      &:focus::placeholder {
+        transition: opacity .3s;
+        opacity: 0;
+      }
+
+      &:focus-visible {
+        outline: none;
+        outline-offset: none;
+      }
+    }
+  }
+
+  .sidebar-channel-dmessage-wrapper {
+    height: 82.4%;
+    width: 101%;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    .sidebar-channels {
+     @include message-categories;
+      @include trigger-and-list(15rem, 68vh);
+    }
+
+    .sidebar-direct-messages {
+      @include message-categories;
+      @include trigger-and-list(20rem, 70.5vh);
+    }
+  }
+}
