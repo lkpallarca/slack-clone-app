@@ -60,7 +60,7 @@
       font-family: $main-font;
       font-size: 1.6rem;
       @include perimeter(3rem, 8rem);
-      color: $out-color;
+      color: $color;
       background-color: $in-color;
       border: 0.2rem solid $in-color;
       border-radius: 0.6rem;

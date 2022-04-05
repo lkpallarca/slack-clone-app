@@ -10,7 +10,22 @@
 
   .sidebar-navbar {
     @include perimeter(9.5%, 100%);
+    @include basicFlex;
+    justify-content: flex-end;
     background-color: $bg-color-lite;
+    color: $in-color;
+
+    button:nth-child(1) {
+      @include side-navbar-icons(3.2rem, -0.2rem);
+    }
+
+    button:nth-child(2) {
+      @include side-navbar-icons(2.5rem, 0);
+    }
+
+    button:nth-child(3) {
+      @include side-navbar-icons(2.5rem, 1.5rem);
+    }
   }
 
   .sidebar-search {
@@ -56,13 +71,13 @@
     }
 
     .sidebar-channels {
-     @include message-categories;
-      @include trigger-and-list(15rem, 68vh);
+      @include message-categories;
+      @include trigger-and-list(15rem);
     }
 
     .sidebar-direct-messages {
       @include message-categories;
-      @include trigger-and-list(20rem, 70.5vh);
+      @include trigger-and-list(20rem);
     }
   }
 }

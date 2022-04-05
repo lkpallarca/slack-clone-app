@@ -1,11 +1,11 @@
 import React from 'react'
 import '../../css/index.css';
+import Infographic from './sub-components/infographic/Infographic';
 
 export default function MainDisplay() {
   return (
     <section className='main-display'>
-      <div className='test'>Consilium ac implerem</div>
-      <img id="hand-logo" src="hand-logo.png" alt="cartoon of hand holding a cellphone"/>
+      <Infographic />
     </section>
   )
 }

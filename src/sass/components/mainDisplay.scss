@@ -5,13 +5,53 @@
   @include perimeter(100vh, 70vw);
   display: flex;
   flex-direction: column;
+  background-color: $screen-bg-color;
+  position: relative;
 
   #hand-logo {
-    @include perimeter(50rem, 50rem);
-    align-self: center;
+    @include perimeter(25rem, 25rem);
+    margin: 10vh auto 0 auto;
+    border-radius: 50%;
   }
 
-  .test {
-    background-color: red;
+  .info-wrapper {
+    margin: 2.5vh auto 10vh auto;
+
+    &::after {
+      content: '';
+      @include perimeter(0.2rem, 50%);
+      position: absolute;
+      margin-top: 2.5vh;
+      left: 50%;
+      transform: translateX(-50%);
+      border-bottom: 1px solid $bg-color-lite;
+    }
+
+    div:nth-child(1) {
+      @include infocard(3rem, auto, hsl(0, 0%, 80%));
+    }
+
+    div:nth-child(2) {
+      @include infocard(1.6rem, 12.5%, hsl(0, 0%, 50%));
+      line-height: 2rem;
+    }
+  }
+
+  p {
+    @include infocard(1.4rem, auto, hsl(0, 0%, 50%));
+    margin-top: 0;
+
+    a {
+      cursor: pointer;
+      color: $color;
+      text-decoration: none;
+    }
+  }
+
+  .vignette {
+    @include perimeter(0.5rem, 100%);
+    position: absolute;
+    bottom: 0;
+    background-color: $in-color;
   }
 }

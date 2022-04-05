@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import LoginModal from '../components/LoginModal/LoginModal'
-import MainDisplay from '../components/MainDisplay/MainDisplay';
-import SideBar from '../components/SideBar/SideBar';
+import LoginModal from '../components/log-in-modal/LoginModal'
+import MainDisplay from '../components/main-display/MainDisplay';
+import SideBar from '../components/side-bar/SideBar';
 import '../css/index.css';
 
 export default function MainScreen() {
@@ -9,8 +9,12 @@ export default function MainScreen() {
 
   return (
     <section className='main-screen'>
-      <SideBar />
-      <MainDisplay />
+      {loginModalDisplay === 'login-modal' ? null :
+        <>
+          <SideBar />
+          <MainDisplay />
+        </>
+      }
       <LoginModal displayModal={loginModalDisplay} setDisplayModal={setLoginModalDisplay}/>
     </section>
   )

@@ -3,12 +3,57 @@
   width: 70vw;
   display: flex;
   flex-direction: column;
+  background-color: #2a2b2f;
+  position: relative;
 }
 .main-display #hand-logo {
-  height: 50rem;
-  width: 50rem;
-  align-self: center;
+  height: 25rem;
+  width: 25rem;
+  margin: 10vh auto 0 auto;
+  border-radius: 50%;
 }
-.main-display .test {
-  background-color: red;
+.main-display .info-wrapper {
+  margin: 2.5vh auto 10vh auto;
+}
+.main-display .info-wrapper::after {
+  content: "";
+  height: 0.2rem;
+  width: 50%;
+  position: absolute;
+  margin-top: 2.5vh;
+  left: 50%;
+  transform: translateX(-50%);
+  border-bottom: 1px solid #3c3e44;
+}
+.main-display .info-wrapper div:nth-child(1) {
+  font-size: 3rem;
+  text-align: center;
+  margin: 2.5vh auto 2.5vh auto;
+  color: #cccccc;
+}
+.main-display .info-wrapper div:nth-child(2) {
+  font-size: 1.6rem;
+  text-align: center;
+  margin: 2.5vh 12.5% 2.5vh 12.5%;
+  color: gray;
+  line-height: 2rem;
+}
+.main-display p {
+  font-size: 1.4rem;
+  text-align: center;
+  margin: 2.5vh auto 2.5vh auto;
+  color: gray;
+  margin-top: 0;
+}
+.main-display p a {
+  cursor: pointer;
+  color: #00c7bd;
+  text-decoration: none;
+}
+.main-display .vignette {
+  height: 0.5rem;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  background-color: #156a66;
 }

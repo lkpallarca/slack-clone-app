@@ -55,10 +55,9 @@
 }
 
 @mixin button($width) {
+  @include perimeter(3rem, $width);
   font-family: $main-font;
-  font-size: 1rem;
-  width: $width;
-  height: 3rem;
+  font-size: 1.4rem;
   color: $color;
   background-color: $out-color;
   border: 0.2rem solid $out-color;
@@ -88,27 +87,72 @@
   margin-top: .5rem;
 }
 
-@mixin trigger-and-list($w, $mh) {
+@mixin trigger-and-list($w) {
   &-trigger {
     @include perimeter(3rem, $w);
     @include trigger;
     margin-bottom: 1rem;
   }
-
+  
   &-list {
-    @include scrollbar;
     display: none;
-    max-height: $mh;
-    width: 100%;
-    overflow-y: scroll;
-
+    
     &.show {
       @include basicFlex;
       flex-direction: column;
+      width: 98%;
     }
 
     div {
-      @include perimeter(2rem, 100%);
+      @include perimeter(7rem, 99%);
+      @include basicFlex;
+      color: hsl(0, 0%, 80%);
+
+      &.highlight {
+        border: none;
+        border-radius: 1rem;
+        background-color: $in-color;
+        transition: 0.3s all;
+
+        &:hover {
+          background-color: $in-color;
+        }
+      }
+
+      &:hover {
+        border: none;
+        border-radius: 1rem;
+        background-color: $bg-color-lite;
+        transition: 0.3s all;
+      }
     }
+  }
+}
+
+@mixin infocard($fs, $sm, $c) {
+  font-size: $fs;
+  text-align: center;
+  margin: 2.5vh $sm 2.5vh $sm;
+  color: $c;
+}
+
+@mixin side-navbar-icons($wh, $m) {
+  @include perimeter(4.5rem, 4.5rem);
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  border-radius: 100%;
+  margin-right: $m;
+
+  &:hover {
+    background-color: hsl(0, 0%, 40%);
+  }
+
+  &.highlight {
+    background-color: $in-color;
+  }
+
+  img {
+    @include perimeter($wh, $wh);
   }
 }

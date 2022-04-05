@@ -37,7 +37,7 @@
   padding-left: 1rem;
   margin-top: 0.8rem;
   margin-bottom: 1rem;
-  border: 0.2rem solid #1a847f;
+  border: 0.2rem solid #156a66;
   background-color: transparent;
   border-radius: 0.6rem;
   color: white;
@@ -54,7 +54,7 @@
   padding-left: 1rem;
   margin-top: 0.8rem;
   margin-bottom: 1rem;
-  border: 0.2rem solid #1a847f;
+  border: 0.2rem solid #156a66;
   background-color: transparent;
   border-radius: 0.6rem;
   color: white;
@@ -71,7 +71,7 @@
   padding-left: 1rem;
   margin-top: 0.8rem;
   margin-bottom: 1rem;
-  border: 0.2rem solid #1a847f;
+  border: 0.2rem solid #156a66;
   background-color: transparent;
   border-radius: 0.6rem;
   color: white;
@@ -86,9 +86,9 @@
   font-size: 1.6rem;
   height: 3rem;
   width: 8rem;
-  color: #344c4a;
-  background-color: #1a847f;
-  border: 0.2rem solid #1a847f;
+  color: #00c7bd;
+  background-color: #156a66;
+  border: 0.2rem solid #156a66;
   border-radius: 0.6rem;
   transition: all 0.4s;
   margin-bottom: 1rem;
