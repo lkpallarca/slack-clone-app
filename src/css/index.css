@@ -754,6 +754,7 @@ body {
   }
 }
 .loading-screen div {
+  margin-top: 2rem;
   font-size: 5rem;
   color: #3c3e44;
 }

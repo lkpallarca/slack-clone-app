@@ -5,6 +5,7 @@
   @include loading-logo(12rem, 16rem);
 
   div {
+    margin-top: 2rem;
     font-size: 5rem;
     color: $bg-color-lite;
   }
