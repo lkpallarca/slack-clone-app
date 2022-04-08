@@ -1,22 +1,28 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import API from '../../API';
 import '../../css/index.css';
+import { getLoggedUser } from '../../utils/storage';
 import Channels from './sub-components/channels/Channels';
 import DirectMessages from './sub-components/direct-messages/DirectMessages';
 import NavBar from './sub-components/nav-bar/NavBar';
+import SearchList from './sub-components/search-list/SearchList';
+import SearchUsers from './sub-components/search/SearchUsers';
 
-export default function SideBar({ onLogOut }) {
+export default function SideBar({ searchData }) {
+  const [isSearching, setIsSearching] = useState(false);
+  const [searchingFor, setSearchingFor] = useState('');
+
   return (
     <>
       <section className='sidebar-wrapper'>
-        <NavBar onLogOut={onLogOut}/>
-        <div className='sidebar-search'>
-          <span className='sidebar-search-icon'>🔍</span>
-          <input className='sidebar-search-input' placeholder='Search user or channel' type='text'/>
-        </div>
-        <div className='sidebar-channel-dmessage-wrapper'>
-          <Channels />
-          <DirectMessages />
-        </div>
+        <NavBar />
+        <SearchUsers searchingFor={searchingFor} setSearchingFor={setSearchingFor} onSearch={setIsSearching}/>
+        {isSearching ? <SearchList searchingFor={searchingFor} passedSearch={searchData}/> :
+          <div className='sidebar-channel-dmessage-wrapper'>
+            <Channels />
+            <DirectMessages />
+          </div>
+        }
       </section>
     </>
   )

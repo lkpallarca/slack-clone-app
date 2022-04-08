@@ -1,27 +1,27 @@
+import axios from 'axios';
 import React, { useState } from 'react';
+import API from '../../API';
 import '../../css/index.css';
+import ErrorAlert from '../alerts/ErrorAlert';
 
-export default function SignUpModal({ displayState, setDisplayState }) {
-  const [emailInput, setEmailInput] = useState();
-  const [passwordInput, setPasswordInput] = useState();
+export default function SignUpModal({ displayState, setDisplayState, passedId }) {
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
   const [confirmPassword, setConfirmPassword] = useState();
+  const [alert, setAlert] = useState('');
+  const [error, setError] = useState(false);
 
-  function handleSubmit(e) {
-    e.preventDefault()
-    // fetch("https://slackapi.avionschool.com/api/v1/auth/", {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //     'Access-Control-Allow-Origin': '*'
-    //   },
-    //   body: JSON.stringify({
-    //     email: emailInput,
-    //     password: passwordInput,
-    //     password_confirmation: confirmPassword
-    //   })
-    // }).then(res => {
-    //   console.log(res)
-    // })
+  async function handleSubmit(e) {
+    e.preventDefault();
+    try {
+      const response = await API.post('/auth/', { email, password, "password_confirmation": confirmPassword });
+      const userData = { ...response.data, headers: response.headers };
+      console.log(userData);
+    } catch (err) {
+      setError(err.response.data.errors.full_messages[0]);
+      setAlert(!alert);
+    }
+    e.target.reset();
   }
   
   function closeModal() {
@@ -40,22 +40,23 @@ export default function SignUpModal({ displayState, setDisplayState }) {
         <div>
           <label className='email-label' htmlFor='email-sign-up'>Email</label>
           <br></br>
-          <input onChange={(e)=> setEmailInput(e.target.value)} className='email-input' type='email' id='email-sign-up' required/>
+          <input onChange={(e)=> setEmail(e.target.value)} className='email-input' type='email' id={`email-sign-up-${passedId}`} required/>
         </div>
         <div>
           <label className='password-label' htmlFor='password-sign-up'>Password</label>
           <br></br>
-          <input onChange={(e)=> setPasswordInput(e.target.value)} className='password-input' type='password' id='password-sign-up' required/>
+          <input onChange={(e)=> setPassword(e.target.value)} className='password-input' type='password' id={`password-sign-up-${passedId}`} required/>
         </div>
         <div>
           <label className='confirm-password-label' htmlFor='confirm-password'>Confirm password</label>
           <br></br>
-          <input onChange={(e)=> setConfirmPassword(e.target.value)} className='confirm-password-input' type='password' id='confirm-password' />
+          <input onChange={(e)=> setConfirmPassword(e.target.value)} className='confirm-password-input' type='password' id={`confirm-password-${passedId}`} />
         </div>
         <div className='button-wrapper'>
           <button type='submit' className='sign-up-button'>Sign Up</button>
         </div>
       </form>
+      <ErrorAlert state={alert} setState={setAlert} message={error}/>
     </section>
   );
 }

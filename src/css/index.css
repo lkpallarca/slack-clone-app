@@ -67,7 +67,14 @@ body {
   background-color: #1f2023;
 }
 
-.login-modal {
+.login-modal-wrapper {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  background-color: #1f2023;
+  z-index: 5;
+}
+.login-modal-wrapper .login-modal {
   position: fixed;
   top: 17.5%;
   left: 50%;
@@ -76,20 +83,17 @@ body {
   flex-direction: column;
   align-items: center;
 }
-.login-modal.hide {
-  display: none;
-}
-.login-modal .loqui {
+.login-modal-wrapper .login-modal .loqui {
   font-size: 4rem;
   color: #00c7bd;
   margin-bottom: 2.5rem;
 }
-.login-modal .email-label {
+.login-modal-wrapper .login-modal .email-label {
   font-size: 1.8rem;
   padding-left: 1rem;
   color: #00c7bd;
 }
-.login-modal .email-input {
+.login-modal-wrapper .login-modal .email-input {
   width: 32rem;
   font-size: 1.6rem;
   padding: 0.5rem 0 0.5rem 0;
@@ -101,12 +105,12 @@ body {
   border-radius: 0.6rem;
   color: white;
 }
-.login-modal .password-label {
+.login-modal-wrapper .login-modal .password-label {
   font-size: 1.8rem;
   padding-left: 1rem;
   color: #00c7bd;
 }
-.login-modal .password-input {
+.login-modal-wrapper .login-modal .password-input {
   width: 32rem;
   font-size: 1.6rem;
   padding: 0.5rem 0 0.5rem 0;
@@ -118,12 +122,12 @@ body {
   border-radius: 0.6rem;
   color: white;
 }
-.login-modal .button-wrapper {
+.login-modal-wrapper .login-modal .button-wrapper {
   display: flex;
   align-items: center;
   flex-direction: column;
 }
-.login-modal .button-wrapper .login-button {
+.login-modal-wrapper .login-modal .button-wrapper .login-button {
   height: 3rem;
   width: 8rem;
   font-family: "Archivo";
@@ -136,12 +140,12 @@ body {
   transition: all 0.4s;
   margin-bottom: 1rem;
 }
-.login-modal .button-wrapper .login-button:hover {
+.login-modal-wrapper .login-modal .button-wrapper .login-button:hover {
   transform: scale(1.1);
 }
-.login-modal .button-wrapper .create-account-button {
+.login-modal-wrapper .login-modal .button-wrapper .create-account-button {
   height: 3rem;
-  width: 19.2rem;
+  width: 18rem;
   font-family: "Archivo";
   font-size: 1.4rem;
   color: #00c7bd;
@@ -151,10 +155,10 @@ body {
   cursor: pointer;
   transition: all 0.4s;
 }
-.login-modal .button-wrapper .create-account-button:hover {
+.login-modal-wrapper .login-modal .button-wrapper .create-account-button:hover {
   transform: scale(1.1);
 }
-.login-modal .my-logo {
+.login-modal-wrapper .login-modal .my-logo {
   height: 12rem;
   width: 12rem;
   display: flex;
@@ -163,12 +167,12 @@ body {
   border-radius: 50%;
   margin-bottom: 2.5rem;
 }
-.login-modal #my-logo {
+.login-modal-wrapper .login-modal #my-logo {
   height: 8rem;
   width: 8rem;
 }
-.login-modal .my-logo::before,
-.login-modal .my-logo::after {
+.login-modal-wrapper .login-modal .my-logo::before,
+.login-modal-wrapper .login-modal .my-logo::after {
   content: "";
   height: 12rem;
   width: 12rem;
@@ -178,10 +182,10 @@ body {
   z-index: -1;
   opacity: 0.7;
 }
-.login-modal .my-logo::before {
+.login-modal-wrapper .login-modal .my-logo::before {
   animation: pulse 2s ease-out infinite;
 }
-.login-modal .my-logo::after {
+.login-modal-wrapper .login-modal .my-logo::after {
   animation: pulse 2s 1s ease-out infinite;
 }
 @keyframes pulse {
@@ -306,6 +310,19 @@ body {
   border-right: 1px solid #333333;
   overflow-x: hidden;
 }
+.sidebar-wrapper::-webkit-scrollbar {
+  width: 0.7rem;
+}
+.sidebar-wrapper::-webkit-scrollbar-track {
+  background: #1f2023;
+}
+.sidebar-wrapper::-webkit-scrollbar-thumb {
+  background: #3c3e44;
+  border-radius: 0.5rem;
+}
+.sidebar-wrapper::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
 .sidebar-wrapper .sidebar-navbar {
   height: 9.5%;
   width: 100%;
@@ -379,6 +396,8 @@ body {
 .sidebar-wrapper .sidebar-navbar div:nth-child(3) .logout-choices {
   height: 8rem;
   width: 20rem;
+  opacity: 0;
+  visibility: hidden;
   text-align: center;
   position: absolute;
   right: 35%;
@@ -386,15 +405,12 @@ body {
   border-radius: 1rem;
   font-size: 1.8rem;
   background-color: #4d4d4d;
-  transition: height 0.2s;
+  transition: opacity 0.25s ease-out 0s, visibility 0s ease 0.25s;
 }
 .sidebar-wrapper .sidebar-navbar div:nth-child(3) .logout-choices.show {
-  height: 8rem;
-  width: 20rem;
+  transition: opacity 0.25s ease-out;
   opacity: 1;
   visibility: visible;
-  font-size: 1.8rem;
-  transition: font-size 0.3s ease-out;
 }
 .sidebar-wrapper .sidebar-navbar div:nth-child(3) .logout-choices::after {
   content: "";
@@ -443,8 +459,17 @@ body {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  margin-right: 0.2rem;
+  margin-right: 0.5rem;
   font-size: 1.4rem;
+}
+.sidebar-wrapper .sidebar-search-icon button {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+.sidebar-wrapper .sidebar-search-icon button img {
+  height: 2.25rem;
+  width: 2.75rem;
 }
 .sidebar-wrapper .sidebar-search-input {
   height: 70%;
@@ -462,6 +487,10 @@ body {
 .sidebar-wrapper .sidebar-search-input:focus-visible {
   outline: none;
   outline-offset: none;
+}
+.sidebar-wrapper .sidebar-search-list-wrapper .sidebar-search-list {
+  height: 3rem;
+  width: 100%;
 }
 .sidebar-wrapper .sidebar-channel-dmessage-wrapper {
   height: 82.4%;
@@ -627,7 +656,7 @@ body {
   text-align: center;
   margin: 2.5vh auto 2.5vh auto;
   color: gray;
-  margin-top: 0;
+  margin-top: -1rem;
 }
 .main-display p a {
   cursor: pointer;
@@ -640,4 +669,91 @@ body {
   position: absolute;
   bottom: 0;
   background-color: #156a66;
+}
+
+.error-alert {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  background-color: rgba(26, 26, 26, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease-out 0s, visibility 0s ease 0.25s;
+}
+.error-alert.show {
+  transition: opacity 0.25s ease-out;
+  opacity: 1;
+  visibility: visible;
+}
+.error-alert div {
+  height: 10rem;
+  width: 50rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: fixed;
+  top: 35%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: none;
+  border-radius: 1rem;
+  font-size: 1.8rem;
+  background-color: #4d4d4d;
+}
+.error-alert div p {
+  margin: 0.5rem 0;
+}
+.error-alert div button {
+  margin: 0.5rem 0;
+}
+
+.loading-screen {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.loading-screen .my-logo {
+  height: 16rem;
+  width: 16rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  margin-bottom: 2.5rem;
+}
+.loading-screen #my-logo {
+  height: 12rem;
+  width: 12rem;
+}
+.loading-screen .my-logo::before,
+.loading-screen .my-logo::after {
+  content: "";
+  height: 16rem;
+  width: 16rem;
+  position: absolute;
+  background-color: #156a66;
+  border-radius: 50%;
+  z-index: -1;
+  opacity: 0.7;
+}
+.loading-screen .my-logo::before {
+  animation: pulse 2s ease-out infinite;
+}
+.loading-screen .my-logo::after {
+  animation: pulse 2s 1s ease-out infinite;
+}
+@keyframes pulse {
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+.loading-screen div {
+  font-size: 5rem;
+  color: #3c3e44;
 }

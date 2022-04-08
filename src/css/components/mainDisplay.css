@@ -43,7 +43,7 @@
   text-align: center;
   margin: 2.5vh auto 2.5vh auto;
   color: gray;
-  margin-top: 0;
+  margin-top: -1rem;
 }
 .main-display p a {
   cursor: pointer;

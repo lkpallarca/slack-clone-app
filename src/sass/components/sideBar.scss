@@ -7,6 +7,7 @@
   @include perimeter(100vh, 30vw);
   border-right: $border-outline;
   overflow-x: hidden;
+  @include scrollbar;
 
   .sidebar-navbar {
     @include perimeter(9.5%, 100%);
@@ -33,26 +34,22 @@
       }
 
       .logout-choices {
-        // @include perimeter(0, 20rem);
         @include perimeter(8rem, 20rem);
-        // opacity: 0;
-        // visibility: hidden;
+        opacity: 0;
+        visibility: hidden;
         text-align: center;
         position: absolute;
         right: 35%;
         border: none;
         border-radius: 1rem;
-        // font-size: 0;
         font-size: 1.8rem;
         background-color: hsl(0, 0%, 30%);
-        transition: height 0.2s;
+        transition: opacity 0.25s ease-out 0s, visibility 0s ease 0.25s;
 
         &.show {
-          @include perimeter(8rem, 20rem);
+          transition: opacity 0.25s ease-out;
           opacity: 1;
           visibility: visible;
-          font-size: 1.8rem;
-          transition: font-size 0.3s ease-out;
         }
 
         &::after {
@@ -102,8 +99,17 @@
       @include perimeter(73%, 5%);
       @include basicFlex;
       cursor: pointer;
-      margin-right: 0.2rem;
+      margin-right: 0.5rem;
       font-size: 1.4rem;
+
+      button {
+        cursor: pointer;
+        background-color: transparent;
+        border: none;
+        img {
+          @include perimeter(2.25rem, 2.75rem);
+        }
+      }
     }
 
     &-input {
@@ -123,6 +129,13 @@
         outline: none;
         outline-offset: none;
       }
+    }
+
+  }
+  
+  .sidebar-search-list-wrapper {
+    .sidebar-search-list {
+      @include perimeter(3rem, 100%);
     }
   }
 

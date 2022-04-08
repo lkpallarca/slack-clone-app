@@ -1,26 +1,38 @@
 import React, { useState, useEffect } from 'react'
-import LoginModal from '../components/log-in-modal/LoginModal'
+import API from '../API';
+import LoadingScreen from '../components/loading-screen/LoadingScreen';
 import MainDisplay from '../components/main-display/MainDisplay';
 import SideBar from '../components/side-bar/SideBar';
 import '../css/index.css';
+import { getLoggedUser } from '../utils/storage';
 
-export default function MainScreen() {
-  const [loginModalDisplay, setLoginModalDisplay] = useState('login-modal');
+export default function MainScreen({ show }) {
+  const [isLoading, setIsLoading] = useState(true);
+  const [searchData, setSearchData] = useState([]);
+
+  async function fetchUsers() {
+    const fetchedUsers = await API.get('/users', { headers: getLoggedUser().headers });
+    setSearchData(fetchedUsers);
+    setIsLoading(false);
+  }
 
   useEffect(() => {
-    console.log(loginModalDisplay);
-  }, [loginModalDisplay])
-  
+    fetchUsers();
+  }, [])
 
   return (
-    <section className='main-screen'>
-      {loginModalDisplay === 'login-modal' ? null :
+    <>
+      {show ? 
+      <section className='main-screen'>
+        {isLoading ? <LoadingScreen/> : 
         <>
-          <SideBar onLogout={setLoginModalDisplay}/>
-          <MainDisplay />
+          <SideBar searchData={searchData}/>
+          <MainDisplay/>
         </>
+        }
+      </section> 
+      : null
       }
-      <LoginModal displayModal={loginModalDisplay} setDisplayModal={setLoginModalDisplay}/>
-    </section>
+    </>
   )
 }

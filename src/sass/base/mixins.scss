@@ -156,3 +156,44 @@
     @include perimeter($wh, $wh);
   }
 }
+
+@mixin loading-logo($l, $p) {
+  .my-logo {
+    @include perimeter($p, $p);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    margin-bottom: 2.5rem;
+  }
+
+  #my-logo {
+    @include perimeter($l, $l);
+  }
+
+  .my-logo::before,
+  .my-logo::after {
+    content: '';
+    @include perimeter($p, $p);
+    position: absolute;
+    background-color: $in-color;
+    border-radius: 50%;
+    z-index: -1;
+    opacity: 0.7;
+  }
+
+  .my-logo::before {
+    animation: pulse 2s ease-out infinite;
+  }
+
+  .my-logo::after {
+    animation: pulse 2s 1s ease-out infinite;
+  }
+
+  @keyframes pulse {
+    100%{
+        transform: scale(1.5);
+        opacity: 0;
+    }
+  }
+}

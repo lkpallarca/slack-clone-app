@@ -5,99 +5,66 @@ body {
   background-color: $bg-color;
 }
 
-.login-modal {
-  @include modal(17.5%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.login-modal-wrapper {
+  @include perimeter(100vh, 100vw);
+  position: fixed;
+  background-color: $bg-color;
+  z-index: 5;
 
-  &.hide {
-    display: none;
-  }
-
-  .loqui {
-    font-size: 4rem;
-    color: $color;
-    margin-bottom: 2.5rem;
-  }
-
-  .email-label {
-    @include label;
-  }
-
-  .email-input {
-    @include input;
-  }
-
-  .password-label {
-    @include label;
-  }
-
-  .password-input {
-    @include input;
-  }
-
-  .button-wrapper {
+  .login-modal {
+    @include modal(17.5%);
     display: flex;
-    align-items: center;
     flex-direction: column;
-
-    .login-button {
-      @include button(8rem);
-      transition: all 0.4s;
-      margin-bottom: 1rem;
-  
-      &:hover {
-        transform: scale(1.1);
-      }
-    }
-
-    .create-account-button {
-      @include button(19.2rem);
-      transition: all 0.4s;
-  
-      &:hover {
-        transform: scale(1.1);
-      }
-    }
-  }
-
-  .my-logo {
-    @include perimeter(12rem, 12rem);
-    display: flex;
-    justify-content: center;
     align-items: center;
-    border-radius: 50%;
-    margin-bottom: 2.5rem;
-  }
 
-  #my-logo {
-    @include perimeter(8rem, 8rem);
-  }
 
-  .my-logo::before,
-  .my-logo::after {
-    content: '';
-    @include perimeter(12rem, 12rem);
-    position: absolute;
-    background-color: $in-color;
-    border-radius: 50%;
-    z-index: -1;
-    opacity: 0.7;
-  }
-
-  .my-logo::before {
-    animation: pulse 2s ease-out infinite;
-  }
-
-  .my-logo::after {
-    animation: pulse 2s 1s ease-out infinite;
-  }
-
-  @keyframes pulse {
-    100%{
-        transform: scale(1.5);
-        opacity: 0;
+    .loqui {
+      font-size: 4rem;
+      color: $color;
+      margin-bottom: 2.5rem;
     }
+
+    .email-label {
+      @include label;
+    }
+
+    .email-input {
+      @include input;
+    }
+
+    .password-label {
+      @include label;
+    }
+
+    .password-input {
+      @include input;
+    }
+
+    .button-wrapper {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+
+      .login-button {
+        @include button(8rem);
+        transition: all 0.4s;
+        margin-bottom: 1rem;
+    
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+
+      .create-account-button {
+        @include button(18rem);
+        transition: all 0.4s;
+    
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+    }
+
+    @include loading-logo(8rem, 12rem);
   }
 }

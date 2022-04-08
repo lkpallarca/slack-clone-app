@@ -1,0 +1,11 @@
+.loading-screen {
+  @include perimeter(100vh, 100vw);
+  @include basicFlex;
+  flex-direction: column;
+  @include loading-logo(12rem, 16rem);
+
+  div {
+    font-size: 5rem;
+    color: $bg-color-lite;
+  }
+}

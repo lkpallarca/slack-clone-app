@@ -1,0 +1,41 @@
+@import '../base/variables.scss';
+@import '../base/mixins.scss';
+
+.error-alert {
+  @include perimeter(100vh, 100vw);
+  position: fixed;
+  top: 0;
+  background-color: hsla(0, 0%, 10%, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease-out 0s, visibility 0s ease 0.25s;
+
+  &.show {
+    transition: opacity 0.25s ease-out;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  div {
+    @include perimeter(10rem, 50rem);
+    @include basicFlex;
+    flex-direction: column;
+    position: fixed;
+    top: 35%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: none;
+    border-radius: 1rem;
+    font-size: 1.8rem;
+    background-color: hsl(0, 0%, 30%);
+
+    p {
+      margin: 0.5rem 0;
+    }
+
+    button {
+      margin: 0.5rem 0;
+    }
+  }
+
+}

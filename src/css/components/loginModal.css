@@ -2,7 +2,14 @@ body {
   background-color: #1f2023;
 }
 
-.login-modal {
+.login-modal-wrapper {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  background-color: #1f2023;
+  z-index: 5;
+}
+.login-modal-wrapper .login-modal {
   position: fixed;
   top: 17.5%;
   left: 50%;
@@ -11,20 +18,17 @@ body {
   flex-direction: column;
   align-items: center;
 }
-.login-modal.hide {
-  display: none;
-}
-.login-modal .loqui {
+.login-modal-wrapper .login-modal .loqui {
   font-size: 4rem;
   color: #00c7bd;
   margin-bottom: 2.5rem;
 }
-.login-modal .email-label {
+.login-modal-wrapper .login-modal .email-label {
   font-size: 1.8rem;
   padding-left: 1rem;
   color: #00c7bd;
 }
-.login-modal .email-input {
+.login-modal-wrapper .login-modal .email-input {
   width: 32rem;
   font-size: 1.6rem;
   padding: 0.5rem 0 0.5rem 0;
@@ -36,12 +40,12 @@ body {
   border-radius: 0.6rem;
   color: white;
 }
-.login-modal .password-label {
+.login-modal-wrapper .login-modal .password-label {
   font-size: 1.8rem;
   padding-left: 1rem;
   color: #00c7bd;
 }
-.login-modal .password-input {
+.login-modal-wrapper .login-modal .password-input {
   width: 32rem;
   font-size: 1.6rem;
   padding: 0.5rem 0 0.5rem 0;
@@ -53,12 +57,12 @@ body {
   border-radius: 0.6rem;
   color: white;
 }
-.login-modal .button-wrapper {
+.login-modal-wrapper .login-modal .button-wrapper {
   display: flex;
   align-items: center;
   flex-direction: column;
 }
-.login-modal .button-wrapper .login-button {
+.login-modal-wrapper .login-modal .button-wrapper .login-button {
   height: 3rem;
   width: 8rem;
   font-family: "Archivo";
@@ -71,12 +75,12 @@ body {
   transition: all 0.4s;
   margin-bottom: 1rem;
 }
-.login-modal .button-wrapper .login-button:hover {
+.login-modal-wrapper .login-modal .button-wrapper .login-button:hover {
   transform: scale(1.1);
 }
-.login-modal .button-wrapper .create-account-button {
+.login-modal-wrapper .login-modal .button-wrapper .create-account-button {
   height: 3rem;
-  width: 19.2rem;
+  width: 18rem;
   font-family: "Archivo";
   font-size: 1.4rem;
   color: #00c7bd;
@@ -86,10 +90,10 @@ body {
   cursor: pointer;
   transition: all 0.4s;
 }
-.login-modal .button-wrapper .create-account-button:hover {
+.login-modal-wrapper .login-modal .button-wrapper .create-account-button:hover {
   transform: scale(1.1);
 }
-.login-modal .my-logo {
+.login-modal-wrapper .login-modal .my-logo {
   height: 12rem;
   width: 12rem;
   display: flex;
@@ -98,12 +102,12 @@ body {
   border-radius: 50%;
   margin-bottom: 2.5rem;
 }
-.login-modal #my-logo {
+.login-modal-wrapper .login-modal #my-logo {
   height: 8rem;
   width: 8rem;
 }
-.login-modal .my-logo::before,
-.login-modal .my-logo::after {
+.login-modal-wrapper .login-modal .my-logo::before,
+.login-modal-wrapper .login-modal .my-logo::after {
   content: "";
   height: 12rem;
   width: 12rem;
@@ -113,10 +117,10 @@ body {
   z-index: -1;
   opacity: 0.7;
 }
-.login-modal .my-logo::before {
+.login-modal-wrapper .login-modal .my-logo::before {
   animation: pulse 2s ease-out infinite;
 }
-.login-modal .my-logo::after {
+.login-modal-wrapper .login-modal .my-logo::after {
   animation: pulse 2s 1s ease-out infinite;
 }
 @keyframes pulse {

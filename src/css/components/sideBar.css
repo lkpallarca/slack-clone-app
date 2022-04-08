@@ -6,6 +6,19 @@
   border-right: 1px solid #333333;
   overflow-x: hidden;
 }
+.sidebar-wrapper::-webkit-scrollbar {
+  width: 0.7rem;
+}
+.sidebar-wrapper::-webkit-scrollbar-track {
+  background: #1f2023;
+}
+.sidebar-wrapper::-webkit-scrollbar-thumb {
+  background: #3c3e44;
+  border-radius: 0.5rem;
+}
+.sidebar-wrapper::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
 .sidebar-wrapper .sidebar-navbar {
   height: 9.5%;
   width: 100%;
@@ -79,6 +92,8 @@
 .sidebar-wrapper .sidebar-navbar div:nth-child(3) .logout-choices {
   height: 8rem;
   width: 20rem;
+  opacity: 0;
+  visibility: hidden;
   text-align: center;
   position: absolute;
   right: 35%;
@@ -86,15 +101,12 @@
   border-radius: 1rem;
   font-size: 1.8rem;
   background-color: #4d4d4d;
-  transition: height 0.2s;
+  transition: opacity 0.25s ease-out 0s, visibility 0s ease 0.25s;
 }
 .sidebar-wrapper .sidebar-navbar div:nth-child(3) .logout-choices.show {
-  height: 8rem;
-  width: 20rem;
+  transition: opacity 0.25s ease-out;
   opacity: 1;
   visibility: visible;
-  font-size: 1.8rem;
-  transition: font-size 0.3s ease-out;
 }
 .sidebar-wrapper .sidebar-navbar div:nth-child(3) .logout-choices::after {
   content: "";
@@ -143,8 +155,17 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  margin-right: 0.2rem;
+  margin-right: 0.5rem;
   font-size: 1.4rem;
+}
+.sidebar-wrapper .sidebar-search-icon button {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+.sidebar-wrapper .sidebar-search-icon button img {
+  height: 2.25rem;
+  width: 2.75rem;
 }
 .sidebar-wrapper .sidebar-search-input {
   height: 70%;
@@ -162,6 +183,10 @@
 .sidebar-wrapper .sidebar-search-input:focus-visible {
   outline: none;
   outline-offset: none;
+}
+.sidebar-wrapper .sidebar-search-list-wrapper .sidebar-search-list {
+  height: 3rem;
+  width: 100%;
 }
 .sidebar-wrapper .sidebar-channel-dmessage-wrapper {
   height: 82.4%;
