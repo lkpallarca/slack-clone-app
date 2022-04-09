@@ -6,8 +6,6 @@
   flex-direction: column;
   @include perimeter(100vh, 30vw);
   border-right: $border-outline;
-  overflow-x: hidden;
-  @include scrollbar;
 
   .sidebar-navbar {
     @include perimeter(9.5%, 100%);
@@ -134,8 +132,32 @@
   }
   
   .sidebar-search-list-wrapper {
+    max-height: 82.4%;
+    overflow-y: scroll;
+    @include scrollbar;
+    overflow-x: hidden;
+
     .sidebar-search-list {
-      @include perimeter(3rem, 100%);
+      @include perimeter(7rem, 99%);
+      @include basicFlex;
+      color: hsl(0, 0%, 80%);
+      border-radius: 1rem;
+      margin-left: 0.5rem;
+
+      &.highlight {
+        border: none;
+        border-radius: 1rem;
+        background-color: $in-color;
+        transition: 0.3s all;
+
+        &:hover {
+          background-color: $in-color;
+        }
+      }
+
+      &:hover {
+        background-color: $bg-color-lite;
+      }
     }
   }
 

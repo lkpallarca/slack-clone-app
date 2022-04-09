@@ -9,10 +9,21 @@ import { getLoggedUser } from '../utils/storage';
 export default function MainScreen({ show }) {
   const [isLoading, setIsLoading] = useState(true);
   const [searchData, setSearchData] = useState([]);
+  const [convoInstances, setConvoInstances] = useState(true);
 
   async function fetchUsers() {
+    let fetchedData;
     const fetchedUsers = await API.get('/users', { headers: getLoggedUser().headers });
-    setSearchData(fetchedUsers);
+    const fetchedChannels = await API.get('/channels', { headers: getLoggedUser().headers });
+    if (fetchedChannels.data.data) {
+      fetchedData = [
+        ...fetchedUsers.data.data,
+        ...fetchedChannels.data.data
+      ];
+    } else {
+      fetchedData = fetchedUsers.data.data;
+    }
+    setSearchData(fetchedData);
     setIsLoading(false);
   }
 
@@ -26,8 +37,8 @@ export default function MainScreen({ show }) {
       <section className='main-screen'>
         {isLoading ? <LoadingScreen/> : 
         <>
-          <SideBar searchData={searchData}/>
-          <MainDisplay/>
+          <SideBar setConvoInstances={setConvoInstances} searchData={searchData}/>
+          <MainDisplay convoInstances={convoInstances}/>
         </>
         }
       </section> 

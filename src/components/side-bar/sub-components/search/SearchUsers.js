@@ -32,7 +32,7 @@ export default function SearchUsers({ onSearch, searchingFor, setSearchingFor })
     <>
       <form onSubmit={handleSubmit} onReset={reset} className='sidebar-search'>
         <span className='sidebar-search-icon'>{showSearch ? <button type='reset'><img src='back-icon.png' alt='simple left arrow'/></button> : '🔍'}</span>
-        <input onChange={handleSearch} className='sidebar-search-input' value={searchingFor} placeholder='Search user or channel' type='text'/>
+        <input onChange={handleSearch} className='sidebar-search-input' value={searchingFor} placeholder='Search user email or channel' type='text'/>
       </form>
     </>
   )
