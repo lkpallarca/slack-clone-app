@@ -10,12 +10,19 @@
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
-  justify-content: flex-end;
+  justify-content: space-between;
   background-color: #3c3e44;
   color: #156a66;
 }
-.sidebar-wrapper .sidebar-navbar button {
+.sidebar-wrapper .sidebar-navbar .user-profile {
+  margin-left: 1rem;
+}
+.sidebar-wrapper .sidebar-navbar .sidebar-navbar-options {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sidebar-wrapper .sidebar-navbar .sidebar-navbar-options button {
   height: 4.5rem;
   width: 4.5rem;
   cursor: pointer;
@@ -24,17 +31,17 @@
   border-radius: 100%;
   margin-right: -0.2rem;
 }
-.sidebar-wrapper .sidebar-navbar button:hover {
+.sidebar-wrapper .sidebar-navbar .sidebar-navbar-options button:hover {
   background-color: #666666;
 }
-.sidebar-wrapper .sidebar-navbar button.highlight {
+.sidebar-wrapper .sidebar-navbar .sidebar-navbar-options button.highlight {
   background-color: #156a66;
 }
-.sidebar-wrapper .sidebar-navbar button img {
+.sidebar-wrapper .sidebar-navbar .sidebar-navbar-options button img {
   height: 3.2rem;
   width: 3.2rem;
 }
-.sidebar-wrapper .sidebar-navbar div button {
+.sidebar-wrapper .sidebar-navbar .sidebar-navbar-options div button {
   height: 4.5rem;
   width: 4.5rem;
   cursor: pointer;
@@ -43,20 +50,20 @@
   border-radius: 100%;
   margin-right: 0;
 }
-.sidebar-wrapper .sidebar-navbar div button:hover {
+.sidebar-wrapper .sidebar-navbar .sidebar-navbar-options div button:hover {
   background-color: #666666;
 }
-.sidebar-wrapper .sidebar-navbar div button.highlight {
+.sidebar-wrapper .sidebar-navbar .sidebar-navbar-options div button.highlight {
   background-color: #156a66;
 }
-.sidebar-wrapper .sidebar-navbar div button img {
+.sidebar-wrapper .sidebar-navbar .sidebar-navbar-options div button img {
   height: 2.5rem;
   width: 2.5rem;
 }
-.sidebar-wrapper .sidebar-navbar div:nth-child(3) {
+.sidebar-wrapper .sidebar-navbar .sidebar-navbar-options div:nth-child(3) {
   position: relative;
 }
-.sidebar-wrapper .sidebar-navbar div:nth-child(3) button {
+.sidebar-wrapper .sidebar-navbar .sidebar-navbar-options div:nth-child(3) button {
   height: 4.5rem;
   width: 4.5rem;
   cursor: pointer;
@@ -65,17 +72,17 @@
   border-radius: 100%;
   margin-right: 2rem;
 }
-.sidebar-wrapper .sidebar-navbar div:nth-child(3) button:hover {
+.sidebar-wrapper .sidebar-navbar .sidebar-navbar-options div:nth-child(3) button:hover {
   background-color: #666666;
 }
-.sidebar-wrapper .sidebar-navbar div:nth-child(3) button.highlight {
+.sidebar-wrapper .sidebar-navbar .sidebar-navbar-options div:nth-child(3) button.highlight {
   background-color: #156a66;
 }
-.sidebar-wrapper .sidebar-navbar div:nth-child(3) button img {
+.sidebar-wrapper .sidebar-navbar .sidebar-navbar-options div:nth-child(3) button img {
   height: 2.5rem;
   width: 2.5rem;
 }
-.sidebar-wrapper .sidebar-navbar div:nth-child(3) .logout-choices {
+.sidebar-wrapper .sidebar-navbar .sidebar-navbar-options div:nth-child(3) .logout-choices {
   height: 8rem;
   width: 20rem;
   opacity: 0;
@@ -89,12 +96,12 @@
   background-color: #4d4d4d;
   transition: opacity 0.25s ease-out 0s, visibility 0s ease 0.25s;
 }
-.sidebar-wrapper .sidebar-navbar div:nth-child(3) .logout-choices.show {
+.sidebar-wrapper .sidebar-navbar .sidebar-navbar-options div:nth-child(3) .logout-choices.show {
   transition: opacity 0.25s ease-out;
   opacity: 1;
   visibility: visible;
 }
-.sidebar-wrapper .sidebar-navbar div:nth-child(3) .logout-choices::after {
+.sidebar-wrapper .sidebar-navbar .sidebar-navbar-options div:nth-child(3) .logout-choices::after {
   content: "";
   position: absolute;
   top: -30%;
@@ -103,17 +110,17 @@
   border-style: solid;
   border-color: transparent transparent #4d4d4d transparent;
 }
-.sidebar-wrapper .sidebar-navbar div:nth-child(3) .logout-choices div:nth-child(1) {
+.sidebar-wrapper .sidebar-navbar .sidebar-navbar-options div:nth-child(3) .logout-choices div:nth-child(1) {
   margin-top: 1.5rem;
   color: #00c7bd;
 }
-.sidebar-wrapper .sidebar-navbar div:nth-child(3) .logout-choices div:nth-child(2) {
+.sidebar-wrapper .sidebar-navbar .sidebar-navbar-options div:nth-child(3) .logout-choices div:nth-child(2) {
   display: flex;
   align-items: center;
   justify-content: center;
   justify-content: space-evenly;
 }
-.sidebar-wrapper .sidebar-navbar div:nth-child(3) .logout-choices div:nth-child(2) button {
+.sidebar-wrapper .sidebar-navbar .sidebar-navbar-options div:nth-child(3) .logout-choices div:nth-child(2) button {
   cursor: pointer;
   background-color: transparent;
   border: none;
@@ -123,7 +130,7 @@
   text-align: center;
   margin: 0;
 }
-.sidebar-wrapper .sidebar-navbar div:nth-child(3) .logout-choices div:nth-child(2) button:hover {
+.sidebar-wrapper .sidebar-navbar .sidebar-navbar-options div:nth-child(3) .logout-choices div:nth-child(2) button:hover {
   color: #00c7bd;
 }
 .sidebar-wrapper .sidebar-search {
@@ -256,6 +263,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
   color: #cccccc;
 }
 .sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-channels-list div.highlight {
@@ -311,6 +319,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
   color: #cccccc;
 }
 .sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-direct-messages-list div.highlight {

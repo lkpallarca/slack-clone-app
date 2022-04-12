@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import API from '../../../../API';
-import '../../../../css/index.css';
 import { getLoggedUser } from '../../../../utils/storage';
 
 export default function SearchUsers({ onSearch, searchingFor, setSearchingFor }) {

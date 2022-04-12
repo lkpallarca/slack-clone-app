@@ -314,12 +314,19 @@ body {
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
-  justify-content: flex-end;
+  justify-content: space-between;
   background-color: #3c3e44;
   color: #156a66;
 }
-.sidebar-wrapper .sidebar-navbar button {
+.sidebar-wrapper .sidebar-navbar .user-profile {
+  margin-left: 1rem;
+}
+.sidebar-wrapper .sidebar-navbar .sidebar-navbar-options {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sidebar-wrapper .sidebar-navbar .sidebar-navbar-options button {
   height: 4.5rem;
   width: 4.5rem;
   cursor: pointer;
@@ -328,17 +335,17 @@ body {
   border-radius: 100%;
   margin-right: -0.2rem;
 }
-.sidebar-wrapper .sidebar-navbar button:hover {
+.sidebar-wrapper .sidebar-navbar .sidebar-navbar-options button:hover {
   background-color: #666666;
 }
-.sidebar-wrapper .sidebar-navbar button.highlight {
+.sidebar-wrapper .sidebar-navbar .sidebar-navbar-options button.highlight {
   background-color: #156a66;
 }
-.sidebar-wrapper .sidebar-navbar button img {
+.sidebar-wrapper .sidebar-navbar .sidebar-navbar-options button img {
   height: 3.2rem;
   width: 3.2rem;
 }
-.sidebar-wrapper .sidebar-navbar div button {
+.sidebar-wrapper .sidebar-navbar .sidebar-navbar-options div button {
   height: 4.5rem;
   width: 4.5rem;
   cursor: pointer;
@@ -347,20 +354,20 @@ body {
   border-radius: 100%;
   margin-right: 0;
 }
-.sidebar-wrapper .sidebar-navbar div button:hover {
+.sidebar-wrapper .sidebar-navbar .sidebar-navbar-options div button:hover {
   background-color: #666666;
 }
-.sidebar-wrapper .sidebar-navbar div button.highlight {
+.sidebar-wrapper .sidebar-navbar .sidebar-navbar-options div button.highlight {
   background-color: #156a66;
 }
-.sidebar-wrapper .sidebar-navbar div button img {
+.sidebar-wrapper .sidebar-navbar .sidebar-navbar-options div button img {
   height: 2.5rem;
   width: 2.5rem;
 }
-.sidebar-wrapper .sidebar-navbar div:nth-child(3) {
+.sidebar-wrapper .sidebar-navbar .sidebar-navbar-options div:nth-child(3) {
   position: relative;
 }
-.sidebar-wrapper .sidebar-navbar div:nth-child(3) button {
+.sidebar-wrapper .sidebar-navbar .sidebar-navbar-options div:nth-child(3) button {
   height: 4.5rem;
   width: 4.5rem;
   cursor: pointer;
@@ -369,17 +376,17 @@ body {
   border-radius: 100%;
   margin-right: 2rem;
 }
-.sidebar-wrapper .sidebar-navbar div:nth-child(3) button:hover {
+.sidebar-wrapper .sidebar-navbar .sidebar-navbar-options div:nth-child(3) button:hover {
   background-color: #666666;
 }
-.sidebar-wrapper .sidebar-navbar div:nth-child(3) button.highlight {
+.sidebar-wrapper .sidebar-navbar .sidebar-navbar-options div:nth-child(3) button.highlight {
   background-color: #156a66;
 }
-.sidebar-wrapper .sidebar-navbar div:nth-child(3) button img {
+.sidebar-wrapper .sidebar-navbar .sidebar-navbar-options div:nth-child(3) button img {
   height: 2.5rem;
   width: 2.5rem;
 }
-.sidebar-wrapper .sidebar-navbar div:nth-child(3) .logout-choices {
+.sidebar-wrapper .sidebar-navbar .sidebar-navbar-options div:nth-child(3) .logout-choices {
   height: 8rem;
   width: 20rem;
   opacity: 0;
@@ -393,12 +400,12 @@ body {
   background-color: #4d4d4d;
   transition: opacity 0.25s ease-out 0s, visibility 0s ease 0.25s;
 }
-.sidebar-wrapper .sidebar-navbar div:nth-child(3) .logout-choices.show {
+.sidebar-wrapper .sidebar-navbar .sidebar-navbar-options div:nth-child(3) .logout-choices.show {
   transition: opacity 0.25s ease-out;
   opacity: 1;
   visibility: visible;
 }
-.sidebar-wrapper .sidebar-navbar div:nth-child(3) .logout-choices::after {
+.sidebar-wrapper .sidebar-navbar .sidebar-navbar-options div:nth-child(3) .logout-choices::after {
   content: "";
   position: absolute;
   top: -30%;
@@ -407,17 +414,17 @@ body {
   border-style: solid;
   border-color: transparent transparent #4d4d4d transparent;
 }
-.sidebar-wrapper .sidebar-navbar div:nth-child(3) .logout-choices div:nth-child(1) {
+.sidebar-wrapper .sidebar-navbar .sidebar-navbar-options div:nth-child(3) .logout-choices div:nth-child(1) {
   margin-top: 1.5rem;
   color: #00c7bd;
 }
-.sidebar-wrapper .sidebar-navbar div:nth-child(3) .logout-choices div:nth-child(2) {
+.sidebar-wrapper .sidebar-navbar .sidebar-navbar-options div:nth-child(3) .logout-choices div:nth-child(2) {
   display: flex;
   align-items: center;
   justify-content: center;
   justify-content: space-evenly;
 }
-.sidebar-wrapper .sidebar-navbar div:nth-child(3) .logout-choices div:nth-child(2) button {
+.sidebar-wrapper .sidebar-navbar .sidebar-navbar-options div:nth-child(3) .logout-choices div:nth-child(2) button {
   cursor: pointer;
   background-color: transparent;
   border: none;
@@ -427,7 +434,7 @@ body {
   text-align: center;
   margin: 0;
 }
-.sidebar-wrapper .sidebar-navbar div:nth-child(3) .logout-choices div:nth-child(2) button:hover {
+.sidebar-wrapper .sidebar-navbar .sidebar-navbar-options div:nth-child(3) .logout-choices div:nth-child(2) button:hover {
   color: #00c7bd;
 }
 .sidebar-wrapper .sidebar-search {
@@ -560,6 +567,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
   color: #cccccc;
 }
 .sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-channels-list div.highlight {
@@ -615,6 +623,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
   color: #cccccc;
 }
 .sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-direct-messages-list div.highlight {
@@ -635,11 +644,12 @@ body {
 
 .main-display {
   height: 100vh;
-  width: 70vw;
+  width: 69.9vw;
   display: flex;
   flex-direction: column;
   background-color: #2a2b2f;
   position: relative;
+  border-left: 1px solid #333333;
 }
 .main-display #hand-logo {
   height: 25rem;
@@ -691,6 +701,132 @@ body {
   position: absolute;
   bottom: 0;
   background-color: #156a66;
+}
+.main-display .convo-screen {
+  height: 100%;
+  background-color: #2a2b2f;
+}
+.main-display .convo-screen .mainbar-navbar {
+  height: 9.5%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #3c3e44;
+}
+.main-display .convo-screen .mainbar-navbar div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.main-display .convo-screen .mainbar-navbar div button {
+  height: 4.5rem;
+  width: 4.5rem;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  border-radius: 100%;
+  margin-right: 0;
+}
+.main-display .convo-screen .mainbar-navbar div button:hover {
+  background-color: #666666;
+}
+.main-display .convo-screen .mainbar-navbar div button.highlight {
+  background-color: #156a66;
+}
+.main-display .convo-screen .mainbar-navbar div button img {
+  height: 2.5rem;
+  width: 2.5rem;
+}
+.main-display .convo-screen .mainbar-navbar div ul {
+  height: 10rem;
+  width: 20rem;
+  opacity: 0;
+  visibility: hidden;
+  top: 4.6rem;
+  right: 0.3rem;
+  text-align: center;
+  position: absolute;
+  border: none;
+  border-radius: 1rem;
+  font-size: 1.8rem;
+  background-color: #4d4d4d;
+  transition: opacity 0.25s ease-out 0s, visibility 0s ease 0.25s;
+}
+.main-display .convo-screen .mainbar-navbar div ul::after {
+  content: "";
+  position: absolute;
+  top: -30%;
+  left: 83%;
+  border-width: 1.5rem;
+  border-style: solid;
+  border-color: transparent transparent #4d4d4d transparent;
+}
+.main-display .convo-screen .mainbar-navbar div ul.show {
+  transition: opacity 0.25s ease-out;
+  opacity: 1;
+  visibility: visible;
+}
+.main-display .convo-screen .mainbar-navbar div ul li {
+  margin: 1rem 0;
+  cursor: pointer;
+}
+.main-display .convo-screen .screen {
+  height: 80.5%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.main-display .convo-screen .form {
+  height: 10%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #3c3e44;
+}
+.main-display .convo-screen .form button {
+  height: 3rem;
+  width: 3rem;
+  margin: 0 0.5rem;
+}
+.main-display .convo-screen .form div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.main-display .convo-screen .form div .message-submit {
+  background-color: transparent;
+  border: none;
+}
+.main-display .convo-screen .form div .message-submit img {
+  height: 3rem;
+  width: 4rem;
+}
+.main-display .convo-screen .form div input {
+  height: 3.75rem;
+  width: 78rem;
+  padding-left: 2rem;
+  border: none;
+  border-radius: 1rem;
+  background-color: #54575f;
+  color: #cccccc;
+  font-size: 1.5rem;
+  margin: 0 0 0 0.5rem;
+}
+.main-display .convo-screen .form div input::placeholder {
+  padding-left: 0.5rem;
+  color: #cccccc;
+}
+.main-display .convo-screen .form div input:focus::placeholder {
+  transition: opacity 0.3s;
+  opacity: 0;
+}
+.main-display .convo-screen .form div input:focus-visible {
+  outline: none;
+  outline-offset: none;
 }
 
 .error-alert {

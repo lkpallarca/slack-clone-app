@@ -3,11 +3,11 @@ import API from '../../API';
 import '../../css/index.css';
 import { getLoggedUser } from '../../utils/storage';
 import ConvoList from './sub-components/convo-list/ConvoList';
-import NavBar from './sub-components/nav-bar/NavBar';
+import SideNavBar from './sub-components/nav-bar/SideNavBar';
 import SearchList from './sub-components/search-list/SearchList';
 import SearchUsers from './sub-components/search/SearchUsers';
 
-export default function SideBar({ searchData, setConvoInstances }) {
+export default function SideBar({ searchData, setConvoSelected, highlightConvo, setHighlightConvo }) {
   const [isSearching, setIsSearching] = useState(false);
   const [searchingFor, setSearchingFor] = useState('');
   const [selectedChannelConvo, setSelectedChannelConvo] = useState(false);
@@ -16,11 +16,11 @@ export default function SideBar({ searchData, setConvoInstances }) {
   return (
     <>
       <section className='sidebar-wrapper'>
-        <NavBar />
+        <SideNavBar />
         <SearchUsers searchingFor={searchingFor} setSearchingFor={setSearchingFor} onSearch={setIsSearching}/>
         {isSearching ? <SearchList searchingFor={searchingFor} passedSearch={searchData}/> :
           <div className='sidebar-channel-dmessage-wrapper'>
-            <ConvoList />
+            <ConvoList setConvoSelected={setConvoSelected} highlightConvo={highlightConvo} setHighlightConvo={setHighlightConvo}/>
           </div>
         }
       </section>

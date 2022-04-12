@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import '../../../../css/index.css';
 
 
 let TEST_CONVOS = [
@@ -12,27 +11,30 @@ let TEST_CONVOS = [
   { pos: 'threes', value: 'third' }
 ]
 
-export default function ConvoList() {
+let TEST_CONVOS_2 = [
+  { pos: 'on', value: 'firs' },
+  { pos: 'tw', value: 'secon' },
+  { pos: 'thre', value: 'thid' },
+  { pos: 'fou', value: 'secod' },
+  { pos: 'fiv', value: 'secod' },
+  { pos: 'si', value: 'seond' },
+  { pos: 'thres', value: 'hird' }
+]
+
+export default function ConvoList({ setConvoSelected, highlightConvo, setHighlightConvo }) {
   const [channelDisplay, setChannelDisplay] = useState(false);
   const [dMessageDisplay, setDMessageDisplay] = useState(false);
-  const [highlightChannelConvoId, setHighlightChannelConvoId] = useState('');
-  const [highlightDMessageConvoId, setHighlightDMessageConvoId] = useState('');
 
-  function handleChannelConvoSelect(selected) {
-    setHighlightChannelConvoId(selected);
-  }
-
-  function handleDMessageConvoSelect(selected) {
-    setHighlightDMessageConvoId(selected);
+  function handleConvoSelect(selected) {
+    setHighlightConvo(selected);
+    setConvoSelected(true);
   }
 
   function toggleChannelList() {
-    setHighlightChannelConvoId('');
     setChannelDisplay(!channelDisplay);
   }
 
   function toggleDMessageList() {
-    setHighlightDMessageConvoId('');
     setDMessageDisplay(!dMessageDisplay);
   }
 
@@ -45,8 +47,8 @@ export default function ConvoList() {
             return (
               <div 
                 key={pos} 
-                className={pos === highlightChannelConvoId ? 'sidebar-channels-list highlight show' : 'sidebar-channels-list show'} 
-                onClick={() => handleChannelConvoSelect(pos)}
+                className={pos === highlightConvo ? 'sidebar-channels-list highlight show' : 'sidebar-channels-list show'} 
+                onClick={() => handleConvoSelect(pos)}
               >
                 {value}
               </div>
@@ -58,12 +60,12 @@ export default function ConvoList() {
       <div className='sidebar-direct-messages'>
       <button onClick={toggleDMessageList} className='sidebar-direct-messages-trigger'>Direct Messages</button>
       <div className={dMessageDisplay ? 'sidebar-direct-messages-list show' : 'sidebar-direct-messages-list'}>
-        {TEST_CONVOS.map(({ pos, value }) => {
+        {TEST_CONVOS_2.map(({ pos, value }) => {
           return (
             <div 
               key={pos} 
-              className={pos === highlightDMessageConvoId ? 'sidebar-channels-list highlight show' : 'sidebar-channels-list show'} 
-              onClick={() => handleDMessageConvoSelect(pos)}
+              className={pos === highlightConvo ? 'sidebar-channels-list highlight show' : 'sidebar-channels-list show'} 
+              onClick={() => handleConvoSelect(pos)}
             >
               {value}
             </div>

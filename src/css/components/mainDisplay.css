@@ -1,10 +1,11 @@
 .main-display {
   height: 100vh;
-  width: 70vw;
+  width: 69.9vw;
   display: flex;
   flex-direction: column;
   background-color: #2a2b2f;
   position: relative;
+  border-left: 1px solid #333333;
 }
 .main-display #hand-logo {
   height: 25rem;
@@ -56,4 +57,130 @@
   position: absolute;
   bottom: 0;
   background-color: #156a66;
+}
+.main-display .convo-screen {
+  height: 100%;
+  background-color: #2a2b2f;
+}
+.main-display .convo-screen .mainbar-navbar {
+  height: 9.5%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #3c3e44;
+}
+.main-display .convo-screen .mainbar-navbar div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.main-display .convo-screen .mainbar-navbar div button {
+  height: 4.5rem;
+  width: 4.5rem;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  border-radius: 100%;
+  margin-right: 0;
+}
+.main-display .convo-screen .mainbar-navbar div button:hover {
+  background-color: #666666;
+}
+.main-display .convo-screen .mainbar-navbar div button.highlight {
+  background-color: #156a66;
+}
+.main-display .convo-screen .mainbar-navbar div button img {
+  height: 2.5rem;
+  width: 2.5rem;
+}
+.main-display .convo-screen .mainbar-navbar div ul {
+  height: 10rem;
+  width: 20rem;
+  opacity: 0;
+  visibility: hidden;
+  top: 4.6rem;
+  right: 0.3rem;
+  text-align: center;
+  position: absolute;
+  border: none;
+  border-radius: 1rem;
+  font-size: 1.8rem;
+  background-color: #4d4d4d;
+  transition: opacity 0.25s ease-out 0s, visibility 0s ease 0.25s;
+}
+.main-display .convo-screen .mainbar-navbar div ul::after {
+  content: "";
+  position: absolute;
+  top: -30%;
+  left: 83%;
+  border-width: 1.5rem;
+  border-style: solid;
+  border-color: transparent transparent #4d4d4d transparent;
+}
+.main-display .convo-screen .mainbar-navbar div ul.show {
+  transition: opacity 0.25s ease-out;
+  opacity: 1;
+  visibility: visible;
+}
+.main-display .convo-screen .mainbar-navbar div ul li {
+  margin: 1rem 0;
+  cursor: pointer;
+}
+.main-display .convo-screen .screen {
+  height: 80.5%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.main-display .convo-screen .form {
+  height: 10%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #3c3e44;
+}
+.main-display .convo-screen .form button {
+  height: 3rem;
+  width: 3rem;
+  margin: 0 0.5rem;
+}
+.main-display .convo-screen .form div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.main-display .convo-screen .form div .message-submit {
+  background-color: transparent;
+  border: none;
+}
+.main-display .convo-screen .form div .message-submit img {
+  height: 3rem;
+  width: 4rem;
+}
+.main-display .convo-screen .form div input {
+  height: 3.75rem;
+  width: 78rem;
+  padding-left: 2rem;
+  border: none;
+  border-radius: 1rem;
+  background-color: #54575f;
+  color: #cccccc;
+  font-size: 1.5rem;
+  margin: 0 0 0 0.5rem;
+}
+.main-display .convo-screen .form div input::placeholder {
+  padding-left: 0.5rem;
+  color: #cccccc;
+}
+.main-display .convo-screen .form div input:focus::placeholder {
+  transition: opacity 0.3s;
+  opacity: 0;
+}
+.main-display .convo-screen .form div input:focus-visible {
+  outline: none;
+  outline-offset: none;
 }

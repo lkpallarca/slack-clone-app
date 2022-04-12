@@ -9,8 +9,9 @@ import { getLoggedUser } from '../utils/storage';
 export default function MainScreen({ show }) {
   const [isLoading, setIsLoading] = useState(true);
   const [searchData, setSearchData] = useState([]);
-  const [convoInstances, setConvoInstances] = useState(true);
-
+  const [convoSelected, setConvoSelected] = useState(false);
+  const [highlightConvo, setHighlightConvo] = useState('')
+  
   async function fetchUsers() {
     let fetchedData;
     const fetchedUsers = await API.get('/users', { headers: getLoggedUser().headers });
@@ -37,8 +38,8 @@ export default function MainScreen({ show }) {
       <section className='main-screen'>
         {isLoading ? <LoadingScreen/> : 
         <>
-          <SideBar setConvoInstances={setConvoInstances} searchData={searchData}/>
-          <MainDisplay convoInstances={convoInstances}/>
+          <SideBar setConvoSelected={setConvoSelected} searchData={searchData} highlightConvo={highlightConvo} setHighlightConvo={setHighlightConvo}/>
+          <MainDisplay setConvoSelected={setConvoSelected} convoSelected={convoSelected} setConvoListHighlight={setHighlightConvo}/>
         </>
         }
       </section> 
