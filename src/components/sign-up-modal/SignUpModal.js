@@ -15,8 +15,6 @@ export default function SignUpModal({ displayState, setDisplayState, passedId })
     e.preventDefault();
     try {
       const response = await API.post('/auth/', { email, password, "password_confirmation": confirmPassword });
-      const userData = { ...response.data, headers: response.headers };
-      console.log(userData);
     } catch (err) {
       setError(err.response.data.errors.full_messages[0]);
       setAlert(!alert);

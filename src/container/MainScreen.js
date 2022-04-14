@@ -10,7 +10,8 @@ export default function MainScreen({ show }) {
   const [isLoading, setIsLoading] = useState(true);
   const [searchData, setSearchData] = useState([]);
   const [convoSelected, setConvoSelected] = useState(false);
-  const [highlightConvo, setHighlightConvo] = useState('')
+  const [highlightConvo, setHighlightConvo] = useState('');
+  const [convoInfo, setConvoInfo] = useState('');
   
   async function fetchUsers() {
     let fetchedData;
@@ -38,8 +39,19 @@ export default function MainScreen({ show }) {
       <section className='main-screen'>
         {isLoading ? <LoadingScreen/> : 
         <>
-          <SideBar setConvoSelected={setConvoSelected} searchData={searchData} highlightConvo={highlightConvo} setHighlightConvo={setHighlightConvo}/>
-          <MainDisplay setConvoSelected={setConvoSelected} convoSelected={convoSelected} setConvoListHighlight={setHighlightConvo}/>
+          <SideBar 
+            searchData={searchData} 
+            highlightConvo={highlightConvo} 
+            setConvoSelected={setConvoSelected} 
+            setHighlightConvo={setHighlightConvo}
+            setConvoInfo={setConvoInfo}
+          />
+          <MainDisplay 
+            convoSelected={convoSelected} 
+            setConvoSelected={setConvoSelected} 
+            convoInfo={convoInfo} 
+            setConvoListHighlight={setHighlightConvo}
+          />
         </>
         }
       </section> 

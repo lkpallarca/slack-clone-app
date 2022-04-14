@@ -128,12 +128,43 @@
   margin: 1rem 0;
   cursor: pointer;
 }
-.main-display .convo-screen .screen {
+.main-display .convo-screen .conversation-display-wrapper {
   height: 80.5%;
   width: 100%;
+  overflow-y: scroll;
+}
+.main-display .convo-screen .conversation-display-wrapper::-webkit-scrollbar {
+  width: 0.7rem;
+}
+.main-display .convo-screen .conversation-display-wrapper::-webkit-scrollbar-track {
+  background: #1f2023;
+}
+.main-display .convo-screen .conversation-display-wrapper::-webkit-scrollbar-thumb {
+  background: #3c3e44;
+  border-radius: 0.5rem;
+}
+.main-display .convo-screen .conversation-display-wrapper::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+.main-display .convo-screen .conversation-display-wrapper .conversation-display {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+}
+.main-display .convo-screen .conversation-display-wrapper .conversation-display .message-bubble {
+  display: table-cell;
+  min-height: 2.5rem;
+  min-width: 9.5rem;
+  max-width: 49rem;
+  border: 1px solid red;
+  background-color: transparent;
+  align-self: flex-start;
+  margin: 0.25rem 5rem;
+}
+.main-display .convo-screen .conversation-display-wrapper .conversation-display .message-bubble.me {
+  align-self: flex-end;
+  background-color: blue;
 }
 .main-display .convo-screen .form {
   height: 10%;

@@ -21,13 +21,14 @@ let TEST_CONVOS_2 = [
   { pos: 'thres', value: 'hird' }
 ]
 
-export default function ConvoList({ setConvoSelected, highlightConvo, setHighlightConvo }) {
+export default function ConvoList({ setConvoSelected, highlightConvo, setHighlightConvo, setConvoInfo }) {
   const [channelDisplay, setChannelDisplay] = useState(false);
   const [dMessageDisplay, setDMessageDisplay] = useState(false);
 
   function handleConvoSelect(selected) {
     setHighlightConvo(selected);
     setConvoSelected(true);
+    setConvoInfo(selected);
   }
 
   function toggleChannelList() {

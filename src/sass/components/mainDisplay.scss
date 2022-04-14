@@ -111,10 +111,33 @@
       }
     }
 
-    .screen {
+    .conversation-display-wrapper {
       @include perimeter(80.5%, 100%);
-      @include basicFlex;
+      @include scrollbar;
+      overflow-y: scroll;
+
+      .conversation-display {
+        @include basicFlex;
+        flex-direction: column;
+  
+        .message-bubble {
+          display: table-cell;
+          min-height: 2.5rem;
+          min-width: 9.5rem;
+          max-width: 49rem;
+          border: 1px solid red;
+          background-color: transparent;
+          align-self: flex-start;
+          margin: .25rem 5rem;
+  
+          &.me{
+            align-self: flex-end;
+            background-color: blue;
+          }
+        }
+      }
     }
+
 
     .form {
       @include perimeter(10%, 100%);

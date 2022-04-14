@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
-export default function SearchList({ passedSearch, searchingFor }) {
-  const [highlightConvoId, setHighlightConvoId] = useState('');
+export default function SearchList({ passedSearch, searchingFor, highlightConvo, setHighlightConvo, setConvoSelected, setConvoInfo }) {
 
   function handleConvoSelect(selected) {
-    setHighlightConvoId(selected);
+    setHighlightConvo(selected.id);
+    setConvoSelected(true);
+    setConvoInfo(selected);
   }
 
   return (
@@ -16,8 +17,8 @@ export default function SearchList({ passedSearch, searchingFor }) {
           return (
               <div 
                 key={each.id} 
-                onClick={() => handleConvoSelect(each.id)} 
-                className={highlightConvoId === each.id ? 'sidebar-search-list highlight' : 'sidebar-search-list'}
+                onClick={() => handleConvoSelect(each)} 
+                className={highlightConvo === each.id ? 'sidebar-search-list highlight' : 'sidebar-search-list'}
               >
                 {each.uid}
               </div>

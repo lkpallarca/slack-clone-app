@@ -7,20 +7,18 @@ import SideNavBar from './sub-components/nav-bar/SideNavBar';
 import SearchList from './sub-components/search-list/SearchList';
 import SearchUsers from './sub-components/search/SearchUsers';
 
-export default function SideBar({ searchData, setConvoSelected, highlightConvo, setHighlightConvo }) {
+export default function SideBar({ searchData, setConvoSelected, highlightConvo, setHighlightConvo, setConvoInfo }) {
   const [isSearching, setIsSearching] = useState(false);
   const [searchingFor, setSearchingFor] = useState('');
-  const [selectedChannelConvo, setSelectedChannelConvo] = useState(false);
-  const [selectedDMessageConvo, setSelectedDMessageConvo] = useState(false);
 
   return (
     <>
       <section className='sidebar-wrapper'>
         <SideNavBar />
         <SearchUsers searchingFor={searchingFor} setSearchingFor={setSearchingFor} onSearch={setIsSearching}/>
-        {isSearching ? <SearchList searchingFor={searchingFor} passedSearch={searchData}/> :
+        {isSearching ? <SearchList setConvoInfo={setConvoInfo} setConvoSelected={setConvoSelected} searchingFor={searchingFor} passedSearch={searchData} highlightConvo={highlightConvo} setHighlightConvo={setHighlightConvo}/> :
           <div className='sidebar-channel-dmessage-wrapper'>
-            <ConvoList setConvoSelected={setConvoSelected} highlightConvo={highlightConvo} setHighlightConvo={setHighlightConvo}/>
+            <ConvoList setConvoInfo={setConvoInfo} setConvoSelected={setConvoSelected} highlightConvo={highlightConvo} setHighlightConvo={setHighlightConvo}/>
           </div>
         }
       </section>

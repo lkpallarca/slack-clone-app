@@ -2,9 +2,9 @@
 @import '../base/mixins.scss';
 
 .sidebar-wrapper {
+  @include perimeter(100vh, 30vw);
   display: flex;
   flex-direction: column;
-  @include perimeter(100vh, 30vw);
   border-right: $border-outline;
 
   .sidebar-navbar {
@@ -171,8 +171,7 @@
   }
 
   .sidebar-channel-dmessage-wrapper {
-    height: 82.4%;
-    width: 101%;
+    @include perimeter(82.4%, 101%);
     overflow-y: scroll;
 
     &::-webkit-scrollbar {
