@@ -90,7 +90,7 @@
           &::after {
             content: "";
             position: absolute;
-            top: -30%;
+            top: -26%;
             left: 83%;
             border-width: 1.5rem;
             border-style: solid;
@@ -118,21 +118,27 @@
 
       .conversation-display {
         @include basicFlex;
+        margin-bottom: 1rem;
         flex-direction: column;
   
         .message-bubble {
-          display: table-cell;
-          min-height: 2.5rem;
+          display: flex;
+          align-items: center;
+          min-height: 1.5rem;
           min-width: 9.5rem;
           max-width: 49rem;
-          border: 1px solid red;
-          background-color: transparent;
+          background-color: hsl(225, 6%, 35%);
           align-self: flex-start;
           margin: .25rem 5rem;
+          font-size: 1.5rem;
+          line-height: 1.25;
+          padding: 0.5rem 1rem;
+          border-radius: 1rem;
+          color: hsl(0, 0%, 90%);
   
           &.me{
             align-self: flex-end;
-            background-color: blue;
+            background-color: hsl(177, 67%, 25%);
           }
         }
       }

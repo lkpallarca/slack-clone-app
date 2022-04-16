@@ -195,6 +195,24 @@
 .sidebar-wrapper .sidebar-search-list-wrapper::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+.sidebar-wrapper .sidebar-search-list-wrapper .search-list-categories {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  margin: 1rem 0;
+  font-size: 1.6rem;
+  color: #00c7bd;
+  position: relative;
+}
+.sidebar-wrapper .sidebar-search-list-wrapper .search-list-categories::after {
+  content: "";
+  position: absolute;
+  bottom: -50%;
+  width: 80%;
+  border-top: 1px solid #b3b3b3;
+}
 .sidebar-wrapper .sidebar-search-list-wrapper .sidebar-search-list {
   height: 7rem;
   width: 99%;

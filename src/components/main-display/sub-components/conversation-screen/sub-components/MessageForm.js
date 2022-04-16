@@ -23,7 +23,6 @@ export default function MessageForm({ convoInfo }) {
       "body": message }, 
       { headers: getLoggedUser().headers }
     );
-    console.log(sendMessage);
     e.target.reset();
   }
 

@@ -14,18 +14,9 @@ export default function MainScreen({ show }) {
   const [convoInfo, setConvoInfo] = useState('');
   
   async function fetchUsers() {
-    let fetchedData;
     const fetchedUsers = await API.get('/users', { headers: getLoggedUser().headers });
     const fetchedChannels = await API.get('/channels', { headers: getLoggedUser().headers });
-    if (fetchedChannels.data.data) {
-      fetchedData = [
-        ...fetchedUsers.data.data,
-        ...fetchedChannels.data.data
-      ];
-    } else {
-      fetchedData = fetchedUsers.data.data;
-    }
-    setSearchData(fetchedData);
+    setSearchData({users: [...fetchedUsers.data.data], channels: [...fetchedChannels.data.data]});
     setIsLoading(false);
   }
 
@@ -45,6 +36,7 @@ export default function MainScreen({ show }) {
             setConvoSelected={setConvoSelected} 
             setHighlightConvo={setHighlightConvo}
             setConvoInfo={setConvoInfo}
+            convoInfo={convoInfo}
           />
           <MainDisplay 
             convoSelected={convoSelected} 

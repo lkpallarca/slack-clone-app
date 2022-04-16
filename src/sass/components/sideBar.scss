@@ -146,6 +146,24 @@
     @include scrollbar;
     overflow-x: hidden;
 
+    .search-list-categories {
+      @include basicFlex;
+      text-align: center;
+      width: 100%;
+      margin: 1rem 0;
+      font-size: 1.6rem;
+      color: $color;
+      position: relative;
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: -50%;
+        width: 80%;
+        border-top: 1px solid hsl(0, 0%, 70%);
+      }
+    }
+
     .sidebar-search-list {
       @include perimeter(7rem, 99%);
       @include basicFlex;

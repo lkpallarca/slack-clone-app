@@ -1,29 +1,10 @@
 import React, { useState } from 'react';
 
-
-let TEST_CONVOS = [
-  { pos: 'one', value: 'first' },
-  { pos: 'two', value: 'second' },
-  { pos: 'three', value: 'third' },
-  { pos: 'four', value: 'second' },
-  { pos: 'five', value: 'second' },
-  { pos: 'six', value: 'second' },
-  { pos: 'threes', value: 'third' }
-]
-
-let TEST_CONVOS_2 = [
-  { pos: 'on', value: 'firs' },
-  { pos: 'tw', value: 'secon' },
-  { pos: 'thre', value: 'thid' },
-  { pos: 'fou', value: 'secod' },
-  { pos: 'fiv', value: 'secod' },
-  { pos: 'si', value: 'seond' },
-  { pos: 'thres', value: 'hird' }
-]
-
-export default function ConvoList({ setConvoSelected, highlightConvo, setHighlightConvo, setConvoInfo }) {
+export default function ConvoList({ setConvoSelected, highlightConvo, setHighlightConvo, setConvoInfo, convoInfo }) {
   const [channelDisplay, setChannelDisplay] = useState(false);
   const [dMessageDisplay, setDMessageDisplay] = useState(false);
+  const [channelList, setChannelList] = useState([]);
+  const [dMessageList, setDMessageList] = useState([]);
 
   function handleConvoSelect(selected) {
     setHighlightConvo(selected);
@@ -44,7 +25,7 @@ export default function ConvoList({ setConvoSelected, highlightConvo, setHighlig
       <div className='sidebar-channels'>
         <button onClick={toggleChannelList} className='sidebar-channels-trigger'>Channels</button>
         <div className={channelDisplay ? 'sidebar-channels-list show' : 'sidebar-channels-list'}>
-          {TEST_CONVOS.map(({ pos, value }) => {
+          {/* {TEST_CONVOS.map(({ pos, value }) => {
             return (
               <div 
                 key={pos} 
@@ -54,14 +35,14 @@ export default function ConvoList({ setConvoSelected, highlightConvo, setHighlig
                 {value}
               </div>
             )
-          })}
+          })} */}
         </div>
       </div>
       
       <div className='sidebar-direct-messages'>
       <button onClick={toggleDMessageList} className='sidebar-direct-messages-trigger'>Direct Messages</button>
       <div className={dMessageDisplay ? 'sidebar-direct-messages-list show' : 'sidebar-direct-messages-list'}>
-        {TEST_CONVOS_2.map(({ pos, value }) => {
+        {/* {TEST_CONVOS_2.map(({ pos, value }) => {
           return (
             <div 
               key={pos} 
@@ -71,7 +52,7 @@ export default function ConvoList({ setConvoSelected, highlightConvo, setHighlig
               {value}
             </div>
           )
-        })}
+        })} */}
       </div>
     </div>
     </>
