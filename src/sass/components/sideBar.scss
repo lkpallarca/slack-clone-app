@@ -165,11 +165,12 @@
     }
 
     .sidebar-search-list {
-      @include perimeter(7rem, 99%);
+      @include perimeter(7rem, 98%);
       @include basicFlex;
       color: hsl(0, 0%, 80%);
       border-radius: 1rem;
-      margin-left: 0.5rem;
+      margin: 0.1rem 0 0.1rem 0.5rem;
+      cursor: pointer;
 
       &.highlight {
         border: none;

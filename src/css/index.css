@@ -519,13 +519,14 @@ body {
 }
 .sidebar-wrapper .sidebar-search-list-wrapper .sidebar-search-list {
   height: 7rem;
-  width: 99%;
+  width: 98%;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #cccccc;
   border-radius: 1rem;
-  margin-left: 0.5rem;
+  margin: 0.1rem 0 0.1rem 0.5rem;
+  cursor: pointer;
 }
 .sidebar-wrapper .sidebar-search-list-wrapper .sidebar-search-list.highlight {
   border: none;
@@ -587,10 +588,11 @@ body {
   justify-content: center;
   cursor: pointer;
   color: #cccccc;
+  border-radius: 1rem;
+  margin: 0.1rem 0;
 }
 .sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-channels-list div.highlight {
   border: none;
-  border-radius: 1rem;
   background-color: #156a66;
   transition: 0.3s all;
 }
@@ -598,7 +600,6 @@ body {
   background-color: #156a66;
 }
 .sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-channels-list div:hover {
-  border: none;
   border-radius: 1rem;
   background-color: #3c3e44;
   transition: 0.3s all;
@@ -643,10 +644,11 @@ body {
   justify-content: center;
   cursor: pointer;
   color: #cccccc;
+  border-radius: 1rem;
+  margin: 0.1rem 0;
 }
 .sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-direct-messages-list div.highlight {
   border: none;
-  border-radius: 1rem;
   background-color: #156a66;
   transition: 0.3s all;
 }
@@ -654,7 +656,6 @@ body {
   background-color: #156a66;
 }
 .sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-direct-messages-list div:hover {
-  border: none;
   border-radius: 1rem;
   background-color: #3c3e44;
   transition: 0.3s all;
@@ -793,6 +794,8 @@ body {
 .main-display .convo-screen .conversation-display-wrapper {
   height: 80.5%;
   width: 100%;
+  display: flex;
+  flex-direction: column;
   overflow-y: scroll;
 }
 .main-display .convo-screen .conversation-display-wrapper::-webkit-scrollbar {
@@ -812,8 +815,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1rem;
   flex-direction: column;
+  margin-bottom: 1rem;
 }
 .main-display .convo-screen .conversation-display-wrapper .conversation-display .message-bubble {
   display: flex;
@@ -834,33 +837,61 @@ body {
   align-self: flex-end;
   background-color: #156a66;
 }
-.main-display .convo-screen .form {
+.main-display .convo-screen .message-form-wrapper {
   height: 10%;
   width: 100%;
+  position: relative;
+}
+.main-display .convo-screen .message-form-wrapper .emojis {
+  position: absolute;
+  top: -32.5rem;
+  left: 0.5rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease-out 0s, visibility 0s ease 0.25s;
+}
+.main-display .convo-screen .message-form-wrapper .emojis.show {
+  transition: opacity 0.25s ease-out;
+  opacity: 1;
+  visibility: visible;
+}
+.main-display .convo-screen .message-form-wrapper .emoji-trigger {
+  position: absolute;
+  top: 1.5rem;
+  left: 0.75rem;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+.main-display .convo-screen .message-form-wrapper .emoji-trigger img {
+  height: 3rem;
+  width: 3rem;
+}
+.main-display .convo-screen .message-form-wrapper .form {
+  height: 100%;
+  width: 105%;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: #3c3e44;
 }
-.main-display .convo-screen .form button {
-  height: 3rem;
-  width: 3rem;
-  margin: 0 0.5rem;
-}
-.main-display .convo-screen .form div {
+.main-display .convo-screen .message-form-wrapper .form .message-input {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.main-display .convo-screen .form div .message-submit {
+.main-display .convo-screen .message-form-wrapper .form .message-input .message-submit {
+  height: 3rem;
+  width: 3rem;
   background-color: transparent;
   border: none;
+  cursor: pointer;
 }
-.main-display .convo-screen .form div .message-submit img {
+.main-display .convo-screen .message-form-wrapper .form .message-input .message-submit img {
   height: 3rem;
   width: 4rem;
 }
-.main-display .convo-screen .form div input {
+.main-display .convo-screen .message-form-wrapper .form .message-input input {
   height: 3.75rem;
   width: 78rem;
   padding-left: 2rem;
@@ -871,15 +902,15 @@ body {
   font-size: 1.5rem;
   margin: 0 0 0 0.5rem;
 }
-.main-display .convo-screen .form div input::placeholder {
+.main-display .convo-screen .message-form-wrapper .form .message-input input::placeholder {
   padding-left: 0.5rem;
   color: #cccccc;
 }
-.main-display .convo-screen .form div input:focus::placeholder {
+.main-display .convo-screen .message-form-wrapper .form .message-input input:focus::placeholder {
   transition: opacity 0.3s;
   opacity: 0;
 }
-.main-display .convo-screen .form div input:focus-visible {
+.main-display .convo-screen .message-form-wrapper .form .message-input input:focus-visible {
   outline: none;
   outline-offset: none;
 }

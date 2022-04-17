@@ -3,7 +3,7 @@ import '../../css/index.css';
 import ConversationScreen from './sub-components/conversation-screen/ConversationScreen';
 import Infographic from './sub-components/infographic/Infographic';
 
-export default function MainDisplay({ convoSelected, setConvoSelected, setConvoListHighlight, convoInfo }) {
+export default function MainDisplay({ convoSelected, setConvoSelected, setConvoListHighlight, convoInfo, messages, setMessageInstances }) {
 
   return (
     <section className='main-display'>
@@ -12,6 +12,8 @@ export default function MainDisplay({ convoSelected, setConvoSelected, setConvoL
           setConvoListHighlight={setConvoListHighlight} 
           setConvoSelected={setConvoSelected}
           convoInfo={convoInfo}
+          messages={messages}
+          setMessageInstances={setMessageInstances}
         /> : 
         <Infographic />
       }

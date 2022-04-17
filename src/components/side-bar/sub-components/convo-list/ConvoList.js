@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
-export default function ConvoList({ setConvoSelected, highlightConvo, setHighlightConvo, setConvoInfo, convoInfo }) {
+export default function ConvoList({ setConvoSelected, highlightConvo, setHighlightConvo, setConvoInfo, convoInfo, dMessageList }) {
   const [channelDisplay, setChannelDisplay] = useState(false);
   const [dMessageDisplay, setDMessageDisplay] = useState(false);
   const [channelList, setChannelList] = useState([]);
-  const [dMessageList, setDMessageList] = useState([]);
+  let directMessagesList = [...dMessageList];
 
   function handleConvoSelect(selected) {
-    setHighlightConvo(selected);
+    setHighlightConvo(selected.id);
     setConvoSelected(true);
     setConvoInfo(selected);
   }
@@ -42,17 +43,17 @@ export default function ConvoList({ setConvoSelected, highlightConvo, setHighlig
       <div className='sidebar-direct-messages'>
       <button onClick={toggleDMessageList} className='sidebar-direct-messages-trigger'>Direct Messages</button>
       <div className={dMessageDisplay ? 'sidebar-direct-messages-list show' : 'sidebar-direct-messages-list'}>
-        {/* {TEST_CONVOS_2.map(({ pos, value }) => {
+        {directMessagesList.map(each => {
           return (
             <div 
-              key={pos} 
-              className={pos === highlightConvo ? 'sidebar-channels-list highlight show' : 'sidebar-channels-list show'} 
-              onClick={() => handleConvoSelect(pos)}
+              key={each.id} 
+              className={each.id === highlightConvo ? 'sidebar-channels-list highlight show' : 'sidebar-channels-list show'} 
+              onClick={() => handleConvoSelect(each)}
             >
-              {value}
+              {each.email}
             </div>
           )
-        })} */}
+        })}
       </div>
     </div>
     </>

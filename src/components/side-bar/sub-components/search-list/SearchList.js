@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import API from '../../../../API';
+import { getLoggedUser } from '../../../../utils/storage';
 
-export default function SearchList({ passedSearch, searchingFor, highlightConvo, setHighlightConvo, setConvoSelected, setConvoInfo }) {
+export default function SearchList({ passedSearch, searchingFor, highlightConvo, setHighlightConvo, setConvoSelected, setConvoInfo, setMessages }) {
   const { users, channels } = passedSearch;
 
   function handleConvoSelect(selected) {

@@ -215,13 +215,14 @@
 }
 .sidebar-wrapper .sidebar-search-list-wrapper .sidebar-search-list {
   height: 7rem;
-  width: 99%;
+  width: 98%;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #cccccc;
   border-radius: 1rem;
-  margin-left: 0.5rem;
+  margin: 0.1rem 0 0.1rem 0.5rem;
+  cursor: pointer;
 }
 .sidebar-wrapper .sidebar-search-list-wrapper .sidebar-search-list.highlight {
   border: none;
@@ -283,10 +284,11 @@
   justify-content: center;
   cursor: pointer;
   color: #cccccc;
+  border-radius: 1rem;
+  margin: 0.1rem 0;
 }
 .sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-channels-list div.highlight {
   border: none;
-  border-radius: 1rem;
   background-color: #156a66;
   transition: 0.3s all;
 }
@@ -294,7 +296,6 @@
   background-color: #156a66;
 }
 .sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-channels-list div:hover {
-  border: none;
   border-radius: 1rem;
   background-color: #3c3e44;
   transition: 0.3s all;
@@ -339,10 +340,11 @@
   justify-content: center;
   cursor: pointer;
   color: #cccccc;
+  border-radius: 1rem;
+  margin: 0.1rem 0;
 }
 .sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-direct-messages-list div.highlight {
   border: none;
-  border-radius: 1rem;
   background-color: #156a66;
   transition: 0.3s all;
 }
@@ -350,7 +352,6 @@
   background-color: #156a66;
 }
 .sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-direct-messages-list div:hover {
-  border: none;
   border-radius: 1rem;
   background-color: #3c3e44;
   transition: 0.3s all;

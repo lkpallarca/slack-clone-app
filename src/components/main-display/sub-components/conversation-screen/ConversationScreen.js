@@ -6,14 +6,16 @@ import ConversationDisplay from './sub-components/ConversationDisplay';
 import MainNavBar from './sub-components/MainNavBar';
 import MessageForm from './sub-components/MessageForm';
 
-export default function ConversationScreen({ setConvoListHighlight, setConvoSelected, convoInfo }) {
+export default function ConversationScreen({ setConvoListHighlight, setConvoSelected, convoInfo, messages, setMessageInstances }) {
   return (
     <section className='convo-screen'>
-      <MainNavBar setConvoListHighlight={setConvoListHighlight} setConvoSelected={setConvoSelected}/>
+      <MainNavBar setConvoListHighlight={setConvoListHighlight} setConvoSelected={setConvoSelected} convoInfo={convoInfo}/>
       <div className='conversation-display-wrapper'>
-        <ConversationDisplay convoInfo={convoInfo}/>
+        <ConversationDisplay messages={messages}/>
       </div>
-      <MessageForm convoInfo={convoInfo}/>
+      <div className='message-form-wrapper'>
+        <MessageForm convoInfo={convoInfo} setMessageInstances={setMessageInstances}/>
+      </div>
     </section>
   )
 }

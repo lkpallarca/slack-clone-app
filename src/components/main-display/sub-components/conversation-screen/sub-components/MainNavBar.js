@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-export default function MainNavBar({ setConvoListHighlight, setConvoSelected }) {
+export default function MainNavBar({ setConvoListHighlight, setConvoSelected, convoInfo }) {
   const [selectedButton, setSelectedButton] = useState('');
   const [showMenuOptions, setShowMenuOptions] = useState(false);
 
@@ -12,6 +12,9 @@ export default function MainNavBar({ setConvoListHighlight, setConvoSelected }) 
   return (
     <nav className='mainbar-navbar'>
       <div>
+        {convoInfo.id}
+      </div>
+      <div>
         <button 
           className={selectedButton === 'menu' ? 'highlight' : ''}
           onBlur={reset}
@@ -21,7 +24,7 @@ export default function MainNavBar({ setConvoListHighlight, setConvoSelected }) 
           }}>
           <img src='menu-icon.png' alt='simple menu icon'/>
         </button>
-      <ul className={showMenuOptions ? 'show' : null}>
+        <ul className={showMenuOptions ? 'show' : null}>
           <li>Contact Info</li>
           <li onClick={()=> {
             setConvoListHighlight(false);

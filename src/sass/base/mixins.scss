@@ -108,10 +108,11 @@
       @include basicFlex;
       cursor: pointer;
       color: hsl(0, 0%, 80%);
+      border-radius: 1rem;
+      margin: 0.1rem 0;
 
       &.highlight {
         border: none;
-        border-radius: 1rem;
         background-color: $in-color;
         transition: 0.3s all;
 
@@ -121,7 +122,6 @@
       }
 
       &:hover {
-        border: none;
         border-radius: 1rem;
         background-color: $bg-color-lite;
         transition: 0.3s all;
