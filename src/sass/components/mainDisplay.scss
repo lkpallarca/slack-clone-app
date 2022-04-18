@@ -122,6 +122,10 @@
         @include basicFlex;
         flex-direction: column;
         margin-bottom: 1rem;
+
+        &:first-child {
+          margin-top: auto !important;
+        }
   
         .message-bubble {
           display: flex;

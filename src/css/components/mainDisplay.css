@@ -155,6 +155,9 @@
   flex-direction: column;
   margin-bottom: 1rem;
 }
+.main-display .convo-screen .conversation-display-wrapper .conversation-display:first-child {
+  margin-top: auto !important;
+}
 .main-display .convo-screen .conversation-display-wrapper .conversation-display .message-bubble {
   display: flex;
   align-items: center;
