@@ -317,16 +317,17 @@ body {
   justify-content: space-between;
   background-color: #3c3e44;
   color: #156a66;
+  z-index: 2;
 }
 .sidebar-wrapper .sidebar-navbar .user-profile {
   margin-left: 1rem;
 }
-.sidebar-wrapper .sidebar-navbar .sidebar-navbar-options {
+.sidebar-wrapper .sidebar-navbar-options {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.sidebar-wrapper .sidebar-navbar .sidebar-navbar-options button {
+.sidebar-wrapper .sidebar-navbar-options button {
   height: 4.5rem;
   width: 4.5rem;
   cursor: pointer;
@@ -335,17 +336,20 @@ body {
   border-radius: 100%;
   margin-right: -0.2rem;
 }
-.sidebar-wrapper .sidebar-navbar .sidebar-navbar-options button:hover {
+.sidebar-wrapper .sidebar-navbar-options button:hover {
   background-color: #666666;
 }
-.sidebar-wrapper .sidebar-navbar .sidebar-navbar-options button.highlight {
+.sidebar-wrapper .sidebar-navbar-options button.highlight {
   background-color: #156a66;
 }
-.sidebar-wrapper .sidebar-navbar .sidebar-navbar-options button img {
+.sidebar-wrapper .sidebar-navbar-options button img {
   height: 3.2rem;
   width: 3.2rem;
 }
-.sidebar-wrapper .sidebar-navbar .sidebar-navbar-options div button {
+.sidebar-wrapper .sidebar-navbar-options-menu {
+  position: relative;
+}
+.sidebar-wrapper .sidebar-navbar-options-menu button {
   height: 4.5rem;
   width: 4.5rem;
   cursor: pointer;
@@ -354,20 +358,54 @@ body {
   border-radius: 100%;
   margin-right: 0;
 }
-.sidebar-wrapper .sidebar-navbar .sidebar-navbar-options div button:hover {
+.sidebar-wrapper .sidebar-navbar-options-menu button:hover {
   background-color: #666666;
 }
-.sidebar-wrapper .sidebar-navbar .sidebar-navbar-options div button.highlight {
+.sidebar-wrapper .sidebar-navbar-options-menu button.highlight {
   background-color: #156a66;
 }
-.sidebar-wrapper .sidebar-navbar .sidebar-navbar-options div button img {
+.sidebar-wrapper .sidebar-navbar-options-menu button img {
   height: 2.5rem;
   width: 2.5rem;
 }
-.sidebar-wrapper .sidebar-navbar .sidebar-navbar-options div:nth-child(3) {
+.sidebar-wrapper .sidebar-navbar-options-menu ul {
+  height: 10rem;
+  width: 20rem;
+  opacity: 0;
+  visibility: hidden;
+  top: 4.6rem;
+  right: 0.3rem;
+  text-align: center;
+  position: absolute;
+  border: none;
+  border-radius: 1rem;
+  font-size: 1.8rem;
+  color: #cccccc;
+  background-color: #4d4d4d;
+  transition: opacity 0.25s ease-out 0s, visibility 0s ease 0.25s;
+}
+.sidebar-wrapper .sidebar-navbar-options-menu ul::after {
+  content: "";
+  position: absolute;
+  top: -26%;
+  left: 83%;
+  border-width: 1.5rem;
+  border-style: solid;
+  border-color: transparent transparent #4d4d4d transparent;
+}
+.sidebar-wrapper .sidebar-navbar-options-menu ul.show {
+  transition: opacity 0.25s ease-out;
+  opacity: 1;
+  visibility: visible;
+}
+.sidebar-wrapper .sidebar-navbar-options-menu ul li {
+  margin: 1rem 0;
+  cursor: pointer;
+}
+.sidebar-wrapper .sidebar-navbar-options-logout {
   position: relative;
 }
-.sidebar-wrapper .sidebar-navbar .sidebar-navbar-options div:nth-child(3) button {
+.sidebar-wrapper .sidebar-navbar-options-logout button {
   height: 4.5rem;
   width: 4.5rem;
   cursor: pointer;
@@ -376,17 +414,17 @@ body {
   border-radius: 100%;
   margin-right: 2rem;
 }
-.sidebar-wrapper .sidebar-navbar .sidebar-navbar-options div:nth-child(3) button:hover {
+.sidebar-wrapper .sidebar-navbar-options-logout button:hover {
   background-color: #666666;
 }
-.sidebar-wrapper .sidebar-navbar .sidebar-navbar-options div:nth-child(3) button.highlight {
+.sidebar-wrapper .sidebar-navbar-options-logout button.highlight {
   background-color: #156a66;
 }
-.sidebar-wrapper .sidebar-navbar .sidebar-navbar-options div:nth-child(3) button img {
+.sidebar-wrapper .sidebar-navbar-options-logout button img {
   height: 2.5rem;
   width: 2.5rem;
 }
-.sidebar-wrapper .sidebar-navbar .sidebar-navbar-options div:nth-child(3) .logout-choices {
+.sidebar-wrapper .sidebar-navbar-options-logout .logout-choices {
   height: 8rem;
   width: 20rem;
   opacity: 0;
@@ -400,12 +438,12 @@ body {
   background-color: #4d4d4d;
   transition: opacity 0.25s ease-out 0s, visibility 0s ease 0.25s;
 }
-.sidebar-wrapper .sidebar-navbar .sidebar-navbar-options div:nth-child(3) .logout-choices.show {
+.sidebar-wrapper .sidebar-navbar-options-logout .logout-choices.show {
   transition: opacity 0.25s ease-out;
   opacity: 1;
   visibility: visible;
 }
-.sidebar-wrapper .sidebar-navbar .sidebar-navbar-options div:nth-child(3) .logout-choices::after {
+.sidebar-wrapper .sidebar-navbar-options-logout .logout-choices::after {
   content: "";
   position: absolute;
   top: -30%;
@@ -414,17 +452,17 @@ body {
   border-style: solid;
   border-color: transparent transparent #4d4d4d transparent;
 }
-.sidebar-wrapper .sidebar-navbar .sidebar-navbar-options div:nth-child(3) .logout-choices div:nth-child(1) {
+.sidebar-wrapper .sidebar-navbar-options-logout .logout-choices div:nth-child(1) {
   margin-top: 1.5rem;
   color: #00c7bd;
 }
-.sidebar-wrapper .sidebar-navbar .sidebar-navbar-options div:nth-child(3) .logout-choices div:nth-child(2) {
+.sidebar-wrapper .sidebar-navbar-options-logout .logout-choices div:nth-child(2) {
   display: flex;
   align-items: center;
   justify-content: center;
   justify-content: space-evenly;
 }
-.sidebar-wrapper .sidebar-navbar .sidebar-navbar-options div:nth-child(3) .logout-choices div:nth-child(2) button {
+.sidebar-wrapper .sidebar-navbar-options-logout .logout-choices div:nth-child(2) button {
   cursor: pointer;
   background-color: transparent;
   border: none;
@@ -434,7 +472,7 @@ body {
   text-align: center;
   margin: 0;
 }
-.sidebar-wrapper .sidebar-navbar .sidebar-navbar-options div:nth-child(3) .logout-choices div:nth-child(2) button:hover {
+.sidebar-wrapper .sidebar-navbar-options-logout .logout-choices div:nth-child(2) button:hover {
   color: #00c7bd;
 }
 .sidebar-wrapper .sidebar-search {
@@ -485,6 +523,7 @@ body {
   max-height: 82.4%;
   overflow-y: scroll;
   overflow-x: hidden;
+  font-size: 1.4rem;
 }
 .sidebar-wrapper .sidebar-search-list-wrapper::-webkit-scrollbar {
   width: 0.7rem;
@@ -517,6 +556,55 @@ body {
   width: 80%;
   border-top: 1px solid #b3b3b3;
 }
+.sidebar-wrapper .sidebar-search-list-wrapper .channel-name-input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32rem;
+  font-size: 1.6rem;
+  padding: 0.5rem 0 0.5rem 0;
+  padding-left: 1rem;
+  margin-top: 0.8rem;
+  margin-bottom: 1rem;
+  border: 0.2rem solid #156a66;
+  background-color: transparent;
+  border-radius: 0.6rem;
+  color: white;
+  width: 70%;
+  margin: 2rem auto 0 auto;
+}
+.sidebar-wrapper .sidebar-search-list-wrapper .channel-name-input:focus-visible {
+  outline: none;
+}
+.sidebar-wrapper .sidebar-search-list-wrapper .dummy {
+  height: 5rem;
+}
+.sidebar-wrapper .sidebar-search-list-wrapper .added-members-list {
+  height: 7rem;
+  width: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-between;
+  color: #cccccc;
+  border-radius: 1rem;
+  margin: 0.1rem 0 0.1rem 9rem;
+}
+.sidebar-wrapper .sidebar-search-list-wrapper .added-members-list button {
+  height: 2.5rem;
+  width: 2.5rem;
+  padding: none;
+  text-align: center;
+  cursor: pointer;
+  color: #cccccc;
+  border: none;
+  border-radius: 100%;
+  background-color: transparent;
+}
+.sidebar-wrapper .sidebar-search-list-wrapper .added-members-list button:hover {
+  color: #4d4d4d;
+  background-color: #cccccc;
+}
 .sidebar-wrapper .sidebar-search-list-wrapper .sidebar-search-list {
   height: 7rem;
   width: 98%;
@@ -540,10 +628,42 @@ body {
 .sidebar-wrapper .sidebar-search-list-wrapper .sidebar-search-list:hover {
   background-color: #3c3e44;
 }
+.sidebar-wrapper .sidebar-search-list-wrapper .create-channel-trigger {
+  height: 0rem;
+  width: 45%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background-color: #3c3e44;
+  border: none;
+  border-radius: 4rem;
+  transition: 0.3s all;
+  color: #00c7bd;
+  font-size: 1.8rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease-out 0s, visibility 0s ease 0.25s;
+  transition: height 0.3s ease-out;
+}
+.sidebar-wrapper .sidebar-search-list-wrapper .create-channel-trigger:hover {
+  background-color: #344c4a;
+}
+.sidebar-wrapper .sidebar-search-list-wrapper .create-channel-trigger.show {
+  transition: opacity 0.25s ease-out;
+  opacity: 1;
+  visibility: visible;
+}
+.sidebar-wrapper .sidebar-search-list-wrapper .create-channel-trigger.height {
+  height: 3rem;
+  width: 45%;
+  margin: 1rem auto 2rem auto;
+}
 .sidebar-wrapper .sidebar-channel-dmessage-wrapper {
   height: 82.4%;
   width: 101%;
   overflow-y: scroll;
+  font-size: 1.4rem;
 }
 .sidebar-wrapper .sidebar-channel-dmessage-wrapper::-webkit-scrollbar {
   width: 5px;
@@ -557,7 +677,7 @@ body {
 }
 .sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-channels-trigger {
   height: 3rem;
-  width: 15rem;
+  width: 20rem;
   cursor: pointer;
   background-color: #3c3e44;
   border: none;
@@ -565,6 +685,9 @@ body {
   transition: 0.3s all;
   color: #00c7bd;
   font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-bottom: 1rem;
 }
 .sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-channels-trigger:hover {
@@ -621,6 +744,9 @@ body {
   transition: 0.3s all;
   color: #00c7bd;
   font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-bottom: 1rem;
 }
 .sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-direct-messages-trigger:hover {
@@ -770,6 +896,7 @@ body {
   border: none;
   border-radius: 1rem;
   font-size: 1.8rem;
+  color: #cccccc;
   background-color: #4d4d4d;
   transition: opacity 0.25s ease-out 0s, visibility 0s ease 0.25s;
 }
@@ -816,7 +943,6 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin-bottom: 1rem;
 }
 .main-display .convo-screen .conversation-display-wrapper .conversation-display:first-child {
   margin-top: auto !important;
@@ -829,7 +955,7 @@ body {
   max-width: 49rem;
   background-color: #54575f;
   align-self: flex-start;
-  margin: 0.25rem 5rem;
+  margin: 0.25rem 2.5rem;
   font-size: 1.5rem;
   line-height: 1.25;
   padding: 0.5rem 1rem;

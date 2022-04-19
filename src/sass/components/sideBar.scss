@@ -14,25 +14,30 @@
     justify-content: space-between;
     background-color: $bg-color-lite;
     color: $in-color;
+    z-index: 2;
 
     .user-profile {
       margin-left: 1rem;
     }
 
-    .sidebar-navbar-options {
+    &-options {
       @include basicFlex;
 
       button {
         @include navbar-icons(3.2rem, -0.2rem);
       }
   
-      div {
+      &-menu {
+        position: relative;
+
         button {
           @include navbar-icons(2.5rem, 0);
         }
+
+        @include menuUl;
       }
   
-      div:nth-child(3) {
+      &-logout {
         position: relative;
   
         button {
@@ -145,6 +150,7 @@
     overflow-y: scroll;
     @include scrollbar;
     overflow-x: hidden;
+    font-size: 1.4rem;
 
     .search-list-categories {
       @include basicFlex;
@@ -161,6 +167,46 @@
         bottom: -50%;
         width: 80%;
         border-top: 1px solid hsl(0, 0%, 70%);
+      }
+    }
+
+    .channel-name-input {
+      @include basicFlex;
+      @include input;
+      width: 70%;
+      margin: 2rem auto 0 auto;
+
+      &:focus-visible {
+        outline: none;
+      }
+    }
+
+    .dummy {
+      height: 5rem;      
+    }
+
+    .added-members-list {
+      @include perimeter(7rem, 60%);
+      @include basicFlex;
+      justify-content: space-between;
+      color: hsl(0, 0%, 80%);
+      border-radius: 1rem;
+      margin: 0.1rem 0 0.1rem 9rem;
+
+      button {
+        @include perimeter(2.5rem, 2.5rem);
+        padding: none;
+        text-align: center;
+        cursor: pointer;
+        color: hsl(0, 0%, 80%);
+        border: none;
+        border-radius: 100%;
+        background-color: transparent;
+
+        &:hover {
+          color: hsl(0, 0%, 30%);
+          background-color: hsl(0, 0%, 80%);
+        }
       }
     }
 
@@ -187,11 +233,26 @@
         background-color: $bg-color-lite;
       }
     }
+
+    .create-channel-trigger {
+      @include perimeter(0rem, 45%);
+      @include basicFlex;
+      @include trigger;
+      @include invisible;
+      transition: height 0.3s ease-out;
+      
+      &.height {
+        @include perimeter(3rem, 45%);
+        margin: 1rem auto 2rem auto;
+      }
+
+    }
   }
 
   .sidebar-channel-dmessage-wrapper {
     @include perimeter(82.4%, 101%);
     overflow-y: scroll;
+    font-size: 1.4rem;
 
     &::-webkit-scrollbar {
       width: 5px;
@@ -199,7 +260,7 @@
 
     .sidebar-channels {
       @include message-categories;
-      @include trigger-and-list(15rem);
+      @include trigger-and-list(20rem);
     }
 
     .sidebar-direct-messages {

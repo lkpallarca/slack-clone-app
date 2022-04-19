@@ -2,25 +2,15 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { clearLoggedUser } from '../../../../utils/storage';
 
-export default function NavBar({ }) {
+export default function NavBar({ setIsCreatingChannel, onSearch }) {
   const [selectedButton, setSelectedButton] = useState('');
   const [showLogoutOptions, setShowLogoutOptions] = useState(false);
+  const [showMenuOptions, setShowMenuOptions] = useState(false);
   const navigate = useNavigate();
-
-  function handleSelectSettings() {
-    console.log('settings');
-  }
-
-  function handleSelectMenu() {
-    console.log('menu');
-  }
-
-  function handleSelectLogout() {
-    console.log('logout');
-  }
 
   function reset() {
     setSelectedButton('');
+    setShowMenuOptions(false);
     setShowLogoutOptions(false);
   }
 
@@ -34,32 +24,35 @@ export default function NavBar({ }) {
             onBlur={reset}
             onClick={()=> {
               setSelectedButton('settings');
-              handleSelectSettings();
           }}>
             <img src='settings-icon.png' alt='simple settings icon'/>
           </button>
-          <div>
+          <div className='sidebar-navbar-options-menu'>
             <button 
               className={selectedButton === 'menu' ? 'highlight' : ''} 
               onBlur={reset}
               onClick={()=> {
                 setSelectedButton('menu');
-                handleSelectMenu();
+                setShowMenuOptions(!showMenuOptions);
             }}>
               <img src='menu-icon.png' alt='simple menu icon'/>
             </button>
-            <ul>
-
+            <ul className={showMenuOptions ? 'show' : null}>
+              <li onClick={() => {
+                onSearch(true);
+                setIsCreatingChannel(true);
+              }}>New Channel</li>
+              <li>Archived</li>
+              <li>Settings</li>
             </ul>
           </div>
-          <div>
+          <div className='sidebar-navbar-options-logout'>
             <button 
               className={selectedButton === 'logout' ? 'highlight' : ''}
               onBlur={reset} 
               onClick={()=> {
                 setSelectedButton('logout');
                 setShowLogoutOptions(!showLogoutOptions);
-                handleSelectLogout();
             }}>
               <img src='logout-icon.png' alt='simple logout icon'/>
             </button>

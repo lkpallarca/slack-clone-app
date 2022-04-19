@@ -73,41 +73,7 @@
           @include navbar-icons(2.5rem, 0);
         }
   
-        ul {
-          @include perimeter(10rem, 20rem);
-          opacity: 0;
-          visibility: hidden;
-          top: 4.6rem;
-          right: 0.3rem;
-          text-align: center;
-          position: absolute;
-          border: none;
-          border-radius: 1rem;
-          font-size: 1.8rem;
-          background-color: hsl(0, 0%, 30%);
-          transition: opacity 0.25s ease-out 0s, visibility 0s ease 0.25s;
-
-          &::after {
-            content: "";
-            position: absolute;
-            top: -26%;
-            left: 83%;
-            border-width: 1.5rem;
-            border-style: solid;
-            border-color: transparent transparent hsl(0, 0%, 30%) transparent;
-          }
-
-          &.show {
-            transition: opacity 0.25s ease-out;
-            opacity: 1;
-            visibility: visible;
-          }
-
-          li {
-            margin: 1rem 0;
-            cursor: pointer;
-          }
-        }
+        @include menuUl;
       }
     }
 
@@ -121,7 +87,6 @@
       .conversation-display {
         @include basicFlex;
         flex-direction: column;
-        margin-bottom: 1rem;
 
         &:first-child {
           margin-top: auto !important;
@@ -135,7 +100,7 @@
           max-width: 49rem;
           background-color: hsl(225, 6%, 35%);
           align-self: flex-start;
-          margin: .25rem 5rem;
+          margin: .25rem 2.5rem;
           font-size: 1.5rem;
           line-height: 1.25;
           padding: 0.5rem 1rem;

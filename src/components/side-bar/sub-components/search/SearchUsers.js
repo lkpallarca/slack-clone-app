@@ -1,30 +1,40 @@
-import React, { useState } from 'react';
-import API from '../../../../API';
-import { getLoggedUser } from '../../../../utils/storage';
+import React, { useEffect } from 'react';
 
-export default function SearchUsers({ onSearch, searchingFor, setSearchingFor }) {
-  const [showSearch, setShowSearch] = useState(false);
+export default function SearchUsers({ onSearch, searchingFor, setSearchingFor, setIsCreatingChannel, selectedChannelMembers, setSelectedChannelMembers, showSearch, setShowSearch }) {
+  useEffect(() => {
+    if(showSearch) {
+      return
+    }
+    if(selectedChannelMembers.length) {
+      setShowSearch(true);
+    }
+  }, [selectedChannelMembers])
 
   function handleSubmit(e) {
     e.preventDefault();
-    e.target.reset();
   }
-
-  async function handleSearch(e) {
+  function handleSearch(e) {
     setSearchingFor(e.target.value);
+    if(!selectedChannelMembers.length && !e.target.value.length) {
+      console.log('nothing')
+      setShowSearch(false);
+      onSearch(false);
+      setIsCreatingChannel(false);
+      setSearchingFor('');
+      return
+    }
     if(e.target.value.length > 0) {
       onSearch(true);
       setShowSearch(true);
-    } else {
-      setShowSearch(false);
-      onSearch(false);
     }
   }
 
   function reset() {
     setShowSearch(false);
     onSearch(false);
+    setIsCreatingChannel(false);
     setSearchingFor('');
+    setSelectedChannelMembers([]);
   }
 
   return (

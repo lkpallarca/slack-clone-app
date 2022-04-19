@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Picker from 'emoji-picker-react';
 import API from '../../../../../API';
-import { addToDMessageHistoryList, getLoggedUser } from '../../../../../utils/storage';
+import { addToChannelHistoryList, addToDMessageHistoryList, getLoggedUser } from '../../../../../utils/storage';
 
-export default function MessageForm({ convoInfo, setMessageInstances }) {
+export default function MessageForm({ convoInfo, setUpdateListInstance }) {
   const [showEmoji, setShowEmoji] = useState(false);
   const [message, setMessage] = useState('');
   const loggedUser = getLoggedUser().data.id;
@@ -15,14 +15,17 @@ export default function MessageForm({ convoInfo, setMessageInstances }) {
 
   async function handleSubmit(e) {
     e.preventDefault();
+    const receiver = convoInfo.owner_id ? 'Channel' : 'User';
     await API.post('/messages', { 
       "receiver_id": JSON.stringify(convoInfo.id),
-      "receiver_class": 'User',
+      "receiver_class": receiver,
       "body": message }, 
       { headers: getLoggedUser().headers }
     );
-    setMessageInstances(prev => prev += 1);
-    addToDMessageHistoryList(getLoggedUser().data.id, convoInfo.id);
+    if(receiver === 'User') {
+      addToDMessageHistoryList(loggedUser, convoInfo.id);
+    }
+    setUpdateListInstance(prev => prev += 1);
     setShowEmoji(false);
     setMessage('');
   }

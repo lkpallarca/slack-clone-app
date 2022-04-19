@@ -6,25 +6,45 @@ export function getLoggedUser() {
 }
 
 export function setLoggedUser(user) {
-  localStorage.setItem(userKey, JSON.stringify(user));
-  const dMessageList = JSON.parse(localStorage.getItem(user.data.id));
+  const loggedUser = JSON.parse(localStorage.getItem(userKey));
+  const dMessageList = JSON.parse(localStorage.getItem(`${user.data.id}d`));
+  const channelList = JSON.parse(localStorage.getItem(`${user.data.id}c`));
+  if(!loggedUser) {
+    localStorage.setItem(userKey, JSON.stringify(user));
+  }
   if(!dMessageList) {
-    localStorage.setItem(JSON.stringify(user.data.id), JSON.stringify([]));
+    localStorage.setItem(`${user.data.id}d`, JSON.stringify([]));
   } 
+  if(!channelList) {
+    localStorage.setItem(`${user.data.id}c`, JSON.stringify([]));
+  }
 }
 
 export function getDMessageHistoryList(currentUser) {
-  let convoHistoryList = JSON.parse(localStorage.getItem(JSON.stringify(currentUser)));
+  let convoHistoryList = JSON.parse(localStorage.getItem(`${currentUser}d`));
+  return convoHistoryList;
+}
+
+export function getChannelHistoryList(currentUser) {
+  let convoHistoryList = JSON.parse(localStorage.getItem(`${currentUser}c`));
   return convoHistoryList;
 }
 
 export function addToDMessageHistoryList(loggedUserId, selectedConvoId) {
-  let alreadyMessagedList = JSON.parse(localStorage.getItem(JSON.stringify(loggedUserId)));
-  console.log(alreadyMessagedList);
+  let alreadyMessagedList = JSON.parse(localStorage.getItem(`${loggedUserId}d`));
   const findChat = alreadyMessagedList.find(each => each === selectedConvoId);
   if(!findChat) {
     alreadyMessagedList.push(selectedConvoId);
-    localStorage.setItem(JSON.stringify(loggedUserId), JSON.stringify(alreadyMessagedList));
+    localStorage.setItem(`${loggedUserId}d`, JSON.stringify(alreadyMessagedList));
+  }
+}
+
+export function addToChannelHistoryList(loggedUserId, selectedConvoId) {
+  let alreadyMessagedList = JSON.parse(localStorage.getItem(`${loggedUserId}c`));
+  const findChat = alreadyMessagedList.find(each => each === selectedConvoId);
+  if(!findChat) {
+    alreadyMessagedList.push(selectedConvoId);
+    localStorage.setItem(`${loggedUserId}c`, JSON.stringify(alreadyMessagedList));
   }
 }
 
