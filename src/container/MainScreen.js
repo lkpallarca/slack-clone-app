@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import API from '../API';
+import ErrorAlert from '../components/alerts/ErrorAlert';
 import LoadingScreen from '../components/loading-screen/LoadingScreen';
 import MainDisplay from '../components/main-display/MainDisplay';
 import SideBar from '../components/side-bar/SideBar';
 import '../css/index.css';
-import { getChannelHistoryList, getDMessageHistoryList, getLoggedUser } from '../utils/storage';
+import { getDMessageHistoryList, getLoggedUser } from '../utils/storage';
 
 export default function MainScreen({ show }) {
   const [isLoading, setIsLoading] = useState(true);
@@ -16,21 +17,15 @@ export default function MainScreen({ show }) {
   const [convoInfo, setConvoInfo] = useState(null);
   const [messages, setMessages] = useState([]);
   const [updateListInstance, setUpdateListInstance] = useState(0);
-  const [isNewMessage, setIsNewMessage] = useState(false);
+  const [isError, setIsError] = useState(true);
   const loggedUser = getLoggedUser().data.id;
+  const [error, setError] = useState('');
+  const [alert, setAlert] = useState(false);
   
   async function fetchUsers() {
     const fetchedUsers = await API.get('/users', { headers: getLoggedUser().headers });
     const fetchedChannels = await API.get('/channels', { headers: getLoggedUser().headers });
     let dMessageHistoryList = getDMessageHistoryList(getLoggedUser().data.id);
-    // let channelHistoryList = getChannelHistoryList(getLoggedUser().data.id);
-    // const modifiedChannelHistoryList = channelHistoryList.filter(each => each.owner_id !== getLoggedUser().data.id);
-    // if(!fetchedChannels.data.data && channelHistoryList) {
-    //   setSearchData({users: [...fetchedUsers.data.data], channels: [...modifiedChannelHistoryList]});
-    //   compareDMessageList(dMessageHistoryList, fetchedUsers.data.data);
-    //   setChannelList([...modifiedChannelHistoryList]);
-    //   setIsLoading(false);
-    // }
     if(!fetchedChannels.data.data) {
       setSearchData({users: [...fetchedUsers.data.data], channels: []});
       compareDMessageList(dMessageHistoryList, fetchedUsers.data.data);
@@ -62,15 +57,8 @@ export default function MainScreen({ show }) {
     setMessages(sortedMessageList);
   }
 
-  async function test() {
-    const sample = await API.get('/channels/2853', { headers: getLoggedUser().headers});
-    // const sample = await API.post('/channel/add_member', {'id': 2850, 'member_id': 1998}, {headers: getLoggedUser().headers})
-    console.log(sample)
-  }
-
   useEffect(() => {
     fetchUsers();
-    // test()
   }, [])
 
   useEffect(() => {
@@ -100,6 +88,9 @@ export default function MainScreen({ show }) {
             dMessageList={dMessageList}
             channelList={channelList}
             setChannelList={setChannelList}
+            setIsError={setIsError}
+            setError={setError}
+            setAlert={setAlert}
           />
           <MainDisplay 
             convoSelected={convoSelected} 
@@ -109,6 +100,7 @@ export default function MainScreen({ show }) {
             messages={messages}
             setUpdateListInstance={setUpdateListInstance}
           />
+          <ErrorAlert state={alert} setState={setAlert} message={error} isError={isError}/>
         </>
         }
       </section> 

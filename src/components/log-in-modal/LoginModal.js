@@ -7,11 +7,12 @@ import ErrorAlert from '../alerts/ErrorAlert';
 import SignUpModal from '../sign-up-modal/SignUpModal';
 
 export default function LoginModal({ setShow }) {
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [showModal, setShowModal] = useState('sign-up-modal-wrapper hide');
-  const [error, setError] = useState();
+  const [error, setError] = useState('');
   const [alert, setAlert] = useState(false)
+  const isError = true;
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -63,7 +64,7 @@ export default function LoginModal({ setShow }) {
         </form>
       </div>
       <SignUpModal displayState={showModal} setDisplayState={setShowModal}/>
-      <ErrorAlert state={alert} setState={setAlert} message={error}/>
+      <ErrorAlert state={alert} setState={setAlert} message={error} isError={isError}/>
     </section>
   );
 }

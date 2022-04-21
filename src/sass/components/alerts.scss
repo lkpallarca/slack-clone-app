@@ -17,7 +17,7 @@
   }
 
   div {
-    @include perimeter(10rem, 50rem);
+    @include perimeter(10rem, max-content);
     @include basicFlex;
     flex-direction: column;
     position: fixed;
@@ -30,11 +30,13 @@
     background-color: hsl(0, 0%, 30%);
 
     p {
-      margin: 0.5rem 0;
+      margin: 0.5rem 2rem 1rem 2rem;
+      color: hsl(0, 0%, 80%);
     }
 
     button {
-      margin: 0.5rem 0;
+      @include perimeter(3rem, 7rem);
+      @include trigger;
     }
   }
 

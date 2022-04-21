@@ -1,24 +1,29 @@
-import axios from 'axios';
 import React, { useState } from 'react';
 import API from '../../API';
 import '../../css/index.css';
 import ErrorAlert from '../alerts/ErrorAlert';
 
 export default function SignUpModal({ displayState, setDisplayState, passedId }) {
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
-  const [confirmPassword, setConfirmPassword] = useState();
-  const [alert, setAlert] = useState('');
-  const [error, setError] = useState(false);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [error, setError] = useState('');
+  const [alert, setAlert] = useState(false);
+  const [isError, setIsError] = useState(true);
 
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      const response = await API.post('/auth/', { email, password, "password_confirmation": confirmPassword });
+      await API.post('/auth/', { email, password, "password_confirmation": confirmPassword });
     } catch (err) {
+      setIsError(true);
       setError(err.response.data.errors.full_messages[0]);
       setAlert(!alert);
+      return
     }
+    setIsError(false);
+    setError('Successful sign up!');
+    setAlert(true);
     e.target.reset();
   }
   
@@ -54,7 +59,7 @@ export default function SignUpModal({ displayState, setDisplayState, passedId })
           <button type='submit' className='sign-up-button'>Sign Up</button>
         </div>
       </form>
-      <ErrorAlert state={alert} setState={setAlert} message={error}/>
+      <ErrorAlert state={alert} setState={setAlert} message={error} isError={isError}/>
     </section>
   );
 }

@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { v4 as uuidv4 } from 'uuid';
-import API from '../../../../API';
-import { getLoggedUser } from '../../../../utils/storage';
 import CreateChannel from '../create-channel/CreateChannel';
 
-export default function SearchList({ passedSearch, searchingFor, highlightConvo, setHighlightConvo, setConvoSelected, setConvoInfo, convoInfo, isCreatingChannel, onSearch, selectedChannelMembers, setSelectedChannelMembers, setShowSearch, setSearchingFor, channelList, setChannelList, isAddingMember }) {
+export default function SearchList({ passedSearch, setIsError, searchingFor, highlightConvo, setHighlightConvo, setConvoSelected, setConvoInfo, convoInfo, isCreatingChannel, onSearch, selectedChannelMembers, setSelectedChannelMembers, setShowSearch, setSearchingFor, channelList, setChannelList, isAddingMember, setAlert, setError }) {
   const { users, channels } = passedSearch;
   const [showCreateChannelTrigger, setShowCreateChannelTrigger] = useState(false);
 
@@ -59,6 +56,9 @@ export default function SearchList({ passedSearch, searchingFor, highlightConvo,
             channelList={channelList}
             setChannelList={setChannelList}
             isAddingMember={isAddingMember}
+            setAlert={setAlert}
+            setError={setError}
+            setIsError={setIsError}
           /> : null
         }
         <div className='search-list-categories'>Users</div>

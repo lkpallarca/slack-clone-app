@@ -1,13 +1,12 @@
 import React from 'react';
 import '../../css/index.css';
 
-export default function ErrorAlert({ state, setState, message }) {
+export default function ErrorAlert({ state, setState, message, isError }) {
   return (
     <section className={state ? 'error-alert show' : 'error-alert'}>
       <div>
-        <p>OOPS!</p>
-        <p>{message}</p>
-        <button onClick={() => setState(!state)}>Close</button>
+        {isError ? <p>{`Sorry, ${message}`}</p> : <p>{`Great! ${message}`}</p>}
+        <button onClick={() => setState(!state)}>Okay</button>
       </div>
     </section>
   )

@@ -15,7 +15,7 @@
 }
 .error-alert div {
   height: 10rem;
-  width: 50rem;
+  width: max-content;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -30,8 +30,20 @@
   background-color: #4d4d4d;
 }
 .error-alert div p {
-  margin: 0.5rem 0;
+  margin: 0.5rem 2rem 1rem 2rem;
+  color: #cccccc;
 }
 .error-alert div button {
-  margin: 0.5rem 0;
+  height: 3rem;
+  width: 7rem;
+  cursor: pointer;
+  background-color: #3c3e44;
+  border: none;
+  border-radius: 4rem;
+  transition: 0.3s all;
+  color: #00c7bd;
+  font-size: 1.8rem;
+}
+.error-alert div button:hover {
+  background-color: #344c4a;
 }
