@@ -16,7 +16,21 @@
   z-index: 2;
 }
 .sidebar-wrapper .sidebar-navbar .user-profile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 1.5rem;
+  color: #cccccc;
+  font-size: 1.4rem;
+}
+.sidebar-wrapper .sidebar-navbar .user-profile p {
   margin-left: 1rem;
+}
+.sidebar-wrapper .sidebar-navbar .user-profile img {
+  height: 4rem;
+  width: 4rem;
+  border: 1px solid #cccccc;
+  border-radius: 100%;
 }
 .sidebar-wrapper .sidebar-navbar-options {
   display: flex;
@@ -359,7 +373,7 @@
   height: 82.4%;
   width: 101%;
   overflow-y: scroll;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
 }
 .sidebar-wrapper .sidebar-channel-dmessage-wrapper::-webkit-scrollbar {
   width: 5px;
@@ -406,6 +420,18 @@
   border-radius: 1rem;
   margin: 0.1rem 0;
   position: relative;
+}
+.sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-channels-list div p {
+  align-self: left;
+  margin-left: -10rem;
+}
+.sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-channels-list div img {
+  position: absolute;
+  left: 4rem;
+  height: 4rem;
+  width: 4rem;
+  border: 1px solid #cccccc;
+  border-radius: 100%;
 }
 .sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-channels-list div button {
   width: 5rem;
@@ -480,6 +506,18 @@
   border-radius: 1rem;
   margin: 0.1rem 0;
   position: relative;
+}
+.sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-direct-messages-list div p {
+  align-self: left;
+  margin-left: -10rem;
+}
+.sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-direct-messages-list div img {
+  position: absolute;
+  left: 4rem;
+  height: 4rem;
+  width: 4rem;
+  border: 1px solid #cccccc;
+  border-radius: 100%;
 }
 .sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-direct-messages-list div button {
   width: 5rem;

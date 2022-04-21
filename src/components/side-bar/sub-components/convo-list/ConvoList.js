@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 export default function ConvoList({ setIsCreatingChannel, setIsAddingMember, setIsSearching, setConvoSelected, highlightConvo, setHighlightConvo, setConvoInfo, convoInfo, dMessageList, channelList }) {
   const [channelDisplay, setChannelDisplay] = useState(false);
   const [dMessageDisplay, setDMessageDisplay] = useState(false);
+  const image = `https://avatars.dicebear.com/api/human/`;
 
   let sampleChannels = [
     {id: 1, name: 'one'},
@@ -40,7 +41,8 @@ export default function ConvoList({ setIsCreatingChannel, setIsAddingMember, set
                 className={each.id === highlightConvo ? 'sidebar-channels-list highlight show' : 'sidebar-channels-list show'} 
                 onClick={() => handleConvoSelect(each)}
               >
-                {modifiedName}
+                <img src={`${image}${each.id}.svg`}/>
+                <p>{modifiedName}</p> 
                 {each.id === highlightConvo ? <button onClick={() => {
                   setIsSearching(true);
                   setIsAddingMember(true);
@@ -62,7 +64,8 @@ export default function ConvoList({ setIsCreatingChannel, setIsAddingMember, set
               className={each.id === highlightConvo ? 'sidebar-channels-list highlight show' : 'sidebar-channels-list show'} 
               onClick={() => handleConvoSelect(each)}
             >
-              {each.email}
+              <img src={`${image}${each.id}.svg`}/>
+              <p>{each.email}</p>
             </div>
           )
         })}

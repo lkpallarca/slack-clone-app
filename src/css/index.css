@@ -203,7 +203,7 @@ body {
   height: 75vh;
   width: 50vw;
   border-radius: 1rem;
-  background-color: #344c4a;
+  background-color: #293d3b;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -218,7 +218,7 @@ body {
 }
 .sign-up-modal-wrapper .sign-up-info {
   text-align: center;
-  color: #00c7bd;
+  color: #cccccc;
   font-size: 2.48rem;
   margin-bottom: 3.2rem;
 }
@@ -320,7 +320,21 @@ body {
   z-index: 2;
 }
 .sidebar-wrapper .sidebar-navbar .user-profile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 1.5rem;
+  color: #cccccc;
+  font-size: 1.4rem;
+}
+.sidebar-wrapper .sidebar-navbar .user-profile p {
   margin-left: 1rem;
+}
+.sidebar-wrapper .sidebar-navbar .user-profile img {
+  height: 4rem;
+  width: 4rem;
+  border: 1px solid #cccccc;
+  border-radius: 100%;
 }
 .sidebar-wrapper .sidebar-navbar-options {
   display: flex;
@@ -663,7 +677,7 @@ body {
   height: 82.4%;
   width: 101%;
   overflow-y: scroll;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
 }
 .sidebar-wrapper .sidebar-channel-dmessage-wrapper::-webkit-scrollbar {
   width: 5px;
@@ -710,6 +724,18 @@ body {
   border-radius: 1rem;
   margin: 0.1rem 0;
   position: relative;
+}
+.sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-channels-list div p {
+  align-self: left;
+  margin-left: -10rem;
+}
+.sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-channels-list div img {
+  position: absolute;
+  left: 4rem;
+  height: 4rem;
+  width: 4rem;
+  border: 1px solid #cccccc;
+  border-radius: 100%;
 }
 .sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-channels-list div button {
   width: 5rem;
@@ -784,6 +810,18 @@ body {
   border-radius: 1rem;
   margin: 0.1rem 0;
   position: relative;
+}
+.sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-direct-messages-list div p {
+  align-self: left;
+  margin-left: -10rem;
+}
+.sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-direct-messages-list div img {
+  position: absolute;
+  left: 4rem;
+  height: 4rem;
+  width: 4rem;
+  border: 1px solid #cccccc;
+  border-radius: 100%;
 }
 .sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-direct-messages-list div button {
   width: 5rem;
@@ -887,6 +925,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  justify-content: space-between;
   background-color: #3c3e44;
 }
 .main-display .convo-screen .mainbar-navbar div {
@@ -894,6 +933,16 @@ body {
   align-items: center;
   justify-content: center;
   position: relative;
+  font-size: 1.6rem;
+  margin: 0 2.5rem 0 0;
+  color: #cccccc;
+}
+.main-display .convo-screen .mainbar-navbar div .chat-image {
+  height: 4rem;
+  width: 4rem;
+  border: 1px solid #cccccc;
+  border-radius: 100%;
+  margin: 0 1.5rem;
 }
 .main-display .convo-screen .mainbar-navbar div button {
   height: 4.5rem;
@@ -980,8 +1029,9 @@ body {
 .main-display .convo-screen .conversation-display-wrapper .conversation-display .message-bubble {
   display: flex;
   align-items: center;
+  position: relative;
   min-height: 1.5rem;
-  min-width: 9.5rem;
+  min-width: 10rem;
   max-width: 49rem;
   background-color: #54575f;
   align-self: flex-start;
@@ -991,6 +1041,13 @@ body {
   padding: 0.5rem 1rem;
   border-radius: 1rem;
   color: #e6e6e6;
+}
+.main-display .convo-screen .conversation-display-wrapper .conversation-display .message-bubble .message-date {
+  position: absolute;
+  bottom: -1.5rem;
+  right: 0.5rem;
+  font-size: 1rem;
+  color: #cccccc;
 }
 .main-display .convo-screen .conversation-display-wrapper .conversation-display .message-bubble.me {
   align-self: flex-end;
@@ -1028,7 +1085,7 @@ body {
 }
 .main-display .convo-screen .message-form-wrapper .form {
   height: 100%;
-  width: 105%;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1052,7 +1109,7 @@ body {
 }
 .main-display .convo-screen .message-form-wrapper .form .message-input input {
   height: 3.75rem;
-  width: 78rem;
+  width: 80rem;
   padding-left: 2rem;
   border: none;
   border-radius: 1rem;

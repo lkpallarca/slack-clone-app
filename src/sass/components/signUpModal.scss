@@ -5,7 +5,7 @@
   @include modal(12.5%);
   @include perimeter(75vh, 50vw);
   border-radius: 1rem;
-  background-color: $out-color;
+  background-color: hsl(175, 19%, 20%);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -22,7 +22,7 @@
 
   .sign-up-info {
     text-align: center;
-    color: $color;
+    color: hsl(0, 0%, 80%);
     font-size: 2.48rem;
     margin-bottom: 3.2rem;
   }

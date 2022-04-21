@@ -112,6 +112,17 @@
       margin: 0.1rem 0;
       position: relative;
 
+      p {
+        align-self: left;
+        margin-left: -10rem;
+      }
+
+      img {
+        position: absolute;
+        left: 4rem;
+        @include chat-icon;
+      }
+
       button {
         width: 5rem;
         position: absolute;
@@ -151,6 +162,12 @@
       }
     }
   }
+}
+
+@mixin chat-icon {
+  @include perimeter(4rem, 4rem);
+  border: 1px solid hsl(0, 0%, 80%);
+  border-radius: 100%;
 }
 
 @mixin infocard($fs, $sm, $c) {

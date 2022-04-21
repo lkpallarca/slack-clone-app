@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { clearLoggedUser } from '../../../../utils/storage';
+import { clearLoggedUser, getLoggedUser } from '../../../../utils/storage';
 
 export default function NavBar({ setIsCreatingChannel, onSearch }) {
   const [selectedButton, setSelectedButton] = useState('');
   const [showLogoutOptions, setShowLogoutOptions] = useState(false);
   const [showMenuOptions, setShowMenuOptions] = useState(false);
+  const image = `https://avatars.dicebear.com/api/male/`;
   const navigate = useNavigate();
 
   function reset() {
@@ -17,16 +18,11 @@ export default function NavBar({ setIsCreatingChannel, onSearch }) {
   return (
     <>
       <nav className='sidebar-navbar'>
-        <div className='user-profile'>lpallarca</div>
+        <div className='user-profile'>
+          <img src={`${image}${getLoggedUser().data.id}.svg`}/>
+          <p>{getLoggedUser().data.email}</p>
+        </div>
         <div className='sidebar-navbar-options'>
-          <button
-            className={selectedButton === 'settings' ? 'highlight' : ''} 
-            onBlur={reset}
-            onClick={()=> {
-              setSelectedButton('settings');
-          }}>
-            <img src='settings-icon.png' alt='simple settings icon'/>
-          </button>
           <div className='sidebar-navbar-options-menu'>
             <button 
               className={selectedButton === 'menu' ? 'highlight' : ''} 

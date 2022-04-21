@@ -63,11 +63,22 @@
     .mainbar-navbar {
       @include perimeter(9.5%, 100%);
       @include basicFlex;
+      justify-content: space-between;
       background-color: $bg-color-lite;
 
       div {
         @include basicFlex;
         position: relative;
+        font-size: 1.6rem;
+        margin: 0 2.5rem 0 0;
+        color: hsl(0, 0%, 80%);
+
+        .chat-image {
+          @include perimeter(4rem, 4rem);
+          border: 1px solid hsl(0, 0%, 80%);
+          border-radius: 100%;
+          margin: 0 1.5rem;
+        }
 
         button {
           @include navbar-icons(2.5rem, 0);
@@ -95,8 +106,9 @@
         .message-bubble {
           display: flex;
           align-items: center;
+          position: relative;
           min-height: 1.5rem;
-          min-width: 9.5rem;
+          min-width: 10rem;
           max-width: 49rem;
           background-color: hsl(225, 6%, 35%);
           align-self: flex-start;
@@ -106,6 +118,14 @@
           padding: 0.5rem 1rem;
           border-radius: 1rem;
           color: hsl(0, 0%, 90%);
+
+          .message-date {
+            position: absolute;
+            bottom: -1.5rem;
+            right: 0.5rem;
+            font-size: 1rem;
+            color: hsl(0, 0%, 80%);
+          }
   
           &.me{
             align-self: flex-end;
@@ -147,16 +167,8 @@
         }
       }
 
-      // other message options
-      // button {
-      //   @include perimeter(3rem, 3rem);
-      //   margin: 0 0.5rem;
-      //   cursor: pointer;
-      // }
-      // 
-
       .form {
-        @include perimeter(100%, 105%);
+        @include perimeter(100%, 100%);
         @include basicFlex;
         background-color: $bg-color-lite;
   
@@ -175,7 +187,7 @@
           }
   
           input {
-            @include perimeter(3.75rem, 78rem);
+            @include perimeter(3.75rem, 80rem);
             padding-left: 2rem;
             border: none;
             border-radius: 1rem;
@@ -183,7 +195,7 @@
             color: hsl(0, 0%, 80%);
             font-size: 1.5rem;
             margin: 0 0 0 0.5rem;
-  
+            
             &::placeholder {
               padding-left: 0.5rem;
               color: hsl(0, 0%, 80%);

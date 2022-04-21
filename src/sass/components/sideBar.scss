@@ -17,7 +17,18 @@
     z-index: 2;
 
     .user-profile {
-      margin-left: 1rem;
+      @include basicFlex;
+      margin-left: 1.5rem;
+      color: hsl(0, 0%, 80%);
+      font-size: 1.4rem;
+
+      p {
+        margin-left: 1rem;
+      }
+
+      img {
+        @include chat-icon;
+      }
     }
 
     &-options {
@@ -252,7 +263,7 @@
   .sidebar-channel-dmessage-wrapper {
     @include perimeter(82.4%, 101%);
     overflow-y: scroll;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
 
     &::-webkit-scrollbar {
       width: 5px;

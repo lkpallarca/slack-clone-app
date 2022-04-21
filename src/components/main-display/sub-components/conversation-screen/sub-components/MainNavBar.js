@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 export default function MainNavBar({ setConvoListHighlight, setConvoSelected, convoInfo }) {
   const [selectedButton, setSelectedButton] = useState('');
   const [showMenuOptions, setShowMenuOptions] = useState(false);
+  const image = 'https://avatars.dicebear.com/api/human/';
 
   function reset() {
     setSelectedButton('');
@@ -12,7 +13,8 @@ export default function MainNavBar({ setConvoListHighlight, setConvoSelected, co
   return (
     <nav className='mainbar-navbar'>
       <div>
-        {convoInfo.id}
+        <img src={`${image}${convoInfo.id}.svg`} className='chat-image'/>
+        {convoInfo.owner_id ? convoInfo.name.replace(/"/g, '') : convoInfo.email}
       </div>
       <div>
         <button 
@@ -25,8 +27,6 @@ export default function MainNavBar({ setConvoListHighlight, setConvoSelected, co
           <img src='menu-icon.png' alt='simple menu icon'/>
         </button>
         <ul className={showMenuOptions ? 'show' : null}>
-          {convoInfo.owner_id ? <li>Add member to Channel</li> : null}
-          <li>Chat Info</li>
           <li onClick={()=> {
             setConvoListHighlight(false);
             setConvoSelected(false);
