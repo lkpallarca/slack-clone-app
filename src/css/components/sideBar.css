@@ -65,8 +65,8 @@
   width: 2.5rem;
 }
 .sidebar-wrapper .sidebar-navbar-options-menu ul {
-  height: 10rem;
-  width: 20rem;
+  height: auto;
+  width: 22rem;
   opacity: 0;
   visibility: hidden;
   top: 4.6rem;
@@ -393,22 +393,37 @@
   display: none;
 }
 .sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-channels-list.show {
+  width: 98%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  width: 98%;
 }
 .sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-channels-list div {
   height: 7rem;
-  width: 99%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   cursor: pointer;
   color: #cccccc;
   border-radius: 1rem;
   margin: 0.1rem 0;
+  position: relative;
+}
+.sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-channels-list div button {
+  width: 5rem;
+  position: absolute;
+  right: 0;
+  background-color: transparent;
+  border: none;
+  font-size: 3rem;
+  color: #cccccc;
+  cursor: pointer;
+}
+.sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-channels-list div button:hover::after {
+  content: "Add member to this channel";
+  width: 13rem;
+  font-size: 1rem;
+  position: absolute;
+  right: 0.25rem;
+  top: -1rem;
 }
 .sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-channels-list div.highlight {
   border: none;
@@ -452,22 +467,37 @@
   display: none;
 }
 .sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-direct-messages-list.show {
+  width: 98%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  width: 98%;
 }
 .sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-direct-messages-list div {
   height: 7rem;
-  width: 99%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   cursor: pointer;
   color: #cccccc;
   border-radius: 1rem;
   margin: 0.1rem 0;
+  position: relative;
+}
+.sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-direct-messages-list div button {
+  width: 5rem;
+  position: absolute;
+  right: 0;
+  background-color: transparent;
+  border: none;
+  font-size: 3rem;
+  color: #cccccc;
+  cursor: pointer;
+}
+.sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-direct-messages-list div button:hover::after {
+  content: "Add member to this channel";
+  width: 13rem;
+  font-size: 1rem;
+  position: absolute;
+  right: 0.25rem;
+  top: -1rem;
 }
 .sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-direct-messages-list div.highlight {
   border: none;

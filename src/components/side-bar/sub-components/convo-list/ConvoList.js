@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
-export default function ConvoList({ setConvoSelected, highlightConvo, setHighlightConvo, setConvoInfo, convoInfo, dMessageList, channelList }) {
+export default function ConvoList({ setIsCreatingChannel, setIsAddingMember, setIsSearching, setConvoSelected, highlightConvo, setHighlightConvo, setConvoInfo, convoInfo, dMessageList, channelList }) {
   const [channelDisplay, setChannelDisplay] = useState(false);
   const [dMessageDisplay, setDMessageDisplay] = useState(false);
 
@@ -41,6 +41,11 @@ export default function ConvoList({ setConvoSelected, highlightConvo, setHighlig
                 onClick={() => handleConvoSelect(each)}
               >
                 {modifiedName}
+                {each.id === highlightConvo ? <button onClick={() => {
+                  setIsSearching(true);
+                  setIsAddingMember(true);
+                  setIsCreatingChannel(true);
+                }}>+</button> : null}
               </div>
             )
           })}

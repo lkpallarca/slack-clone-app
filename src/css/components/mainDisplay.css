@@ -96,8 +96,8 @@
   width: 2.5rem;
 }
 .main-display .convo-screen .mainbar-navbar div ul {
-  height: 10rem;
-  width: 20rem;
+  height: auto;
+  width: 22rem;
   opacity: 0;
   visibility: hidden;
   top: 4.6rem;

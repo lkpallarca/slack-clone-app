@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-export default function SearchUsers({ onSearch, searchingFor, setSearchingFor, setIsCreatingChannel, selectedChannelMembers, setSelectedChannelMembers, showSearch, setShowSearch }) {
+export default function SearchUsers({ setIsAddingMember, onSearch, searchingFor, setSearchingFor, setIsCreatingChannel, selectedChannelMembers, setSelectedChannelMembers, showSearch, setShowSearch }) {
   useEffect(() => {
     if(showSearch) {
       return
@@ -16,11 +16,7 @@ export default function SearchUsers({ onSearch, searchingFor, setSearchingFor, s
   function handleSearch(e) {
     setSearchingFor(e.target.value);
     if(!selectedChannelMembers.length && !e.target.value.length) {
-      console.log('nothing')
-      setShowSearch(false);
-      onSearch(false);
-      setIsCreatingChannel(false);
-      setSearchingFor('');
+      reset()
       return
     }
     if(e.target.value.length > 0) {
@@ -33,6 +29,7 @@ export default function SearchUsers({ onSearch, searchingFor, setSearchingFor, s
     setShowSearch(false);
     onSearch(false);
     setIsCreatingChannel(false);
+    setIsAddingMember(false);
     setSearchingFor('');
     setSelectedChannelMembers([]);
   }

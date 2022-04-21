@@ -25,14 +25,14 @@ export default function MainNavBar({ setConvoListHighlight, setConvoSelected, co
           <img src='menu-icon.png' alt='simple menu icon'/>
         </button>
         <ul className={showMenuOptions ? 'show' : null}>
-          <li>Contact Info</li>
+          {convoInfo.owner_id ? <li>Add member to Channel</li> : null}
+          <li>Chat Info</li>
           <li onClick={()=> {
             setConvoListHighlight(false);
             setConvoSelected(false);
           }}>
             Close Chat
           </li>
-          <li>Delete Chat</li>
         </ul>
       </div>
     </nav>

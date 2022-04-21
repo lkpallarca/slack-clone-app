@@ -99,18 +99,40 @@
     display: none;
     
     &.show {
+      width: 98%;
       @include basicFlex;
       flex-direction: column;
-      width: 98%;
     }
 
     div {
-      @include perimeter(7rem, 99%);
-      @include basicFlex;
+      height: 7rem;
       cursor: pointer;
       color: hsl(0, 0%, 80%);
       border-radius: 1rem;
       margin: 0.1rem 0;
+      position: relative;
+
+      button {
+        width: 5rem;
+        position: absolute;
+        right: 0;
+        background-color: transparent;
+        border: none;
+        font-size: 3rem;
+        color: hsl(0, 0%, 80%);
+        cursor: pointer;
+
+        &:hover {
+          &::after {
+            content: 'Add member to this channel';
+            width: 13rem;
+            font-size: 1rem;
+            position: absolute;
+            right: 0.25rem;
+            top: -1rem;
+          }
+        }
+      }
 
       &.highlight {
         border: none;
@@ -161,7 +183,7 @@
 
 @mixin menuUl {
   ul {
-    @include perimeter(10rem, 20rem);
+    @include perimeter(auto, 22rem);
     opacity: 0;
     visibility: hidden;
     top: 4.6rem;

@@ -22,27 +22,29 @@ export default function MainScreen({ show }) {
   async function fetchUsers() {
     const fetchedUsers = await API.get('/users', { headers: getLoggedUser().headers });
     const fetchedChannels = await API.get('/channels', { headers: getLoggedUser().headers });
-    const sampleFetch = await API.get(`/messages?receiver_id=2791&receiver_class=Channel`, { headers: getLoggedUser().headers });
-    // console.log(sampleFetch)
     let dMessageHistoryList = getDMessageHistoryList(getLoggedUser().data.id);
-    let channelHistoryList = getChannelHistoryList(getLoggedUser().data.id);
-    console.log('dm history', dMessageHistoryList)
-    console.log('channel history', channelHistoryList)
-
+    // let channelHistoryList = getChannelHistoryList(getLoggedUser().data.id);
+    // const modifiedChannelHistoryList = channelHistoryList.filter(each => each.owner_id !== getLoggedUser().data.id);
+    // if(!fetchedChannels.data.data && channelHistoryList) {
+    //   setSearchData({users: [...fetchedUsers.data.data], channels: [...modifiedChannelHistoryList]});
+    //   compareDMessageList(dMessageHistoryList, fetchedUsers.data.data);
+    //   setChannelList([...modifiedChannelHistoryList]);
+    //   setIsLoading(false);
+    // }
     if(!fetchedChannels.data.data) {
       setSearchData({users: [...fetchedUsers.data.data], channels: []});
-      mapConvoList(dMessageHistoryList, fetchedUsers.data.data);
+      compareDMessageList(dMessageHistoryList, fetchedUsers.data.data);
       setIsLoading(false);
       return
     } else {
       setSearchData({users: [...fetchedUsers.data.data], channels: [...fetchedChannels.data.data]});
-      mapConvoList(dMessageHistoryList, fetchedUsers.data.data);
-      setChannelList(fetchedChannels.data.data);
+      compareDMessageList(dMessageHistoryList, fetchedUsers.data.data);
+      setChannelList([...fetchedChannels.data.data]);
       setIsLoading(false);
     }
   }
 
-  function mapConvoList(chattingWith, allUsers) {
+  function compareDMessageList(chattingWith, allUsers) {
     chattingWith.forEach(every => {
       allUsers.forEach(each => {
         if(each.id === every) {
@@ -58,31 +60,28 @@ export default function MainScreen({ show }) {
     const fetchedMessagesTo = await API.get(`/messages?receiver_id=${convoInfo.id}&receiver_class=${receiver}`, { headers: getLoggedUser().headers });
     const sortedMessageList = [...fetchedMessagesFrom.data.data, ...fetchedMessagesTo.data.data].slice().sort((a,b)=> a.id - b.id);
     setMessages(sortedMessageList);
-    if(sortedMessageList.length === 0) {
-      setIsNewMessage(true);
-    } else {
-      setIsNewMessage(false);
-    }
+  }
+
+  async function test() {
+    const sample = await API.get('/channels/2853', { headers: getLoggedUser().headers});
+    // const sample = await API.post('/channel/add_member', {'id': 2850, 'member_id': 1998}, {headers: getLoggedUser().headers})
+    console.log(sample)
   }
 
   useEffect(() => {
     fetchUsers();
+    // test()
   }, [])
 
   useEffect(() => {
+    const checkDMessageList = dMessageList.find(each => each.id === convoInfo.id);
     if(convoInfo === null) {
       return
     }
-    fetchMessages();
-    if(isNewMessage === false) {
-      return
-    } 
-    if(isNewMessage === true && convoInfo.owner_id) {
-      channelList.push(convoInfo)
-      return
-    } else {
-      dMessageList.push(convoInfo)
+    if(!checkDMessageList && !convoInfo.owner_id) {
+      setDMessageList([...dMessageList, convoInfo]);
     }
+    fetchMessages();
   }, [updateListInstance, convoInfo])
 
   return (
@@ -100,6 +99,7 @@ export default function MainScreen({ show }) {
             convoInfo={convoInfo}
             dMessageList={dMessageList}
             channelList={channelList}
+            setChannelList={setChannelList}
           />
           <MainDisplay 
             convoSelected={convoSelected} 

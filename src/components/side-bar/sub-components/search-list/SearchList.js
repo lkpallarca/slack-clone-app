@@ -4,12 +4,16 @@ import API from '../../../../API';
 import { getLoggedUser } from '../../../../utils/storage';
 import CreateChannel from '../create-channel/CreateChannel';
 
-export default function SearchList({ passedSearch, searchingFor, highlightConvo, setHighlightConvo, setConvoSelected, setConvoInfo, isCreatingChannel, onSearch, selectedChannelMembers, setSelectedChannelMembers, setShowSearch, setSearchingFor }) {
+export default function SearchList({ passedSearch, searchingFor, highlightConvo, setHighlightConvo, setConvoSelected, setConvoInfo, convoInfo, isCreatingChannel, onSearch, selectedChannelMembers, setSelectedChannelMembers, setShowSearch, setSearchingFor, channelList, setChannelList, isAddingMember }) {
   const { users, channels } = passedSearch;
   const [showCreateChannelTrigger, setShowCreateChannelTrigger] = useState(false);
 
   useEffect(() => {
-    if(selectedChannelMembers.length >= 2) {
+    if(isAddingMember && selectedChannelMembers.length > 0) {
+      setShowCreateChannelTrigger(true);
+      return
+    }
+    if(selectedChannelMembers.length >= 2 && isAddingMember === false) {
       setShowCreateChannelTrigger(true);
       return
     } else {
@@ -51,7 +55,10 @@ export default function SearchList({ passedSearch, searchingFor, highlightConvo,
             setShowSearch={setShowSearch}
             setSearchingFor={setSearchingFor} 
             setSelectedChannelMembers={setSelectedChannelMembers}
-            setConvoInfo={setConvoInfo}
+            convoInfo={convoInfo}
+            channelList={channelList}
+            setChannelList={setChannelList}
+            isAddingMember={isAddingMember}
           /> : null
         }
         <div className='search-list-categories'>Users</div>
