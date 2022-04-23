@@ -1,18 +1,10 @@
 import React, { useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
+import useCut from '../../../../customHooks/useCut';
 
 export default function ConvoList({ setIsCreatingChannel, setIsAddingMember, setIsSearching, setConvoSelected, highlightConvo, setHighlightConvo, setConvoInfo, convoInfo, dMessageList, channelList }) {
   const [channelDisplay, setChannelDisplay] = useState(false);
   const [dMessageDisplay, setDMessageDisplay] = useState(false);
-  const image = `https://avatars.dicebear.com/api/human/`;
-
-  let sampleChannels = [
-    {id: 1, name: 'one'},
-    {id: 2, name: 'two'},
-    {id: 3, name: 'three'},
-    {id: 4, name: 'four'}
-    // ...channelList
-  ]
+  const { image, profile } = useCut();
 
   function handleConvoSelect(selected) {
     setHighlightConvo(selected.id);
@@ -41,8 +33,8 @@ export default function ConvoList({ setIsCreatingChannel, setIsAddingMember, set
                 className={each.id === highlightConvo ? 'sidebar-channels-list highlight show' : 'sidebar-channels-list show'} 
                 onClick={() => handleConvoSelect(each)}
               >
-                <img src={`${image}${each.id}.svg`}/>
-                <p>{modifiedName}</p> 
+                <img src={`${profile}${each.id}.svg`}/>
+                <p className='c-name'>{modifiedName}</p> 
                 {each.id === highlightConvo ? <button onClick={() => {
                   setIsSearching(true);
                   setIsAddingMember(true);
@@ -65,7 +57,7 @@ export default function ConvoList({ setIsCreatingChannel, setIsAddingMember, set
               onClick={() => handleConvoSelect(each)}
             >
               <img src={`${image}${each.id}.svg`}/>
-              <p>{each.email}</p>
+              <p className='dm-name'>{each.email}</p>
             </div>
           )
         })}

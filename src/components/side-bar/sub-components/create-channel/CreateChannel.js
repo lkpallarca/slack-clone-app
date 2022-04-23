@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { getLoggedUser } from '../../../../utils/storage';
-import API from '../../../../API';
+import { addMembers, createChannel } from '../../../../API';
+import Alerts from '../../../alerts/Alerts';
+import useCut from '../../../../customHooks/useCut';
 
-export default function CreateChannel({ setError, setAlert, setIsError, isAddingMember, selectedChannelMembers, handleDeleteMember, showCreateChannelTrigger, onSearch, setShowSearch, setSearchingFor, setSelectedChannelMembers, convoInfo, channelList, setChannelList }) {
+export default function CreateChannel({ isAddingMember, selectedChannelMembers, handleDeleteMember, showCreateChannelTrigger, onSearch, setShowSearch, setSearchingFor, setSelectedChannelMembers, convoInfo, channelList, setChannelList }) {
   const [channelName, setChannelName] = useState('');
+  const [showAlert, setShowAlert] = useState(false);
+  const [message, setMessage] = useState('');
+  const [isErr, setIsErr] = useState(true);
+  const { userId } = useCut();
 
   useEffect(() => {
     if(!selectedChannelMembers.length) {
@@ -13,48 +18,45 @@ export default function CreateChannel({ setError, setAlert, setIsError, isAdding
   }, [selectedChannelMembers])
 
   async function handleCreateModifyChannel() {
-    const validMembers = selectedChannelMembers.filter(each => each.id !== getLoggedUser().data.id);
+    const validMembers = selectedChannelMembers.filter(each => each.id !== userId);
     if(isAddingMember) {
-      addMembers(validMembers, convoInfo.id)
-      reset();
+      const postMembers = await addMembers([...validMembers], convoInfo.id);
+      if(postMembers) {
+        handleError(`One of / The selected ${postMembers}`, true)
+      } else {
+        handleSuccess('User/s successfuly added!', false);
+        reset();
+      }
       return
     }
     if(channelName.trim().length === 0) {
-      setError('Invalid channel name.');
-      setAlert(true);
-      return
+      handleError('Invalid channel name.', true);
     }
-    const create = await API.post('/channels', { 
+    const create = await createChannel({ 
       "name": JSON.stringify(channelName),
       "user_ids": [...validMembers]
-      }, 
-      { headers: getLoggedUser().headers }
-    );
-    if(create.data.errors) {
-      setIsError(true);
-      setAlert(true);
-      setError(create.data.errors);
-      return  
+    });
+    if(create.errors) {
+      handleError(`${create.errors[0]}`, true);
+    } else {
+      handleSuccess('User/s successfuly added!', false);
     }
-    addMembers(validMembers, create.data.data.id);
-    setChannelList([...channelList, {owner_id: getLoggedUser().data.id, name: channelName, id: create.data.data.id}]);
-    setAlert(true);
-    setError(`The Channel "${channelName}" has been created.`);
-    setIsError(false);
+    await addMembers([...validMembers], create.data.id);
+    setChannelList([...channelList, create.data]);
     reset();
   }
 
-  async function addMembers(memberArr, channelId) {
-    await Promise.all(memberArr.map(async (each) => {
-      const postMember = await API.post('/channel/add_member', 
-      {'id': channelId, 'member_id': each.id}, 
-      {headers: getLoggedUser().headers});
-      if(postMember.data.errors) {
-        setIsError(true);
-        setError(`One of/The selected ${postMember.data.errors[0]}`);
-        setAlert(true);
-      }
-    }))
+  function handleSuccess(message, boolean) {
+    setMessage(message);
+    setIsErr(boolean);
+    setShowAlert(true);
+  }
+
+  function handleError(message, boolean) {
+    setMessage(message);
+    setIsErr(boolean);
+    setShowAlert(true);
+    return
   }
 
   function reset() {
@@ -62,13 +64,21 @@ export default function CreateChannel({ setError, setAlert, setIsError, isAdding
     setShowSearch(false);
     setSearchingFor('');
     setSelectedChannelMembers([]);
+    setMessage('');
+    setIsErr(true);
   }
 
   return (
     <>
       <div className='search-list-categories'>Add Members to {isAddingMember ? convoInfo.name : `the Channel`}</div>
       {!isAddingMember && selectedChannelMembers.length !== 0 ?
-        <input onChange={e => setChannelName(e.target.value)} className='channel-name-input' type='text' placeholder='Type Channel Name here' value={channelName}/> 
+        <input 
+          onChange={e => setChannelName(e.target.value)} 
+          className='channel-name-input' 
+          type='text' 
+          placeholder='Type Channel Name here' 
+          value={channelName}
+        /> 
         : null
       }
       {selectedChannelMembers.length > 0 ? null : <div className='dummy'></div>}
@@ -89,6 +99,7 @@ export default function CreateChannel({ setError, setAlert, setIsError, isAdding
       >
         {isAddingMember ? 'Add member' : 'Create channel'}
       </div>
+      {showAlert ? <Alerts message={message} isErr={isErr}/> : null}
     </>
   )
 }

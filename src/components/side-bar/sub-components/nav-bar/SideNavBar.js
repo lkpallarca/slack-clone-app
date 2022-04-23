@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { clearLoggedUser, getLoggedUser } from '../../../../utils/storage';
+import useCut from '../../../../customHooks/useCut';
+import { clearLoggedUser } from '../../../../utils/storage';
 
-export default function NavBar({ setIsCreatingChannel, onSearch }) {
+export default function NavBar({ setIsCreatingChannel, onSearch, setIsAddingMember }) {
+  const { userId, userEmail } = useCut();
   const [selectedButton, setSelectedButton] = useState('');
   const [showLogoutOptions, setShowLogoutOptions] = useState(false);
   const [showMenuOptions, setShowMenuOptions] = useState(false);
@@ -19,8 +21,8 @@ export default function NavBar({ setIsCreatingChannel, onSearch }) {
     <>
       <nav className='sidebar-navbar'>
         <div className='user-profile'>
-          <img src={`${image}${getLoggedUser().data.id}.svg`}/>
-          <p>{getLoggedUser().data.email}</p>
+          <img src={`${image}${userId}.svg`}/>
+          <p>{userEmail}</p>
         </div>
         <div className='sidebar-navbar-options'>
           <div className='sidebar-navbar-options-menu'>
@@ -37,6 +39,7 @@ export default function NavBar({ setIsCreatingChannel, onSearch }) {
               <li onClick={() => {
                 onSearch(true);
                 setIsCreatingChannel(true);
+                setIsAddingMember(false);
               }}>New Channel</li>
               <li>Archived</li>
               <li>Settings</li>

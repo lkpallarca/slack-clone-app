@@ -1,18 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import API from '../../API';
-import '../../css/index.css';
-import { clearLoggedUser, setLoggedUser } from '../../utils/storage';
-import ErrorAlert from '../alerts/ErrorAlert';
+import useLogin from '../../customHooks/useLogin';
+import Alerts from '../alerts/Alerts';
 import SignUpModal from '../sign-up-modal/SignUpModal';
+import { clearLoggedUser } from '../../utils/storage';
+import '../../css/index.css';
 
 export default function LoginModal({ setShow }) {
+  const { mutate, error, isError } = useLogin();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showModal, setShowModal] = useState('sign-up-modal-wrapper hide');
-  const [error, setError] = useState('');
-  const [alert, setAlert] = useState(false)
-  const isError = true;
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -21,17 +19,13 @@ export default function LoginModal({ setShow }) {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    try {
-      const response = await API.post('/auth/sign_in', { email, password });
-      const userData = { ...response.data, headers: response.headers };
-      setLoggedUser(userData);
-      setShow(true);
-      navigate('/chat');
-    } catch (err) {
-      setError(err.response.data.errors[0]);
-      setAlert(!alert);
-    }
-    e.target.reset();
+    mutate({ email, password }, {
+        onSuccess: () => {
+          setShow(true);
+          navigate('/chat');
+        }
+      }
+    );
   }
 
   function createAccount(e) {
@@ -64,7 +58,7 @@ export default function LoginModal({ setShow }) {
         </form>
       </div>
       <SignUpModal displayState={showModal} setDisplayState={setShowModal}/>
-      <ErrorAlert state={alert} setState={setAlert} message={error} isError={isError}/>
+      {isError ? <Alerts message={error.response.data.errors} isErr={true}/> : null}
     </section>
   );
 }

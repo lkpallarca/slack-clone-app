@@ -2,13 +2,32 @@
 @import '../base/mixins.scss';
 
 body {
-  background-color: $bg-color;
+  background: linear-gradient(-45deg,
+    hsl(225, 6%, 10%), 
+    hsl(225, 6%, 20%), 
+    hsl(177, 67%, 15%), 
+    hsl(177, 67%, 25%)
+  );
+  background-size: 400% 400%;
+  animation: gradient 10s ease infinite;
+  height: 100vh;
+  
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
 }
 
 .login-modal-wrapper {
   @include perimeter(100vh, 100vw);
   position: fixed;
-  background-color: $bg-color;
   z-index: 5;
 
   .login-modal {

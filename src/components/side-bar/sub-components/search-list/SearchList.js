@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import Alerts from '../../../alerts/Alerts';
 import CreateChannel from '../create-channel/CreateChannel';
 
-export default function SearchList({ passedSearch, setIsError, searchingFor, highlightConvo, setHighlightConvo, setConvoSelected, setConvoInfo, convoInfo, isCreatingChannel, onSearch, selectedChannelMembers, setSelectedChannelMembers, setShowSearch, setSearchingFor, channelList, setChannelList, isAddingMember, setAlert, setError }) {
+export default function SearchList({ passedSearch, searchingFor, highlightConvo, setHighlightConvo, setConvoSelected, setConvoInfo, convoInfo, isCreatingChannel, onSearch, selectedChannelMembers, setSelectedChannelMembers, setShowSearch, setSearchingFor, channelList, setChannelList, isAddingMember }) {
   const { users, channels } = passedSearch;
+  const [showAlert, setShowAlert] = useState(false);
   const [showCreateChannelTrigger, setShowCreateChannelTrigger] = useState(false);
 
   useEffect(() => {
@@ -28,7 +30,7 @@ export default function SearchList({ passedSearch, setIsError, searchingFor, hig
     let newMember = {id: selected.id, name: selected.uid}
     const alreadySelected =  selectedChannelMembers.find(each => each.id === selected.id);
     if(alreadySelected) {
-      alert('User already added');
+      setShowAlert(true);
       return
     }
     setSelectedChannelMembers([...selectedChannelMembers, newMember]);
@@ -56,9 +58,6 @@ export default function SearchList({ passedSearch, setIsError, searchingFor, hig
             channelList={channelList}
             setChannelList={setChannelList}
             isAddingMember={isAddingMember}
-            setAlert={setAlert}
-            setError={setError}
-            setIsError={setIsError}
           /> : null
         }
         <div className='search-list-categories'>Users</div>
@@ -98,6 +97,7 @@ export default function SearchList({ passedSearch, setIsError, searchingFor, hig
           </>
         }
       </div>
+      {showAlert ? <Alerts message='User is already added' isErr={true}/> : null}
     </>
   )
 }

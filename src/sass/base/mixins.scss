@@ -97,6 +97,20 @@
   
   &-list {
     display: none;
+
+    .dm-name {
+      @media screen and (max-width: 681px) {
+        font-size: 1.4rem;
+        align-self: flex-end;
+        padding-right: 1rem;
+      }
+    }
+
+    .c-name {
+      @media screen and (max-width: 681px) {
+        font-size: 1.4rem;
+      }
+    }
     
     &.show {
       width: 98%;
@@ -112,15 +126,16 @@
       margin: 0.1rem 0;
       position: relative;
 
-      p {
-        align-self: left;
-        margin-left: -10rem;
-      }
-
       img {
         position: absolute;
         left: 4rem;
         @include chat-icon;
+
+        @media screen and (max-width: 681px) {
+          left: 1rem;
+          height: 3rem;
+          width: 3rem;
+        }
       }
 
       button {
@@ -173,6 +188,7 @@
 @mixin infocard($fs, $sm, $c) {
   font-size: $fs;
   text-align: center;
+  padding: 0 3rem;
   margin: 2.5vh $sm 2.5vh $sm;
   color: $c;
 }
@@ -198,7 +214,7 @@
   }
 }
 
-@mixin menuUl {
+@mixin menuUl($r) {
   ul {
     @include perimeter(auto, 22rem);
     opacity: 0;
@@ -214,14 +230,8 @@
     background-color: hsl(0, 0%, 30%);
     transition: opacity 0.25s ease-out 0s, visibility 0s ease 0.25s;
 
-    &::after {
-      content: "";
-      position: absolute;
-      top: -26%;
-      left: 83%;
-      border-width: 1.5rem;
-      border-style: solid;
-      border-color: transparent transparent hsl(0, 0%, 30%) transparent;
+    @media screen and (max-width: 681px) {
+      right: $r;
     }
 
     &.show {

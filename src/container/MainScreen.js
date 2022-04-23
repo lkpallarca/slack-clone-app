@@ -1,42 +1,46 @@
-import React, { useState, useEffect } from 'react'
-import API from '../API';
-import ErrorAlert from '../components/alerts/ErrorAlert';
-import LoadingScreen from '../components/loading-screen/LoadingScreen';
-import MainDisplay from '../components/main-display/MainDisplay';
+import React, { useState, useEffect } from 'react';
 import SideBar from '../components/side-bar/SideBar';
-import '../css/index.css';
+import useAllUsers from '../customHooks/useAllUsers';
+import MainDisplay from '../components/main-display/MainDisplay';
+import LoadingScreen from '../components/loading-screen/LoadingScreen';
+import useUserChannels from '../customHooks/useUserChannels';
 import { getDMessageHistoryList, getLoggedUser } from '../utils/storage';
+import '../css/index.css';
 
 export default function MainScreen({ show }) {
-  const [isLoading, setIsLoading] = useState(true);
+  const { allUsersData, fetchedAllUsers } = useAllUsers();
+  const { userChannels, fetchedUserChannels } = useUserChannels();
+  const [channelList, setChannelList] = useState([]);
+  const [isLoadingPage, setIsLoadingPage] = useState(true);
   const [searchData, setSearchData] = useState([]);
   const [dMessageList, setDMessageList] = useState([]);
-  const [channelList, setChannelList] = useState([]);
+  const [convoInfo, setConvoInfo] = useState(null);
   const [convoSelected, setConvoSelected] = useState(false);
   const [highlightConvo, setHighlightConvo] = useState('');
-  const [convoInfo, setConvoInfo] = useState(null);
-  const [messages, setMessages] = useState([]);
-  const [updateListInstance, setUpdateListInstance] = useState(0);
-  const [isError, setIsError] = useState(true);
-  const loggedUser = getLoggedUser().data.id;
-  const [error, setError] = useState('');
-  const [alert, setAlert] = useState(false);
-  
-  async function fetchUsers() {
-    const fetchedUsers = await API.get('/users', { headers: getLoggedUser().headers });
-    const fetchedChannels = await API.get('/channels', { headers: getLoggedUser().headers });
-    let dMessageHistoryList = getDMessageHistoryList(getLoggedUser().data.id);
-    if(!fetchedChannels.data.data) {
-      setSearchData({users: [...fetchedUsers.data.data], channels: []});
-      compareDMessageList(dMessageHistoryList, fetchedUsers.data.data);
-      setIsLoading(false);
-      return
-    } else {
-      setSearchData({users: [...fetchedUsers.data.data], channels: [...fetchedChannels.data.data]});
-      compareDMessageList(dMessageHistoryList, fetchedUsers.data.data);
-      setChannelList([...fetchedChannels.data.data]);
-      setIsLoading(false);
+  const loggedUserId = getLoggedUser().data.id;
+
+  useEffect(() => {
+    if(convoSelected === false) {
+      setHighlightConvo('');
     }
+  }, [convoSelected])
+  
+  useEffect(() => {
+    if(fetchedAllUsers === 'success' && fetchedUserChannels === 'success') {
+      updateData();
+      setIsLoadingPage(false);
+    }
+  }, [fetchedAllUsers, fetchedUserChannels])
+
+  function updateData() {
+    const dMessageHistoryList = getDMessageHistoryList(loggedUserId);
+    if(userChannels) {
+      setSearchData({ users: allUsersData, channels: userChannels });
+      setChannelList(userChannels);
+    } else {
+      setSearchData({ users: allUsersData, channels: [] });
+    }
+    compareDMessageList(dMessageHistoryList, allUsersData);
   }
 
   function compareDMessageList(chattingWith, allUsers) {
@@ -49,18 +53,6 @@ export default function MainScreen({ show }) {
     })
   }
 
-  async function fetchMessages() {
-    const receiver = convoInfo.owner_id ? 'Channel' : 'User'
-    const fetchedMessagesFrom = await API.get(`/messages?receiver_id=${loggedUser}&receiver_class=User`, { headers: getLoggedUser().headers });
-    const fetchedMessagesTo = await API.get(`/messages?receiver_id=${convoInfo.id}&receiver_class=${receiver}`, { headers: getLoggedUser().headers });
-    const sortedMessageList = [...fetchedMessagesFrom.data.data, ...fetchedMessagesTo.data.data].slice().sort((a,b)=> a.id - b.id);
-    setMessages(sortedMessageList);
-  }
-
-  useEffect(() => {
-    fetchUsers();
-  }, [])
-
   useEffect(() => {
     const checkDMessageList = dMessageList.find(each => each.id === convoInfo.id);
     if(convoInfo === null) {
@@ -69,38 +61,30 @@ export default function MainScreen({ show }) {
     if(!checkDMessageList && !convoInfo.owner_id) {
       setDMessageList([...dMessageList, convoInfo]);
     }
-    fetchMessages();
-  }, [updateListInstance, convoInfo])
+  }, [convoInfo])
 
   return (
     <>
       {show ? 
       <section className='main-screen'>
-        {isLoading ? <LoadingScreen/> : 
+        {isLoadingPage ? <LoadingScreen/> : 
         <>
           <SideBar 
-            searchData={searchData} 
-            highlightConvo={highlightConvo} 
-            setConvoSelected={setConvoSelected} 
-            setHighlightConvo={setHighlightConvo}
-            setConvoInfo={setConvoInfo}
             convoInfo={convoInfo}
-            dMessageList={dMessageList}
+            searchData={searchData} 
             channelList={channelList}
+            dMessageList={dMessageList}
+            setConvoInfo={setConvoInfo}
             setChannelList={setChannelList}
-            setIsError={setIsError}
-            setError={setError}
-            setAlert={setAlert}
+            highlightConvo={highlightConvo}
+            setConvoSelected={setConvoSelected}
+            setHighlightConvo={setHighlightConvo} 
           />
           <MainDisplay 
-            convoSelected={convoSelected} 
+            convoSelected={convoSelected}
             setConvoSelected={setConvoSelected} 
             convoInfo={convoInfo} 
-            setConvoListHighlight={setHighlightConvo}
-            messages={messages}
-            setUpdateListInstance={setUpdateListInstance}
           />
-          <ErrorAlert state={alert} setState={setAlert} message={error} isError={isError}/>
         </>
         }
       </section> 

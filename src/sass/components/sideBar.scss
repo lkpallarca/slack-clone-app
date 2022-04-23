@@ -6,6 +6,7 @@
   display: flex;
   flex-direction: column;
   border-right: $border-outline;
+  background-color: $bg-color;
 
   .sidebar-navbar {
     @include perimeter(9.5%, 100%);
@@ -24,6 +25,10 @@
 
       p {
         margin-left: 1rem;
+
+        @media screen and (max-width: 681px) {
+          display: none;
+        }
       }
 
       img {
@@ -45,7 +50,7 @@
           @include navbar-icons(2.5rem, 0);
         }
 
-        @include menuUl;
+        @include menuUl(-17rem);
       }
   
       &-logout {
@@ -68,20 +73,14 @@
           background-color: hsl(0, 0%, 30%);
           transition: opacity 0.25s ease-out 0s, visibility 0s ease 0.25s;
   
+          @media screen and (max-width: 681px) {
+            right: -13rem;
+          }
+
           &.show {
             transition: opacity 0.25s ease-out;
             opacity: 1;
             visibility: visible;
-          }
-  
-          &::after {
-            content: "";
-            position: absolute;
-            top: -30%;
-            left: 83%;
-            border-width: 1.5rem;
-            border-style: solid;
-            border-color: transparent transparent hsl(0, 0%, 30%) transparent;
           }
           
           div:nth-child(1) {
@@ -186,6 +185,10 @@
       @include input;
       width: 70%;
       margin: 2rem auto 0 auto;
+      
+      @media screen and (max-width: 681px) {
+        font-size: 1.15rem;
+      }
 
       &:focus-visible {
         outline: none;
@@ -203,6 +206,10 @@
       color: hsl(0, 0%, 80%);
       border-radius: 1rem;
       margin: 0.1rem 0 0.1rem 9rem;
+
+      @media screen and (max-width: 681px) {
+        margin: 0.1rem 0 0.1rem 1.8rem;
+      }
 
       button {
         @include perimeter(2.5rem, 2.5rem);
@@ -255,6 +262,10 @@
       &.height {
         @include perimeter(3rem, 45%);
         margin: 1rem auto 2rem auto;
+
+        @media screen and (max-width: 681px) {
+          width: 70%;
+        }
       }
 
     }

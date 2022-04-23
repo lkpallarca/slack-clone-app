@@ -9,6 +9,7 @@
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.25s ease-out 0s, visibility 0s ease 0.25s;
+  z-index: 10;
 
   &.show {
     transition: opacity 0.25s ease-out;

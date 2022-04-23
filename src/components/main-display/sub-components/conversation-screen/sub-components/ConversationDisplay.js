@@ -18,10 +18,15 @@ export default function ConversationDisplay({ messages }) {
 
   return (
     <section className='conversation-display'>
+      {messages.length === 0 ? 
+      <>
+        <p style={{color: "orange"}}>Messages are end-to-end encrypted.</p> 
+        <p style={{color: "orange"}}>No one outside of this chat, not even LoQui, can read the messages.</p>
+      </>
+      : null}
       {messages.map((each, index) => {
         const lastMessage = messages.length - 1 === index;
         const modifiedDate = formatDate(each.created_at);
-        console.log(modifiedDate)
         if(each.sender.id === getLoggedUser().data.id) {
           return (
             <div key={index} ref={lastMessage ? setRef : null} className='message-bubble me'> 

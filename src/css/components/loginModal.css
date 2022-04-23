@@ -1,12 +1,25 @@
 body {
-  background-color: #1f2023;
+  background: linear-gradient(-45deg, #18191b, #303136, #0d403d, #156a66);
+  background-size: 400% 400%;
+  animation: gradient 10s ease infinite;
+  height: 100vh;
+}
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .login-modal-wrapper {
   height: 100vh;
   width: 100vw;
   position: fixed;
-  background-color: #1f2023;
   z-index: 5;
 }
 .login-modal-wrapper .login-modal {

@@ -4,6 +4,7 @@
   display: flex;
   flex-direction: column;
   border-right: 1px solid #333333;
+  background-color: #1f2023;
 }
 .sidebar-wrapper .sidebar-navbar {
   height: 9.5%;
@@ -25,6 +26,11 @@
 }
 .sidebar-wrapper .sidebar-navbar .user-profile p {
   margin-left: 1rem;
+}
+@media screen and (max-width: 681px) {
+  .sidebar-wrapper .sidebar-navbar .user-profile p {
+    display: none;
+  }
 }
 .sidebar-wrapper .sidebar-navbar .user-profile img {
   height: 4rem;
@@ -94,14 +100,10 @@
   background-color: #4d4d4d;
   transition: opacity 0.25s ease-out 0s, visibility 0s ease 0.25s;
 }
-.sidebar-wrapper .sidebar-navbar-options-menu ul::after {
-  content: "";
-  position: absolute;
-  top: -26%;
-  left: 83%;
-  border-width: 1.5rem;
-  border-style: solid;
-  border-color: transparent transparent #4d4d4d transparent;
+@media screen and (max-width: 681px) {
+  .sidebar-wrapper .sidebar-navbar-options-menu ul {
+    right: -17rem;
+  }
 }
 .sidebar-wrapper .sidebar-navbar-options-menu ul.show {
   transition: opacity 0.25s ease-out;
@@ -148,19 +150,15 @@
   background-color: #4d4d4d;
   transition: opacity 0.25s ease-out 0s, visibility 0s ease 0.25s;
 }
+@media screen and (max-width: 681px) {
+  .sidebar-wrapper .sidebar-navbar-options-logout .logout-choices {
+    right: -13rem;
+  }
+}
 .sidebar-wrapper .sidebar-navbar-options-logout .logout-choices.show {
   transition: opacity 0.25s ease-out;
   opacity: 1;
   visibility: visible;
-}
-.sidebar-wrapper .sidebar-navbar-options-logout .logout-choices::after {
-  content: "";
-  position: absolute;
-  top: -30%;
-  left: 83%;
-  border-width: 1.5rem;
-  border-style: solid;
-  border-color: transparent transparent #4d4d4d transparent;
 }
 .sidebar-wrapper .sidebar-navbar-options-logout .logout-choices div:nth-child(1) {
   margin-top: 1.5rem;
@@ -283,6 +281,11 @@
   width: 70%;
   margin: 2rem auto 0 auto;
 }
+@media screen and (max-width: 681px) {
+  .sidebar-wrapper .sidebar-search-list-wrapper .channel-name-input {
+    font-size: 1.15rem;
+  }
+}
 .sidebar-wrapper .sidebar-search-list-wrapper .channel-name-input:focus-visible {
   outline: none;
 }
@@ -299,6 +302,11 @@
   color: #cccccc;
   border-radius: 1rem;
   margin: 0.1rem 0 0.1rem 9rem;
+}
+@media screen and (max-width: 681px) {
+  .sidebar-wrapper .sidebar-search-list-wrapper .added-members-list {
+    margin: 0.1rem 0 0.1rem 1.8rem;
+  }
 }
 .sidebar-wrapper .sidebar-search-list-wrapper .added-members-list button {
   height: 2.5rem;
@@ -369,6 +377,11 @@
   width: 45%;
   margin: 1rem auto 2rem auto;
 }
+@media screen and (max-width: 681px) {
+  .sidebar-wrapper .sidebar-search-list-wrapper .create-channel-trigger.height {
+    width: 70%;
+  }
+}
 .sidebar-wrapper .sidebar-channel-dmessage-wrapper {
   height: 82.4%;
   width: 101%;
@@ -406,6 +419,18 @@
 .sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-channels-list {
   display: none;
 }
+@media screen and (max-width: 681px) {
+  .sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-channels-list .dm-name {
+    font-size: 1.4rem;
+    align-self: flex-end;
+    padding-right: 1rem;
+  }
+}
+@media screen and (max-width: 681px) {
+  .sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-channels-list .c-name {
+    font-size: 1.4rem;
+  }
+}
 .sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-channels-list.show {
   width: 98%;
   display: flex;
@@ -421,10 +446,6 @@
   margin: 0.1rem 0;
   position: relative;
 }
-.sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-channels-list div p {
-  align-self: left;
-  margin-left: -10rem;
-}
 .sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-channels-list div img {
   position: absolute;
   left: 4rem;
@@ -432,6 +453,13 @@
   width: 4rem;
   border: 1px solid #cccccc;
   border-radius: 100%;
+}
+@media screen and (max-width: 681px) {
+  .sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-channels-list div img {
+    left: 1rem;
+    height: 3rem;
+    width: 3rem;
+  }
 }
 .sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-channels-list div button {
   width: 5rem;
@@ -492,6 +520,18 @@
 .sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-direct-messages-list {
   display: none;
 }
+@media screen and (max-width: 681px) {
+  .sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-direct-messages-list .dm-name {
+    font-size: 1.4rem;
+    align-self: flex-end;
+    padding-right: 1rem;
+  }
+}
+@media screen and (max-width: 681px) {
+  .sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-direct-messages-list .c-name {
+    font-size: 1.4rem;
+  }
+}
 .sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-direct-messages-list.show {
   width: 98%;
   display: flex;
@@ -507,10 +547,6 @@
   margin: 0.1rem 0;
   position: relative;
 }
-.sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-direct-messages-list div p {
-  align-self: left;
-  margin-left: -10rem;
-}
 .sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-direct-messages-list div img {
   position: absolute;
   left: 4rem;
@@ -518,6 +554,13 @@
   width: 4rem;
   border: 1px solid #cccccc;
   border-radius: 100%;
+}
+@media screen and (max-width: 681px) {
+  .sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-direct-messages-list div img {
+    left: 1rem;
+    height: 3rem;
+    width: 3rem;
+  }
 }
 .sidebar-wrapper .sidebar-channel-dmessage-wrapper .sidebar-direct-messages-list div button {
   width: 5rem;
