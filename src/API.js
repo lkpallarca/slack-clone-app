@@ -84,7 +84,5 @@ export async function fetchChannelDetails(channelId) {
     .get(`${baseURL}/channels/${channelId}`, {
       headers: getLoggedUser().headers,
     })
-    .then(res => {
-      return res.data;
-    })
+    .then(res => res.data)
 };

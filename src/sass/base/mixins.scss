@@ -217,6 +217,9 @@
 @mixin menuUl($r) {
   ul {
     @include perimeter(auto, 22rem);
+    @include scrollbar;
+    max-height: 25rem;
+    overflow-y: scroll;
     opacity: 0;
     visibility: hidden;
     top: 4.6rem;

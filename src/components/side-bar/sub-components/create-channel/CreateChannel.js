@@ -22,7 +22,11 @@ export default function CreateChannel({ isAddingMember, selectedChannelMembers, 
     if(isAddingMember) {
       const postMembers = await addMembers([...validMembers], convoInfo.id);
       if(postMembers) {
-        handleError(`One of / The selected ${postMembers}`, true)
+        // setMessage(`One of / The selected ${postMembers}`);
+        // setIsErr(true);
+        // setShowAlert(true);
+        handleError(`One of / The selected ${postMembers}`, true);
+        // reset();
       } else {
         handleSuccess('User/s successfuly added!', false);
         reset();
@@ -56,7 +60,6 @@ export default function CreateChannel({ isAddingMember, selectedChannelMembers, 
     setMessage(message);
     setIsErr(boolean);
     setShowAlert(true);
-    return
   }
 
   function reset() {
@@ -99,7 +102,7 @@ export default function CreateChannel({ isAddingMember, selectedChannelMembers, 
       >
         {isAddingMember ? 'Add member' : 'Create channel'}
       </div>
-      {showAlert ? <Alerts message={message} isErr={isErr}/> : null}
+      {showAlert ? <Alerts message={message} isErr={isErr} reset={reset}/> : null}
     </>
   )
 }

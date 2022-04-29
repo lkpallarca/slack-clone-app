@@ -87,6 +87,8 @@
 .sidebar-wrapper .sidebar-navbar-options-menu ul {
   height: auto;
   width: 22rem;
+  max-height: 25rem;
+  overflow-y: scroll;
   opacity: 0;
   visibility: hidden;
   top: 4.6rem;
@@ -99,6 +101,19 @@
   color: #cccccc;
   background-color: #4d4d4d;
   transition: opacity 0.25s ease-out 0s, visibility 0s ease 0.25s;
+}
+.sidebar-wrapper .sidebar-navbar-options-menu ul::-webkit-scrollbar {
+  width: 0.7rem;
+}
+.sidebar-wrapper .sidebar-navbar-options-menu ul::-webkit-scrollbar-track {
+  background: #1f2023;
+}
+.sidebar-wrapper .sidebar-navbar-options-menu ul::-webkit-scrollbar-thumb {
+  background: #3c3e44;
+  border-radius: 0.5rem;
+}
+.sidebar-wrapper .sidebar-navbar-options-menu ul::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 @media screen and (max-width: 681px) {
   .sidebar-wrapper .sidebar-navbar-options-menu ul {

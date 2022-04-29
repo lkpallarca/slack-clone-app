@@ -109,9 +109,23 @@
   height: 2.5rem;
   width: 2.5rem;
 }
+.main-display .convo-screen .mainbar-navbar div .member-title {
+  position: relative;
+}
+.main-display .convo-screen .mainbar-navbar div .member-title::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -0.25rem;
+  width: 80%;
+  border-top: 1px solid #00c7bd;
+}
 .main-display .convo-screen .mainbar-navbar div ul {
   height: auto;
   width: 22rem;
+  max-height: 25rem;
+  overflow-y: scroll;
   opacity: 0;
   visibility: hidden;
   top: 4.6rem;
@@ -124,6 +138,19 @@
   color: #cccccc;
   background-color: #4d4d4d;
   transition: opacity 0.25s ease-out 0s, visibility 0s ease 0.25s;
+}
+.main-display .convo-screen .mainbar-navbar div ul::-webkit-scrollbar {
+  width: 0.7rem;
+}
+.main-display .convo-screen .mainbar-navbar div ul::-webkit-scrollbar-track {
+  background: #1f2023;
+}
+.main-display .convo-screen .mainbar-navbar div ul::-webkit-scrollbar-thumb {
+  background: #3c3e44;
+  border-radius: 0.5rem;
+}
+.main-display .convo-screen .mainbar-navbar div ul::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 @media screen and (max-width: 681px) {
   .main-display .convo-screen .mainbar-navbar div ul {
